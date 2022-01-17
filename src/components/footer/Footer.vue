@@ -10,7 +10,7 @@
                 <v-btn
                   class="ma-1"
                   icon
-                  to="/rmufreshyboyandgirl2021/vote"
+                  to="/vote"
                   plain
                 >
                   <!-- Vote -->
@@ -48,7 +48,7 @@
                 <v-btn
                   class="ma-1"
                   icon
-                  to="/rmufreshyboyandgirl2021/gallery"
+                  to="/gallery"
                   plain
                 >
                   <v-icon size="50" v-bind="attrs" v-on="on">
@@ -68,7 +68,7 @@
                 <v-btn
                   class="ma-1"
                   icon
-                  to="/rmufreshyboyandgirl2021/videos"
+                  to="/videos"
                   plain
                 >
                   <v-icon size="50" v-bind="attrs" v-on="on">

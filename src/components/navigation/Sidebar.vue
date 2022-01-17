@@ -1,13 +1,13 @@
 <template>
   <div>
-    <v-navigation-drawer
-      class="sidebar"
-      width="80"
-      permanent
-      app
-      clipped
-    >
+    <!-- Left Bar -->
+    <v-navigation-drawer class="sidebar" width="80" permanent app clipped>
       <section>
+        <div class="rmu">
+          <v-btn class="my-1" icon disabled>
+            <v-img src="@/assets/logo/Logo_RMU.png" contain width="50"></v-img>
+          </v-btn>
+        </div>
         <p>
           2 <br />
           0 <br />
@@ -15,24 +15,19 @@
           1
         </p>
         <div class="social">
-          <v-btn class="my-2" icon outlined small>
-            <v-icon small>mdi-facebook</v-icon>
+          <v-btn class="my-1" icon small plain>
+            <v-icon>mdi-facebook</v-icon>
           </v-btn>
           <br />
-          <v-btn class="my-2" icon outlined small>
-            <v-icon small>mdi-youtube</v-icon>
+          <v-btn class="my-1" icon small plain>
+            <v-icon>mdi-youtube</v-icon>
           </v-btn>
         </div>
       </section>
     </v-navigation-drawer>
-    <v-navigation-drawer
-      right
-      class="sidebar"
-      width="80"
-      permanent
-      app
-      clipped
-    >
+
+    <!-- Right Bar -->
+    <v-navigation-drawer right class="sidebar" width="80" permanent app clipped>
       <section>
         <p>
           2 <br />
@@ -59,6 +54,11 @@
       font-size: 18px;
       line-height: 2;
     }
+  }
+  .rmu {
+    position: absolute;
+    top: 0;
+    padding: 25px;
   }
   .social {
     position: absolute;
