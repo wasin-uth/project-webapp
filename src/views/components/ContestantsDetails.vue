@@ -1,7 +1,6 @@
 <template>
   <Layouts>
     <section>
-      <div></div>
     </section>
   </Layouts>
 </template>

@@ -10,7 +10,12 @@
           <v-col cols="3" class="contestants">
             <div class="slide_show">
               <v-card class="ctts_show" dark rounded="0">
-                <v-img class="ctts_profile" :src="card.img" :alt="card.title">
+                <v-img
+                  class="ctts_profile"
+                  :src="card.img"
+                  lazy-src="https://i.pinimg.com/564x/d7/d9/c5/d7d9c57c80ed2aca58b011d5f0bcf9ca.jpg"
+                  :alt="card.title"
+                >
                   <div class="shadow"></div>
                 </v-img>
               </v-card>
@@ -22,7 +27,12 @@
           <v-col cols="3" class="contestants">
             <div class="slide_show">
               <v-card class="ctts_show" dark rounded="0">
-                <v-img class="ctts_profile" :src="card.img1" :alt="card.title2">
+                <v-img
+                  class="ctts_profile"
+                  :src="card.img1"
+                  lazy-src="https://i.pinimg.com/564x/d7/d9/c5/d7d9c57c80ed2aca58b011d5f0bcf9ca.jpg"
+                  :alt="card.title2"
+                >
                   <div class="shadow"></div>
                 </v-img>
               </v-card>

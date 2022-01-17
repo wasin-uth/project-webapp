@@ -1,18 +1,13 @@
 <template>
   <div>
-    <v-footer class="footer pa-2" dark elevation="0">
+    <v-footer class="footer px-1 py-0" dark elevation="0">
       <v-container fluid>
         <v-row dense>
           <!-- Vote button -->
           <v-col cols="3">
             <v-tooltip top offset-y transition="scroll-y-transition">
               <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  class="ma-1"
-                  icon
-                  to="/vote"
-                  plain
-                >
+                <v-btn class="ma-1" icon to="/vote" plain>
                   <!-- Vote -->
                   <v-badge
                     bordered
@@ -45,12 +40,7 @@
           <v-col cols="3">
             <v-tooltip top offset-y transition="scroll-y-transition">
               <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  class="ma-1"
-                  icon
-                  to="/gallery"
-                  plain
-                >
+                <v-btn class="ma-1" icon to="/collections" plain>
                   <v-icon size="50" v-bind="attrs" v-on="on">
                     mdi-view-dashboard-outline
                   </v-icon>
@@ -65,12 +55,7 @@
           <v-col cols="3">
             <v-tooltip top offset-y transition="scroll-y-transition">
               <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                  class="ma-1"
-                  icon
-                  to="/videos"
-                  plain
-                >
+                <v-btn class="ma-1" icon to="/videos" plain>
                   <v-icon size="50" v-bind="attrs" v-on="on">
                     mdi-view-gallery-outline
                   </v-icon>
@@ -123,6 +108,8 @@ export default {
   bottom: 0;
   right: 0;
   border-radius: 10px 0 0 0 !important;
+  background: #000000d2 !important;
+  backdrop-filter: blur(10px);
   width: 20%;
   .text {
     padding: 0px 10px !important;

@@ -10,6 +10,15 @@
         </template>
 
         <v-list>
+          <v-list-item>
+            <v-list-item-title class="title">
+              <!-- <v-list-item-icon>
+                <v-img src="@/assets/logo/logoF.png" contain width="40"></v-img>
+              </v-list-item-icon> -->
+              RMU Freshy boy and girl
+            </v-list-item-title>
+          </v-list-item>
+          <v-divider></v-divider>
           <!-- Contestants -->
           <v-list-group :value="false" prepend-icon="mdi-card-account-details">
             <template v-slot:activator>
@@ -80,3 +89,15 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@600;800&family=Charm:wght@400;700&family=Krub:wght@300;400;600&display=swap");
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "Charm", cursive !important;
+}
+</style>

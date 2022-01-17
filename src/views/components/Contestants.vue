@@ -1,7 +1,61 @@
 <template>
   <Layouts>
-    <section>
-      <div></div>
+    <v-app-bar dark rounded="b-lg" height="80">
+      <v-row>
+        <v-col class="text-center">
+          <h1>RMU FRESHY BOY AND GIRL {{ id }}</h1>
+        </v-col>
+      </v-row>
+    </v-app-bar>
+    <section class="px-5 py-2 pb-15">
+      <v-row>
+        <v-col
+          class="pa-2"
+          cols="6"
+          lg="2"
+          md="3"
+          sm="3"
+          v-for="(item, i) in 18"
+          :key="i"
+        >
+          <v-card class="contestants" max-width="200" rounded="lg">
+            <v-img
+              :src="item.img"
+              lazy-src="https://i.pinimg.com/564x/0f/bf/d2/0fbfd293d85027f86adef074269b0958.jpg"
+              height="400"
+            >
+              <v-card class="profile" dark rounded="0">
+                <v-card-subtitle class="pa-2">
+                  <h3>
+                    <b>{{ item.cid }}</b> คณะ วิทยาศาสตร์และเทคโนโลยี
+                  </h3>
+                </v-card-subtitle>
+
+                <v-card-actions class="actions">
+                  <v-row>
+                    <v-col class="pa-1" cols="6">
+                      <v-btn plain block small>
+                        <v-icon>mdi-heart-outline</v-icon>
+                        <p>20</p>
+                      </v-btn>
+                    </v-col>
+                    <v-col class="pa-1" cols="6">
+                      <v-btn
+                        plain
+                        block
+                        small
+                        :to="`/contestants/${id}/details-${item.cid}`"
+                      >
+                        <v-icon>mdi-magnify</v-icon>
+                      </v-btn>
+                    </v-col>
+                  </v-row>
+                </v-card-actions>
+              </v-card>
+            </v-img>
+          </v-card>
+        </v-col>
+      </v-row>
     </section>
   </Layouts>
 </template>
@@ -14,6 +68,21 @@ export default {
   components: {
     Layouts,
   },
+  data() {
+    return {
+      id: this.$route.params.id,
+      database: [
+        {
+          cid: "FB08",
+          img: "https://scontent.fnak1-1.fna.fbcdn.net/v/t1.6435-9/36371669_1652289811486479_7982858445227294720_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=cdbe9c&_nc_eui2=AeEzHtLUdTm9dht5OV83f_mAruN_nohgGCmu43-eiGAYKbkY2WSGbNV28-uLEMIMMr39rGdpJZshKqKKzp23-54H&_nc_ohc=7pA987nWTzsAX88seV9&_nc_ht=scontent.fnak1-1.fna&oh=00_AT9FI0W9MrFhghdnCBlhNMgZ0b6-zIHROOi2420KirJn3Q&oe=620A6985",
+        },
+        {
+          cid: "FG08",
+          img: "https://scontent.fnak1-1.fna.fbcdn.net/v/t1.6435-9/36371669_1652289811486479_7982858445227294720_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=cdbe9c&_nc_eui2=AeEzHtLUdTm9dht5OV83f_mAruN_nohgGCmu43-eiGAYKbkY2WSGbNV28-uLEMIMMr39rGdpJZshKqKKzp23-54H&_nc_ohc=7pA987nWTzsAX88seV9&_nc_ht=scontent.fnak1-1.fna&oh=00_AT9FI0W9MrFhghdnCBlhNMgZ0b6-zIHROOi2420KirJn3Q&oe=620A6985",
+        },
+      ],
+    };
+  },
 };
 </script>
 
@@ -21,5 +90,23 @@ export default {
 * {
   margin: 0 !important;
   padding: 0 !important;
+}
+
+section {
+  .contestants {
+    position: relative;
+    overflow: hidden;
+    .profile {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      background: #000000d2;
+      backdrop-filter: blur(10px);
+      h3 {
+        line-height: 1.5;
+      }
+    }
+  }
 }
 </style>

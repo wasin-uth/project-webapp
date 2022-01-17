@@ -15,12 +15,19 @@
           1
         </p>
         <div class="social">
-          <v-btn class="my-1" icon small plain>
+          <v-btn
+            class="my-1"
+            icon
+            small
+            plain
+            href="https://www.facebook.com/FreshyBoyAndGirlRMU"
+            target="_blank"
+          >
             <v-icon>mdi-facebook</v-icon>
           </v-btn>
           <br />
-          <v-btn class="my-1" icon small plain>
-            <v-icon>mdi-youtube</v-icon>
+          <v-btn class="my-1" icon small plain to="/">
+            <v-icon>mdi-home-circle</v-icon>
           </v-btn>
         </div>
       </section>
@@ -58,7 +65,7 @@
   .rmu {
     position: absolute;
     top: 0;
-    padding: 25px;
+    padding: 20px;
   }
   .social {
     position: absolute;
