@@ -1,9 +1,19 @@
 <template>
   <div id="appbar">
-    <v-app-bar class="appbar" fixed elevation="0" color="transparent">
+    <v-app-bar class="bar" height="80" elevation="0" color="transparent">
+      <div class="rmu">
+        <router-link to="/">
+          <v-img
+            class="img"
+            src="@/assets/logo/logo_name.png"
+            contain
+            width="50"
+          ></v-img>
+        </router-link>
+      </div>
+      <v-spacer></v-spacer>
       <v-menu bottom left :close-on-content-click="false">
         <template v-slot:activator="{ on, attrs }">
-          <v-spacer></v-spacer>
           <v-btn class="mx-1" dark icon v-bind="attrs" v-on="on" plain>
             <v-icon x-large>mdi-menu</v-icon>
           </v-btn>
@@ -18,7 +28,9 @@
               RMU Freshy boy and girl
             </v-list-item-title>
           </v-list-item>
+
           <v-divider></v-divider>
+
           <!-- Contestants -->
           <v-list-group :value="false" prepend-icon="mdi-card-account-details">
             <template v-slot:activator>
@@ -62,6 +74,7 @@
         </v-list>
       </v-menu>
     </v-app-bar>
+    <v-app-bar class="bar_mobile" height="80" color="transparent"></v-app-bar>
   </div>
 </template>
 
@@ -90,7 +103,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@600;800&family=Charm:wght@400;700&family=Krub:wght@300;400;600&display=swap");
 
 .title {
@@ -99,5 +112,23 @@ export default {
   justify-content: center;
   text-align: center;
   font-family: "Charm", cursive !important;
+}
+
+.bar {
+  position: fixed;
+  z-index: 999;
+}
+.bar_mobile {
+  display: none;
+}
+
+@media only screen and(max-width: 960px) {
+  .bar {
+    position: -webkit-sticky;
+    background: #000000 !important;
+  }
+  .bar_mobile {
+    display: block;
+  }
 }
 </style>

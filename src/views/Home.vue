@@ -1,5 +1,16 @@
 <template>
   <Layouts>
+    <section class="logo_mobile">
+      <v-sheet color="transparent">
+        <v-img
+          class="img"
+          contain
+          src="@/assets/logo/logo_freshy.png"
+          width="100%"
+        >
+        </v-img>
+      </v-sheet>
+    </section>
     <section>
       <div
         v-for="card in cards"
@@ -7,40 +18,55 @@
         :style="{ display: active_card.id != card.id ? 'none' : '' }"
       >
         <v-row>
-          <v-col cols="3" class="contestants">
+          <!-- Freshy Boy -->
+          <v-col cols="6" lg="3" md="3" class="contestants">
             <div class="slide_show">
-              <v-card class="ctts_show" dark rounded="0">
+              <v-card class="show" dark rounded="0">
                 <v-img
-                  class="ctts_profile"
+                  class="profile"
                   :src="card.img"
-                  lazy-src="https://i.pinimg.com/564x/d7/d9/c5/d7d9c57c80ed2aca58b011d5f0bcf9ca.jpg"
+                  lazy-src="@/assets/image/lazy_src.png"
                   :alt="card.title"
                 >
+                  <v-card class="id_name pa-2 pl-5">
+                    <v-card-title>
+                      <h1>{{ card.title }} นาย</h1>
+                    </v-card-title>
+                    <v-card-subtitle>
+                      <h2>คณะ ครุศาสตร์</h2>
+                    </v-card-subtitle>
+                  </v-card>
                   <div class="shadow"></div>
                 </v-img>
               </v-card>
-              <div class="title_name">
-                <p>{{ card.title }} N' นาย</p>
-              </div>
             </div>
           </v-col>
-          <v-col cols="3" class="contestants">
+
+          <!-- Freshy Girl -->
+          <v-col cols="6" lg="3" md="3" class="contestants">
             <div class="slide_show">
-              <v-card class="ctts_show" dark rounded="0">
+              <v-card class="show" dark rounded="0">
                 <v-img
-                  class="ctts_profile"
+                  class="profile"
                   :src="card.img1"
-                  lazy-src="https://i.pinimg.com/564x/d7/d9/c5/d7d9c57c80ed2aca58b011d5f0bcf9ca.jpg"
+                  lazy-src="@/assets/image/lazy_src.png"
                   :alt="card.title2"
                 >
+                  <v-card class="id_name pa-2 pl-5">
+                    <v-card-title>
+                      <h1>{{ card.title2 }} ฟ้า</h1>
+                    </v-card-title>
+                    <v-card-subtitle>
+                      <h2>คณะ ครุศาสตร์</h2>
+                    </v-card-subtitle>
+                  </v-card>
                   <div class="shadow"></div>
                 </v-img>
               </v-card>
-              <div class="title_name">
-                <p>{{ card.title2 }} N' ฟ้า</p>
-              </div>
             </div>
           </v-col>
+
+          <!-- Logo -->
           <v-col cols="6">
             <section class="logo">
               <v-img contain src="@/assets/logo/logo_freshy.png"></v-img>
@@ -125,20 +151,26 @@ export default {
   padding: 0 !important;
 }
 
+$gold: #c29e59;
 // Size card, Size image
-$gold: #1d1c1c;
-$background: #f3f3f3;
-$shadow: #07070717;
-$shadow_light: #fffafa28;
 $width: 400px;
 $height: 100vh;
+
+h1,
+h2 {
+  line-height: 1.2 !important;
+}
+
+.logo_mobile {
+  display: none;
+  height: 85vh;
+  overflow: hidden;
+}
 
 section {
   height: $height;
   position: relative;
-  overflow: hidden;
   padding: 0 5px !important;
-  // background: #f3f3f3 !important;
   .contestants {
     padding: 0 5px !important;
     .slide_show {
@@ -146,58 +178,93 @@ section {
       display: flex;
       justify-content: center;
       align-items: center;
-      .ctts_show {
+      .show {
         width: $width;
         height: $height;
         overflow: hidden;
-        border-color: $background !important;
-        .ctts_profile {
+        .profile {
           width: $width;
           height: $height;
-          // .shadow {
-          //   width: 100%;
-          //   height: 100%;
-          //   background: linear-gradient(
-          //     0deg,
-          //     #ac835381 0%,
-          //     #ac835338 25%,
-          //     #ac835338 50%,
-          //     #ac835338 75%,
-          //     #ac835381 100%
-          //   );
-          //   background: -webkit-linear-gradient(
-          //     90deg,
-          //     #ac835381 0%,
-          //     #ac835338 25%,
-          //     #ac835338 50%,
-          //     #ac835338 75%,
-          //     #ac835381 100%
-          //   );
-          //   backdrop-filter: blur(0.4px);
-          // }
+          .id_name {
+            position: absolute;
+            bottom: 15px;
+            width: 80%;
+            border-radius: 0 20px 20px 0;
+            z-index: 99;
+            background: #00000098;
+            backdrop-filter: blur(10px);
+            border-bottom: 8px solid;
+            border-right: 5px solid;
+            border-color: #ff080083;
+          }
+          .shadow {
+            z-index: 9;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+              0deg,
+              #ac835327 0%,
+              #ac835338 25%,
+              #ac835338 50%,
+              #ac835338 75%,
+              #ac835381 100%
+            );
+            background: -webkit-linear-gradient(
+              90deg,
+              #24140181 0%,
+              #49372370 25%,
+              #ac835338 50%,
+              #ac835338 75%,
+              #ac835327 100%
+            );
+            backdrop-filter: blur(0.4px);
+          }
         }
       }
     }
-    .title_name {
-      position: absolute;
-      // bottom: 0px;
-      // left: 10px;
-      // z-index: 99;
-      // contain: content;
-      // font-size: 20px;
-      // color: $gold !important;
+  }
+  .contestants:nth-child(2) {
+    .id_name {
+      border-color: #2ebd268a !important;
     }
   }
-  // .contestants:nth-child(2) {
-  // .slide_show .ctts_show {
-  //   border-bottom: 15px solid;
-  // }
-  // }
-
   .logo {
     display: flex;
     justify-content: center;
     align-content: center;
+  }
+}
+
+@media only screen and(max-width: 960px) {
+  .logo_mobile {
+    display: block !important;
+    .img {
+      height: 85vh;
+    }
+  }
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    .show {
+      height: 80vh !important;
+      border-radius: 10px !important;
+      .profile {
+        height: 80vh !important;
+      }
+    }
+    .logo {
+      display: none;
+    }
+  }
+}
+@media only screen and(max-width: 600px) {
+  section {
+    .id_name {
+      width: 100% !important;
+      border-radius: unset !important;
+    }
   }
 }
 </style>

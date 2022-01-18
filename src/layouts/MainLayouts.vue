@@ -1,6 +1,6 @@
 <template>
   <div id="layouts">
-    <Bar/>
+    <Bar />
     <Sidebar />
     <div>
       <slot />
@@ -12,7 +12,7 @@
 <script>
 import Sidebar from "../components/navigation/Sidebar.vue";
 import Footer from "../components/footer/Footer.vue";
-import Bar from '../components/navigation/Bar.vue';
+import Bar from "../components/navigation/Bar.vue";
 
 export default {
   components: {
@@ -23,8 +23,4 @@ export default {
 };
 </script>
 
-<style scoped>
-#layouts {
-  overflow: hidden;
-}
-</style>
+<style scoped></style>

@@ -1,13 +1,17 @@
 <template>
   <Layouts>
-    <section>
+    <section class="pb-15">
       <v-container>
         <v-row dense>
           <v-col cols="6" md="3" sm="6">
             <!-- Sets1 -->
             <div v-for="(item, i) in sets1" :key="i">
               <v-card class="cont text-left">
-                <v-img class="img" :src="item.src">
+                <v-img
+                  class="img"
+                  :src="item.src"
+                  lazy-src="@/assets/image/lazy_srcvideos.png"
+                >
                   <v-card-actions class="back align-end">
                     <v-card-title class="con" />
                   </v-card-actions>
@@ -23,7 +27,11 @@
             <!-- Sets2 -->
             <div v-for="(item, i) in sets2" :key="i">
               <v-card class="cont text-left">
-                <v-img class="img" :src="item.src">
+                <v-img
+                  class="img"
+                  :src="item.src"
+                  lazy-src="@/assets/image/lazy_srcvideos.png"
+                >
                   <v-card-actions class="back align-end">
                     <v-card-title class="con" />
                   </v-card-actions>
@@ -38,7 +46,11 @@
             <!-- Sets3 -->
             <div v-for="(item, i) in sets3" :key="i">
               <v-card class="cont text-left">
-                <v-img class="img" :src="item.src">
+                <v-img
+                  class="img"
+                  :src="item.src"
+                  lazy-src="@/assets/image/lazy_srcvideos.png"
+                >
                   <v-card-actions class="back align-end">
                     <v-card-title class="con" />
                   </v-card-actions>
@@ -53,7 +65,11 @@
             <!-- Sets4 -->
             <div v-for="(item, i) in sets4" :key="i">
               <v-card class="cont text-left">
-                <v-img class="img" :src="item.src">
+                <v-img
+                  class="img"
+                  :src="item.src"
+                  lazy-src="@/assets/image/lazy_srcvideos.png"
+                >
                   <v-card-actions class="back align-end">
                     <v-card-title class="con" />
                   </v-card-actions>

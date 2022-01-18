@@ -36,12 +36,20 @@ $background: #141414;
 /* Track */
 ::-webkit-scrollbar-track {
   background: $background;
-  // background-image: url("./assets/img/Texture.jpg") !important;
-  background-repeat: no-repeat !important;
+  background-image: url("http://i.imgur.com/IHg67K8.png") !important;
+  background-repeat: repeat !important;
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: $gold;
   border-radius: 0;
+}
+
+
+@media only screen and(max-width: 960px) {
+  .v-main {
+    // margin: 0 !important;
+    padding: 0 !important;
+  }
 }
 </style>

@@ -59,9 +59,9 @@ const routes = [
   // =================================================
   // Video
   {
-    name: "Video",
+    name: "Videos",
     path: "/videos",
-    component: () => import("../views/components/Video.vue"),
+    component: () => import("../views/components/Videos.vue"),
   },
   
   // =================================================
@@ -73,17 +73,17 @@ const routes = [
   },
   {
     name: "Popular Vote",
-    path: "/popular-vote",
+    path: "/vote/popular-vote",
     component: () => import("../views/components/votes/PopularVote.vue"),
   },
   {
     name: "Vote by Students",
-    path: "/students-vote",
+    path: "/vote/students-vote",
     component: () => import("../views/components/votes/StudentsVote.vue"),
   },
   {
     name: "Vote by Directors",
-    path: "/directors-vote",
+    path: "/vote/directors-vote",
     component: () => import("../views/components/votes/DirectorsVote.vue"),
   },
 ];

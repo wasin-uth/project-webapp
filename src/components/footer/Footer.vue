@@ -108,12 +108,23 @@ export default {
   bottom: 0;
   right: 0;
   border-radius: 10px 0 0 0 !important;
-  background: #000000d2 !important;
+  background: #000000ee !important;
   backdrop-filter: blur(10px);
   width: 20%;
   .text {
     padding: 0px 10px !important;
     border-radius: 5px;
+  }
+}
+
+@media only screen and(max-width: 960px) {
+  .footer {
+    width: 100%;
+    text-align: center;
+    border-radius: unset !important;
+    .text {
+      display: none;
+    }
   }
 }
 </style>

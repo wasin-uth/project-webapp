@@ -1,59 +1,119 @@
 <template>
   <Layouts>
-    <v-app-bar dark rounded="b-lg" height="80">
+    <v-app-bar dark color="#000000bb" rounded="b-lg" height="80">
       <v-row>
+        <!-- Freshy Boy -->
         <v-col class="text-center">
-          <h1>RMU FRESHY BOY AND GIRL {{ id }}</h1>
+          <h1>{{ this.$route.name }} {{ id }}</h1>
         </v-col>
       </v-row>
     </v-app-bar>
-    <section class="px-5 py-2 pb-15">
+    <section class="pb-15">
       <v-row>
-        <v-col
-          class="pa-2"
-          cols="6"
-          lg="2"
-          md="3"
-          sm="3"
-          v-for="(item, i) in 18"
-          :key="i"
-        >
-          <v-card class="contestants" max-width="200" rounded="lg">
-            <v-img
-              :src="item.img"
-              lazy-src="https://i.pinimg.com/564x/0f/bf/d2/0fbfd293d85027f86adef074269b0958.jpg"
-              height="400"
-            >
-              <v-card class="profile" dark rounded="0">
-                <v-card-subtitle class="pa-2">
-                  <h3>
-                    <b>{{ item.cid }}</b> คณะ วิทยาศาสตร์และเทคโนโลยี
-                  </h3>
-                </v-card-subtitle>
+        <v-col class="pa-2" cols="6">
+          <v-container>
+            <v-row>
+              <v-col
+                class="pa-2"
+                cols="12"
+                lg="4"
+                md="6"
+                sm="6"
+                v-for="(item, i) in 9"
+                :key="i"
+              >
+                <v-card class="contestants" dark max-width="200" rounded="lg">
+                  <v-img
+                    :src="item.img"
+                    lazy-src="@/assets/image/lazy_src.png"
+                    height="400"
+                  >
+                    <v-card class="profile" dark rounded="0">
+                      <v-card-subtitle class="pa-2">
+                        <h3>
+                          <b>{{ item.cid }}</b> คณะ วิทยาศาสตร์และเทคโนโลยี
+                        </h3>
+                      </v-card-subtitle>
 
-                <v-card-actions class="actions">
-                  <v-row>
-                    <v-col class="pa-1" cols="6">
-                      <v-btn plain block small>
-                        <v-icon>mdi-heart-outline</v-icon>
-                        <p>20</p>
-                      </v-btn>
-                    </v-col>
-                    <v-col class="pa-1" cols="6">
-                      <v-btn
-                        plain
-                        block
-                        small
-                        :to="`/contestants/${id}/details-${item.cid}`"
-                      >
-                        <v-icon>mdi-magnify</v-icon>
-                      </v-btn>
-                    </v-col>
-                  </v-row>
-                </v-card-actions>
-              </v-card>
-            </v-img>
-          </v-card>
+                      <v-card-actions class="actions">
+                        <v-row>
+                          <v-col class="pa-1" cols="6">
+                            <v-btn plain block small>
+                              <v-icon>mdi-heart-outline</v-icon>
+                              <p>20</p>
+                            </v-btn>
+                          </v-col>
+                          <v-col class="pa-1" cols="6">
+                            <v-btn
+                              plain
+                              block
+                              small
+                              :to="`/contestants/${id}/details-${item.cid}`"
+                            >
+                              <v-icon>mdi-magnify</v-icon>
+                            </v-btn>
+                          </v-col>
+                        </v-row>
+                      </v-card-actions>
+                    </v-card>
+                  </v-img>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-col>
+
+        <!-- Freshy Girl -->
+        <v-col class="pa-2" cols="6">
+          <v-container>
+            <v-row>
+              <v-col
+                class="pa-2"
+                lg="4"
+                md="6"
+                sm="6"
+                v-for="(item, i) in 9"
+                :key="i"
+              >
+                <v-card class="contestants" dark max-width="200" rounded="lg">
+                  <v-img
+                    :src="item.img"
+                    lazy-src="@/assets/image/lazy_src.png"
+                    height="400"
+                  >
+                    <v-card class="profile" dark rounded="0">
+                      <v-card-subtitle class="pa-2">
+                        <h3>
+                          <b>{{ item.cid }}</b> คณะ วิทยาศาสตร์และเทคโนโลยี
+                        </h3>
+                      </v-card-subtitle>
+
+                      <v-card-actions class="actions">
+                        <v-row>
+                          <v-col class="pa-1" cols="6">
+                            <v-btn plain block small>
+                              <v-icon>mdi-heart-outline</v-icon>
+                              <p>20</p>
+                            </v-btn>
+                          </v-col>
+                          <v-col class="pa-1" cols="6">
+                            <v-btn
+                              plain
+                              block
+                              small
+                              :to="`/contestants/${id}/details-${item.cid}`"
+                            >
+                              <v-icon>mdi-magnify</v-icon>
+                            </v-btn>
+                          </v-col>
+                        </v-row>
+                      </v-card-actions>
+                    </v-card>
+                  </v-img>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
         </v-col>
       </v-row>
     </section>
@@ -88,7 +148,7 @@ export default {
 
 <style lang="scss" scoped>
 * {
-  margin: 0 !important;
+  margin: 0 auto !important;
   padding: 0 !important;
 }
 

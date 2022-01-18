@@ -1,13 +1,8 @@
 <template>
-  <div>
+  <div id="sidebar">
     <!-- Left Bar -->
     <v-navigation-drawer class="sidebar" width="80" permanent app clipped>
       <section>
-        <div class="rmu">
-          <v-btn class="my-1" icon disabled>
-            <v-img src="@/assets/logo/Logo_RMU.png" contain width="50"></v-img>
-          </v-btn>
-        </div>
         <p>
           2 <br />
           0 <br />
@@ -71,6 +66,12 @@
     position: absolute;
     bottom: 0;
     padding: 25px;
+  }
+}
+
+@media only screen and(max-width: 960px) {
+  #sidebar {
+    display: none;
   }
 }
 </style>
