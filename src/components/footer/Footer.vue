@@ -40,7 +40,7 @@
           <v-col cols="3">
             <v-tooltip top offset-y transition="scroll-y-transition">
               <template v-slot:activator="{ on, attrs }">
-                <v-btn class="ma-1" icon to="/collections" plain>
+                <v-btn class="ma-1" icon to="/gallery" plain>
                   <v-icon size="50" v-bind="attrs" v-on="on">
                     mdi-view-dashboard-outline
                   </v-icon>
@@ -99,7 +99,6 @@ export default {
   background: transparent !important;
   margin: 0;
   padding: 0;
-  color: #c29e59 !important;
 }
 
 .footer {
@@ -108,7 +107,7 @@ export default {
   bottom: 0;
   right: 0;
   border-radius: 10px 0 0 0 !important;
-  background: #000000ee !important;
+  background: #000000 !important;
   backdrop-filter: blur(10px);
   width: 20%;
   .text {
@@ -122,9 +121,9 @@ export default {
     width: 100%;
     text-align: center;
     border-radius: unset !important;
-    .text {
-      display: none;
-    }
+  }
+  .text {
+    display: none !important;
   }
 }
 </style>

@@ -1,7 +1,15 @@
 <template>
   <div id="sidebar">
     <!-- Left Bar -->
-    <v-navigation-drawer class="sidebar" width="80" permanent app clipped>
+    <v-navigation-drawer
+      class="sidebar"
+      width="80"
+      permanent
+      app
+      clipped
+      dark
+      color="transparent"
+    >
       <section>
         <p>
           2 <br />
@@ -29,7 +37,16 @@
     </v-navigation-drawer>
 
     <!-- Right Bar -->
-    <v-navigation-drawer right class="sidebar" width="80" permanent app clipped>
+    <v-navigation-drawer
+      right
+      class="sidebar"
+      width="80"
+      permanent
+      app
+      clipped
+      dark
+      color="transparent"
+    >
       <section>
         <p>
           2 <br />
@@ -43,8 +60,13 @@
 </template>
 
 <style lang="scss" scoped>
+$main_color: #ebebeb;
+
+* {
+  color: $main_color;
+}
+
 .sidebar {
-  background: transparent !important;
   section {
     display: flex !important;
     flex-direction: column;

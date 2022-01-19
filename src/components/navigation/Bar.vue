@@ -1,7 +1,8 @@
 <template>
   <div id="appbar">
-    <v-app-bar class="bar" height="80" elevation="0" color="transparent">
-      <div class="rmu">
+    <v-app-bar class="bar" height="80" elevation="0" dark color="transparent">
+      <!-- Logo -->
+      <div class="logo">
         <router-link to="/">
           <v-img
             class="img"
@@ -11,28 +12,33 @@
           ></v-img>
         </router-link>
       </div>
+
       <v-spacer></v-spacer>
-      <v-menu bottom left :close-on-content-click="false">
+
+      <!-- Menu -->
+      <v-menu class="menu" bottom left :close-on-content-click="false">
         <template v-slot:activator="{ on, attrs }">
-          <v-btn class="mx-1" dark icon v-bind="attrs" v-on="on" plain>
+          <div class="mx-1" v-bind="attrs" v-on="on">
             <v-icon x-large>mdi-menu</v-icon>
-          </v-btn>
+          </div>
         </template>
 
-        <v-list>
+        <v-list color="light" light>
+          <!-- Menu Title -->
           <v-list-item>
-            <v-list-item-title class="title">
-              <!-- <v-list-item-icon>
-                <v-img src="@/assets/logo/logoF.png" contain width="40"></v-img>
-              </v-list-item-icon> -->
-              RMU Freshy boy and girl
+            <v-list-item-title class="text-center pb-2">
+              <h3>RMU Freshy boy and girl</h3>
             </v-list-item-title>
           </v-list-item>
 
           <v-divider></v-divider>
 
           <!-- Contestants -->
-          <v-list-group :value="false" prepend-icon="mdi-card-account-details">
+          <v-list-group
+            :value="false"
+            color="gold"
+            prepend-icon="mdi-card-account-details"
+          >
             <template v-slot:activator>
               <v-list-item-title>Contestants</v-list-item-title>
             </template>
@@ -48,7 +54,11 @@
           </v-list-group>
 
           <!-- Hall Of Fame -->
-          <v-list-group :value="false" prepend-icon="mdi-podium-gold">
+          <v-list-group
+            :value="false"
+            color="gold"
+            prepend-icon="mdi-podium-gold"
+          >
             <template v-slot:activator>
               <v-list-item-title>Hall Of Fame</v-list-item-title>
             </template>
@@ -64,7 +74,7 @@
           </v-list-group>
 
           <!-- About -->
-          <v-list-item link to="/about">
+          <v-list-item link to="/about" color="gold">
             <v-list-item-icon>
               <v-icon>mdi-information</v-icon>
             </v-list-item-icon>
@@ -104,16 +114,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@600;800&family=Charm:wght@400;700&family=Krub:wght@300;400;600&display=swap");
-
-.title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-family: "Charm", cursive !important;
-}
-
 .bar {
   position: fixed;
   z-index: 999;

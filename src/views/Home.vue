@@ -1,5 +1,6 @@
 <template>
   <Layouts>
+    <!-- Mobile Responsive -->
     <section class="logo_mobile">
       <v-sheet color="transparent">
         <v-img
@@ -11,7 +12,9 @@
         </v-img>
       </v-sheet>
     </section>
-    <section>
+
+    <!-- Contents 1 -->
+    <section class="contents">
       <div
         v-for="card in cards"
         :key="card.id"
@@ -75,6 +78,9 @@
         </v-row>
       </div>
     </section>
+
+    <!-- Contents 2 -->
+    <section class="contents"></section>
   </Layouts>
 </template>
 
@@ -146,12 +152,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$main_color: #ebebeb;
+
 * {
   margin: 0 !important;
   padding: 0 !important;
 }
 
-$gold: #c29e59;
 // Size card, Size image
 $width: 400px;
 $height: 100vh;
@@ -191,14 +198,14 @@ section {
             width: 80%;
             border-radius: 0 20px 20px 0;
             z-index: 99;
-            background: #00000098;
+            background: #000000ee;
             backdrop-filter: blur(10px);
             border-bottom: 8px solid;
             border-right: 5px solid;
             border-color: #ff080083;
           }
           .shadow {
-            z-index: 9;
+            z-index: 1;
             width: 100%;
             height: 100%;
             background: linear-gradient(

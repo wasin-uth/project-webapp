@@ -1,14 +1,11 @@
 <template>
   <Layouts>
-    <v-app-bar dark color="#000000bb" rounded="b-lg" height="80">
-      <v-row>
-        <v-col class="text-center">
-          <h1>{{ this.$route.name }} {{ id }}</h1>
-        </v-col>
-      </v-row>
-    </v-app-bar>
+    <div>
+      <Bar />
+    </div>
+
+    <!-- contents -->
     <section class="pb-15">
-      <!-- contents -->
       <v-item-group class="back">
         <!-- <v-row dense v-model="selected"> -->
         <v-row>
@@ -25,7 +22,7 @@
                   v-for="(item, i) in 9"
                   :key="i"
                 >
-                  <v-card class="content">
+                  <v-card class="content" dark>
                     <v-img
                       class="card-contests"
                       :src="item.profile"
@@ -43,7 +40,7 @@
                     <div class="list-active">
                       <v-card-title class="px-2 py-1">
                         <div cols="12" class="head-title text-center">
-                          <span>VOTE</span>
+                          <h1 class="vote">VOTE</h1>
                         </div>
                       </v-card-title>
                     </div>
@@ -52,7 +49,13 @@
                       <v-card-actions class="pa-2">
                         <v-dialog width="500">
                           <template v-slot:activator="{ attrs, on }">
-                            <v-btn block class="btn" v-bind="attrs" v-on="on">
+                            <v-btn
+                              block
+                              class="btn"
+                              v-bind="attrs"
+                              v-on="on"
+                              light
+                            >
                               <v-img
                                 src="https://www.gump.in.th/uploaded_files/img/TAN/wallet-logo.png"
                                 max-height="60"
@@ -61,7 +64,7 @@
                             </v-btn>
                           </template>
                           <!-- dialog-content -->
-                          <v-card class="pa-10">
+                          <v-card class="pa-10" light>
                             <v-img
                               class="qr_code"
                               src="https://i.pinimg.com/564x/77/f6/8e/77f68ea939566849943001c3648bf5c3.jpg"
@@ -107,7 +110,7 @@
                   v-for="(item, i) in 9"
                   :key="i"
                 >
-                  <v-card class="content">
+                  <v-card class="content" dark>
                     <v-img
                       class="card-contests"
                       :src="item.profile"
@@ -125,7 +128,7 @@
                     <div class="list-active">
                       <v-card-title class="px-2 py-1">
                         <div cols="12" class="head-title text-center">
-                          <span>VOTE</span>
+                          <h1 class="vote">VOTE</h1>
                         </div>
                       </v-card-title>
                     </div>
@@ -134,7 +137,13 @@
                       <v-card-actions class="pa-2">
                         <v-dialog width="500">
                           <template v-slot:activator="{ attrs, on }">
-                            <v-btn block class="btn" v-bind="attrs" v-on="on">
+                            <v-btn
+                              block
+                              class="btn"
+                              v-bind="attrs"
+                              v-on="on"
+                              light
+                            >
                               <v-img
                                 src="https://www.gump.in.th/uploaded_files/img/TAN/wallet-logo.png"
                                 max-height="60"
@@ -144,7 +153,7 @@
                           </template>
 
                           <!-- dialog-content -->
-                          <v-card class="pa-10">
+                          <v-card class="pa-10" light>
                             <v-img
                               class="qr_code"
                               src="https://i.pinimg.com/564x/77/f6/8e/77f68ea939566849943001c3648bf5c3.jpg"
@@ -184,11 +193,13 @@
 
 <script>
 import Layouts from "@/layouts/MainLayouts.vue";
+import Bar from "@/components/navigation/BarContents.vue";
 
 export default {
   name: "Home",
   components: {
     Layouts,
+    Bar,
   },
   data() {
     return {
@@ -215,22 +226,24 @@ export default {
   text-decoration: none;
 }
 
-$main-color: #ffb834;
-$red-color: #b30000;
-$back-color: #000000;
+$main_color: #ebebeb;
+$yellow_color: #ffb834;
+$red_color: #b30000;
+$back_color: #000000;
 
-h3,
-h4 {
-  color: #000000 !important;
+.id,
+.name,
+.vote {
+  color: $main_color !important;
 }
 
 // Contests
 .content {
-  background-color: $back-color;
+  background-color: $back_color;
   backdrop-filter: blur(50px);
   transition: 0.4s;
   .shadow-inset {
-    box-shadow: inset 0px -60px 50px -20px $back-color;
+    box-shadow: inset 0px -60px 50px -20px $back_color;
     width: 100%;
     height: 100%;
   }
@@ -246,10 +259,10 @@ h4 {
     margin: 0 auto !important;
   }
   .btn:hover {
-    box-shadow: inset 3px 3px 0px $main-color, -3px -3px 0px $red-color,
-      inset -3px -3px 0px $main-color, 3px 3px 0px $red-color,
-      inset 3px -3px 0px $main-color, -3px 3px 0px $red-color,
-      inset -3px 3px 0px $main-color, 3px -3px 0px $red-color !important;
+    box-shadow: inset 3px 3px 0px $yellow_color, -3px -3px 0px $red_color,
+      inset -3px -3px 0px $yellow_color, 3px 3px 0px $red_color,
+      inset 3px -3px 0px $yellow_color, -3px 3px 0px $red_color,
+      inset -3px 3px 0px $yellow_color, 3px -3px 0px $red_color !important;
   }
 }
 

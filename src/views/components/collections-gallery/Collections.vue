@@ -1,51 +1,91 @@
 <template>
   <Layouts>
-    <v-app-bar class="bar" dark rounded="b-lg" height="80">
-      <v-row>
-        <v-col class="text-center">
-          <h1>{{ this.$route.name }}</h1>
-        </v-col>
-      </v-row>
-    </v-app-bar>
-    <section class="px-5 py-2 pb-15">
+    <div>
+      <Bar />
+    </div>
+
+    <section class="pb-15">
       <v-container>
-        <v-row>
-          <v-col
-            class="pa-2"
-            cols="12"
-            lg="4"
-            md="4"
-            sm="6"
-            v-for="(item, i) in collections"
-            :key="i"
-          >
-            <v-card class="contents" elevation="0">
-              <v-img
-                class="photo"
-                height="450"
-                :src="item.src"
-                lazy-src="@/assets/image/lazy_srcvideos.png"
-              >
-                <template>
-                  <div class="actions">
-                    <v-card-actions>
-                      <div class="wrapper">
-                        <v-btn
-                          class="btn pl-8"
-                          width="200"
-                          :to="`/collections/${item.id}`"
-                        >
-                          {{ item.id }}
-                          <span></span>
-                          <span></span>
-                        </v-btn>
-                      </div>
-                    </v-card-actions>
-                    <div class="shadow"></div>
-                  </div>
-                </template>
-              </v-img>
-            </v-card>
+        <v-row dense>
+          <!-- Collection1 -->
+          <v-col cols="6" md="3" sm="6">
+            <div v-for="(item, i) in sets1" :key="i">
+              <v-card class="cont text-left" elevation="5" dark>
+                <v-img
+                  class="img"
+                  :src="item.src"
+                  lazy-src="@/assets/image/lazy_srcvideos.png"
+                >
+                  <v-card-actions class="back align-end">
+                    <v-card-title class="con" />
+                  </v-card-actions>
+                </v-img>
+                <v-card-subtitle class="history">
+                  <v-icon>{{ item.icon }}</v-icon>
+                  <strong v-text="item.hist" />
+                </v-card-subtitle>
+              </v-card>
+            </div>
+          </v-col>
+
+          <!-- Collection2 -->
+          <v-col cols="6" md="3" sm="6">
+            <div v-for="(item, i) in sets2" :key="i">
+              <v-card class="cont text-left" elevation="5" dark>
+                <v-img
+                  class="img"
+                  :src="item.src"
+                  lazy-src="@/assets/image/lazy_srcvideos.png"
+                >
+                  <v-card-actions class="back align-end">
+                    <v-card-title class="con" />
+                  </v-card-actions>
+                </v-img>
+                <v-card-subtitle class="history">
+                  <strong v-text="item.hist" />
+                </v-card-subtitle>
+              </v-card>
+            </div>
+          </v-col>
+
+          <!-- Collection3 -->
+          <v-col cols="6" md="3" sm="6">
+            <div v-for="(item, i) in sets3" :key="i">
+              <v-card class="cont text-left" elevation="5" dark>
+                <v-img
+                  class="img"
+                  :src="item.src"
+                  lazy-src="@/assets/image/lazy_srcvideos.png"
+                >
+                  <v-card-actions class="back align-end">
+                    <v-card-title class="con" />
+                  </v-card-actions>
+                </v-img>
+                <v-card-subtitle class="history">
+                  <strong v-text="item.hist" />
+                </v-card-subtitle>
+              </v-card>
+            </div>
+          </v-col>
+
+          <!-- Collection4 -->
+          <v-col cols="6" md="3" sm="6">
+            <div v-for="(item, i) in sets4" :key="i">
+              <v-card class="cont text-left" elevation="5" dark>
+                <v-img
+                  class="img"
+                  :src="item.src"
+                  lazy-src="@/assets/image/lazy_srcvideos.png"
+                >
+                  <v-card-actions class="back align-end">
+                    <v-card-title class="con" />
+                  </v-card-actions>
+                </v-img>
+                <v-card-subtitle class="history">
+                  <strong v-text="item.hist" />
+                </v-card-subtitle>
+              </v-card>
+            </div>
           </v-col>
         </v-row>
       </v-container>
@@ -55,155 +95,164 @@
 
 <script>
 import Layouts from "@/layouts/MainLayouts.vue";
+import Bar from "@/components/navigation/BarContents.vue";
 
 export default {
   name: "Home",
   components: {
     Layouts,
+    Bar,
   },
-  data() {
-    return {
-      collections: [
-        {
-          id: 2021,
-          src: "https://i.pinimg.com/564x/40/c0/83/40c083a696d18e7dc5096585598521e0.jpg",
-        },
-        {
-          id: 2020,
-          src: "https://i.pinimg.com/564x/05/17/77/051777b5d21eb07ecda0162b61db65c7.jpg",
-        },
-        {
-          id: 2019,
-          src: "https://i.pinimg.com/564x/59/77/b5/5977b52f3490f0a9861e24283b5f54c5.jpg",
-        },
-        {
-          id: 2018,
-          src: "https://i.pinimg.com/564x/49/79/60/49796022a1c46048817f09866ba43375.jpg",
-        },
-        {
-          id: 2017,
-          src: "https://i.pinimg.com/564x/23/75/82/2375826232a4669779e43eab189e52e1.jpg",
-        },
-        {
-          id: 2016,
-          src: "https://i.pinimg.com/564x/d1/17/86/d11786636e1546d6dd32f619c0cf9199.jpg",
-        },
-      ],
-    };
-  },
+  data: () => ({
+    sets1: [
+      {
+        hist: "น้องลิซ สาขา วิทคอม",
+        src: "https://i.pinimg.com/564x/a4/3b/1a/a43b1aeaa65d0b7824d5eabd8c2d64fe.jpg",
+      },
+      {
+        hist: "น้องก้อย สาขา บัญชี",
+        src: "https://i.pinimg.com/564x/e3/a2/79/e3a2793602a1af18a8680dcf9822fb05.jpg",
+      },
+      {
+        hist: "น้องลิซ สาขา วิทคอม",
+        src: "https://i.pinimg.com/564x/a6/38/e1/a638e1054a81e8630e0bbbdab341a8d3.jpg",
+      },
+      {
+        hist: "น้องก้อย สาขา บัญชี",
+        src: "https://i.pinimg.com/736x/23/2d/50/232d5074b79feeb25b9ca21564075da5.jpg",
+      },
+      {
+        hist: "น้องลิซ สาขา วิทคอม",
+        src: "https://i.pinimg.com/564x/58/5a/6d/585a6d3a4ea41e0f8cb07593e0472051.jpg",
+      },
+      {
+        hist: "น้องก้อย สาขา บัญชี",
+        src: "https://i.pinimg.com/564x/6d/a4/15/6da415226e8308f551f63ea5642aafc7.jpg",
+      },
+      {
+        hist: "น้องลิซ สาขา วิทคอม",
+        src: "https://i.pinimg.com/564x/8e/8f/bf/8e8fbfadf9dbf54e309520cc868f8d94.jpg",
+      },
+      {
+        hist: "น้องก้อย สาขา บัญชี",
+        src: "https://i.pinimg.com/564x/ab/43/9d/ab439d492415156543c04571afa24aae.jpg",
+      },
+    ],
+    sets2: [
+      {
+        hist: "น้องลิซ สาขา วิทคอม",
+        src: "https://i.pinimg.com/564x/a6/38/e1/a638e1054a81e8630e0bbbdab341a8d3.jpg",
+      },
+      {
+        hist: "น้องก้อย สาขา บัญชี",
+        src: "https://i.pinimg.com/736x/23/2d/50/232d5074b79feeb25b9ca21564075da5.jpg",
+      },
+      {
+        hist: "น้องลิซ สาขา วิทคอม",
+        src: "https://i.pinimg.com/564x/a6/2b/ae/a62bae48a6b9ed11671e39b4c75ae1bc.jpg",
+      },
+      {
+        hist: "น้องก้อย สาขา บัญชี",
+        src: "https://i.pinimg.com/564x/7e/28/64/7e2864477d1ea9dc80b39c8fcd38a110.jpg",
+      },
+      {
+        hist: "น้องลิซ สาขา วิทคอม",
+        src: "https://i.pinimg.com/564x/c0/15/94/c01594f95f35e507e54bbaf991f1ba5e.jpg",
+      },
+      {
+        hist: "น้องก้อย สาขา บัญชี",
+        src: "https://i.pinimg.com/564x/e3/a2/79/e3a2793602a1af18a8680dcf9822fb05.jpg",
+      },
+      {
+        hist: "น้องลิซ สาขา วิทคอม",
+        src: "https://i.pinimg.com/564x/b2/9a/74/b29a74fc078b1e1c8a3fb46e98c28d58.jpg",
+      },
+    ],
+    sets3: [
+      {
+        hist: "น้องก้อย สาขา บัญชี",
+        src: "https://i.pinimg.com/564x/b2/9a/74/b29a74fc078b1e1c8a3fb46e98c28d58.jpg",
+      },
+      {
+        hist: "น้องลิซ สาขา วิทคอม",
+        src: "https://i.pinimg.com/564x/29/2c/d6/292cd6f1121093185478a29612acd67c.jpg",
+      },
+      {
+        hist: "น้องก้อย สาขา บัญชี",
+        src: "https://i.pinimg.com/564x/af/08/e2/af08e23c49d453eed9849c9f70c1acc8.jpg",
+      },
+      {
+        hist: "น้องลิซ สาขา วิทคอม",
+        src: "https://i.pinimg.com/564x/ae/15/55/ae155532a4263ce5c79d4f2c8d3cffd2.jpg",
+      },
+      {
+        hist: "น้องก้อย สาขา บัญชี",
+        src: "https://i.pinimg.com/564x/a6/2b/ae/a62bae48a6b9ed11671e39b4c75ae1bc.jpg",
+      },
+      {
+        hist: "น้องลิซ สาขา วิทคอม",
+        src: "https://i.pinimg.com/564x/7e/28/64/7e2864477d1ea9dc80b39c8fcd38a110.jpg",
+      },
+      {
+        hist: "น้องก้อย สาขา บัญชี",
+        src: "https://i.pinimg.com/564x/c0/15/94/c01594f95f35e507e54bbaf991f1ba5e.jpg",
+      },
+    ],
+    sets4: [
+      {
+        hist: "lewjaf;oiaejfjioewjaijfeijeojaifjejfejwajfjewjawejfjawejofjweafjaowefjeawij;fa;eowjf",
+        src: "https://i.pinimg.com/564x/29/2c/d6/292cd6f1121093185478a29612acd67c.jpg",
+      },
+      {
+        hist: "น้องก้อย สาขา บัญชี",
+        src: "https://i.pinimg.com/564x/af/08/e2/af08e23c49d453eed9849c9f70c1acc8.jpg",
+      },
+      {
+        hist: "น้องลิซ สาขา วิทคอม",
+        src: "https://i.pinimg.com/564x/58/5a/6d/585a6d3a4ea41e0f8cb07593e0472051.jpg",
+      },
+      {
+        hist: "น้องก้อย สาขา บัญชี",
+        src: "https://i.pinimg.com/564x/6d/a4/15/6da415226e8308f551f63ea5642aafc7.jpg",
+      },
+      {
+        hist: "น้องก้อย สาขา บัญชี",
+        src: "https://i.pinimg.com/564x/ab/43/9d/ab439d492415156543c04571afa24aae.jpg",
+      },
+      {
+        hist: "น้องก้อย สาขา บัญชี",
+        src: "https://i.pinimg.com/564x/a4/3b/1a/a43b1aeaa65d0b7824d5eabd8c2d64fe.jpg",
+      },
+    ],
+  }),
 };
 </script>
 
 <style lang="scss" scoped>
+$main_color: #ebebeb;
+
 * {
-  text-align: center !important;
+  color: $main_color !important;
 }
 
-.bar,
-.btn {
-  background: #000000ee !important;
-}
-
-section {
-  .contents {
-    overflow: hidden;
-    border-radius: 10px !important;
-    .photo {
-      transition: 0.5s ease-in-out;
-      .actions {
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        height: 100%;
-        .shadow {
-          background: #0000006c;
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          transition: 0.5s ease-in-out;
-          z-index: 1;
-        }
-      }
+// content
+.cont {
+  margin: 20px 5px !important;
+  border-radius: 20px;
+  background: #000000bb !important;
+  padding: 0 10px 5px 0;
+  .img {
+    border-radius: 20px;
+    .back {
+      height: 100% !important;
+      background: linear-gradient(100deg, #d1beaa13 0%, #15141244 60%);
       &:hover {
-        transform: scale(1.3);
-        .btn {
-          transform: scale(0.8);
-        }
-        .shadow {
-          background: #00000027;
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          z-index: 1;
-        }
+        background: linear-gradient(100deg, #d1beaa28 0%, #15141275 60%);
       }
     }
   }
-}
-
-// Button
-.btn {
-  backdrop-filter: blur(2px) !important;
-  font-size: 24px;
-  letter-spacing: 20px;
-  transition: 0.5s ease-in-out;
-  z-index: 9;
-  position: relative;
-  overflow: hidden;
-  span {
-    position: absolute;
-    display: block;
-    // span 1
-    &:nth-child(1) {
-      height: 3px;
-      width: 200px;
-      top: 0px;
-      left: -200px;
-      background: linear-gradient(to right, rgba(0, 0, 0, 0), #f6e58d);
-      // border-top-right-radius: 1px;
-      // border-bottom-right-radius: 1px;
-      animation: span1 2s linear infinite;
-      animation-delay: 1s;
-    }
-    // span 2
-    &:nth-child(2) {
-      height: 3px;
-      width: 200px;
-      right: -200px;
-      bottom: 0px;
-      background: linear-gradient(to left, rgba(0, 0, 0, 0), #f6e58d);
-      // border-top-left-radius: 1px;
-      // border-bottom-left-radius: 1px;
-      animation: span2 2s linear infinite;
-      animation-delay: 1s;
-    }
-  }
-
-  // .btn:hover {}
-  &:hover {
-    transition: all 0.5s;
-    transform: rotate(-3deg) scale(1.1);
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
-    // span {
-    //   animation-play-state: paused;
-    // }
-  }
-}
-
-@keyframes span1 {
-  0% {
-    left: -200px;
-  }
-  100% {
-    left: 200px;
-  }
-}
-@keyframes span2 {
-  0% {
-    right: -200px;
-  }
-  100% {
-    right: 200px;
+  .history {
+    padding: 10px;
   }
 }
 </style>

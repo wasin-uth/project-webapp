@@ -23,16 +23,16 @@ const routes = [
   // =================================================
   // Collections Gallery
   {
-    name: "Collections",
-    path: "/collections",
+    name: "Gallery",
+    path: "/gallery",
     component: () =>
-      import("../views/components/collections-gallery/Collections.vue"),
+      import("../views/components/collections-gallery/Gallery.vue"),
   },
   {
-    name: "collections",
+    name: "Collections",
     path: "/collections/:id",
     component: () =>
-      import("../views/components/collections-gallery/CollectionsDetails.vue"),
+      import("../views/components/collections-gallery/Collections.vue"),
   },
 
   // =================================================

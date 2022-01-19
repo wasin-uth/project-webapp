@@ -15,18 +15,18 @@ export default {
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@600;800&family=Charm:wght@400;700&family=Krub:wght@300;400;600&display=swap");
 
-$gold: #c29e59;
+$main_color: #ebebeb;
 $background: #141414;
 
 * {
-  color: $gold !important;
   font-family: "Charm", cursive !important;
 }
 
 .v-application {
   background: $background !important;
   background-image: url("http://i.imgur.com/IHg67K8.png") !important;
-  background-attachment: fixed !important;
+  // background-attachment: fixed !important;
+  background-repeat: repeat !important;
 }
 
 /* Scroll bar */
@@ -41,7 +41,7 @@ $background: #141414;
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: $gold;
+  background: $main_color;
   border-radius: 0;
 }
 

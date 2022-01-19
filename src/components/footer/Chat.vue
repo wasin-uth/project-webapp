@@ -21,7 +21,7 @@
               fab = !fab;
               menu = false;
             "
-            light
+            dark
             icon
             plain
           >
@@ -29,7 +29,7 @@
           </v-btn>
         </v-fab-transition>
       </template>
-      <v-card class="chat_box">
+      <v-card class="chat_box" dark>
         <v-system-bar class="bar py-4 px-2" dark>
           <span>Chat box</span>
           <v-spacer></v-spacer>
@@ -97,7 +97,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$gold: #c29e59;
+$main_color: #ebebeb;
 $background: #1d1d1c;
 $border: #020202;
 
@@ -111,15 +111,11 @@ $border: #020202;
   border-radius: 10px;
 }
 
-.fab {
-  color: $background !important;
-}
-
 .chat_box {
   background: $background !important;
   .bar {
     background: transparent !important;
-    border-bottom: 1px solid $gold;
+    border-bottom: 1px solid;
     border-radius: 10px;
   }
   .contents {
@@ -127,7 +123,7 @@ $border: #020202;
   }
   .form_input {
     background: transparent !important;
-    border-top: 1px solid $gold;
+    border-top: 1px solid;
     border-radius: 10px;
     .send_message {
       justify-content: center;
@@ -137,7 +133,7 @@ $border: #020202;
       outline: 0;
       width: 100%;
       padding: 5px 10px !important;
-      color: $gold !important;
+      color: $main_color;
     }
     .submit {
       text-align: center;

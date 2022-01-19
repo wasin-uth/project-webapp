@@ -1,12 +1,10 @@
 <template>
   <Layouts>
-    <v-app-bar class="bar" dark rounded="b-lg" height="80">
-      <v-row>
-        <v-col class="text-center">
-          <h1>{{ this.$route.name }}</h1>
-        </v-col>
-      </v-row>
-    </v-app-bar>
+    <div>
+      <Bar />
+    </div>
+
+    <!-- Contents -->
     <v-container class="px-5 py-2 pb-15">
       <!-- Live Video -->
       <section class="pa-2">
@@ -42,7 +40,7 @@
         </v-row>
       </section>
 
-      <!-- Other Videos -->
+      <!-- More Videos -->
       <section class="pa-2">
         <v-app-bar class="bar" dark rounded="lg" height="80">
           <v-row>
@@ -51,6 +49,7 @@
             </v-col>
           </v-row>
         </v-app-bar>
+        <!-- Contents -->
         <v-row class="pa-2">
           <v-col
             class="pa-2"
@@ -87,11 +86,13 @@
 
 <script>
 import Layouts from "@/layouts/MainLayouts.vue";
+import Bar from "@/components/navigation/BarContents.vue";
 
 export default {
   name: "Home",
   components: {
     Layouts,
+    Bar,
   },
   data() {
     return {
@@ -107,16 +108,15 @@ export default {
   padding: 0 !important;
 }
 
+.bar,
+.card {
+  background: #000000bb !important;
+}
+
 section:nth-child(1) {
   display: flex;
   justify-content: center;
   align-content: center;
-}
-
-.bar,
-.card {
-  background: #000000bb !important;
-  border-radius: 10px !important;
 }
 
 @media only screen and(max-width: 1902px) {

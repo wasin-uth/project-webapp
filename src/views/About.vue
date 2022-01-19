@@ -1,7 +1,11 @@
 <template>
   <Layouts>
+    <div>
+      <Bar />
+    </div>
+
     <section>
-      <v-container class="text-center py-15">
+      <v-container class="text-center pa-10 pb-15">
         <!-- Title -->
         <div>
           <h1 class="head-title">FRESHY BOY AND GIRL</h1>
@@ -17,14 +21,11 @@
           nisi tempora.
         </p>
         <!-- Photo -->
-        <v-card class="photo" hover>
+        <v-card class="photo ma-2 mt-10" hover dark>
           <v-img
             src="https://i.pinimg.com/564x/3a/11/ce/3a11ceff4289fb78982a28eadc35642d.jpg"
-          >
-            <div class="photo-shadow"></div>
-          </v-img>
+          ></v-img>
         </v-card>
-        <br />
         <!-- Description under the picture -->
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         <br />
@@ -91,20 +92,25 @@
 
 <script>
 import Layouts from "@/layouts/MainLayouts.vue";
+import Bar from "@/components/navigation/BarContents.vue";
 
 export default {
   name: "Home",
   components: {
     Layouts,
+    Bar,
   },
 };
 </script>
 
 <style lang="scss" scoped>
-// * {
-//   margin: 0 !important;
-//   padding: 0 !important;
-// }
+$main_color: #ebebeb;
+
+* {
+  margin: 0 !important;
+  padding: 0 !important;
+  color: $main_color;
+}
 
 section {
   display: flex;
