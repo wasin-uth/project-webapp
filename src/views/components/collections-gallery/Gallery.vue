@@ -17,7 +17,7 @@
             v-for="(item, i) in collections"
             :key="i"
           >
-            <v-card class="contents" elevation="5" dark>
+            <v-card class="contents" elevation="5" dark rounded="lg">
               <v-img
                 class="photo"
                 height="450"
@@ -104,7 +104,6 @@ export default {
 section {
   .contents {
     overflow: hidden;
-    border-radius: 10px !important;
     .photo {
       transition: 0.5s ease-in-out;
       .actions {

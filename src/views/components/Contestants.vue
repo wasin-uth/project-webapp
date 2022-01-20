@@ -137,6 +137,7 @@ export default {
   },
   data() {
     return {
+      dialog: false,
       id: this.$route.params.id,
       database: [
         {

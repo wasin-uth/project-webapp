@@ -238,11 +238,11 @@ $main_color: #ebebeb;
 // content
 .cont {
   margin: 20px 5px !important;
-  border-radius: 20px;
+  border-radius: 10px;
   background: #000000bb !important;
   padding: 0 10px 5px 0;
   .img {
-    border-radius: 20px;
+    border-radius: 10px;
     .back {
       height: 100% !important;
       background: linear-gradient(100deg, #d1beaa13 0%, #15141244 60%);

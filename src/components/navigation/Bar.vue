@@ -18,9 +18,9 @@
       <!-- Menu -->
       <v-menu class="menu" bottom left :close-on-content-click="false">
         <template v-slot:activator="{ on, attrs }">
-          <div class="mx-1" v-bind="attrs" v-on="on">
+          <v-btn class="mx-2" v-bind="attrs" v-on="on" dark icon small plain>
             <v-icon x-large>mdi-menu</v-icon>
-          </div>
+          </v-btn>
         </template>
 
         <v-list color="light" light>

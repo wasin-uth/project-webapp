@@ -28,7 +28,7 @@
               <v-sheet class="sheet" color="transparent" dark>
                 <v-row>
                   <v-col cols="4">
-                    <v-card class="profile" elevation="10" dark>
+                    <v-card class="profile" elevation="10" dark rounded="xl">
                       <v-img
                         class="img"
                         :src="item.freshy"
@@ -81,7 +81,12 @@
               <v-sheet class="sheet" color="transparent" dark>
                 <v-row>
                   <v-col cols="4">
-                    <v-card class="profile" elevation="10" dark>
+                    <v-card
+                      class="profile"
+                      elevation="10"
+                      dark
+                      rounded="r-0 l-xl"
+                    >
                       <v-img
                         class="img"
                         :src="item.freshy"
@@ -134,7 +139,12 @@
               <v-sheet class="sheet" color="transparent" dark>
                 <v-row>
                   <v-col cols="4">
-                    <v-card class="profile" elevation="10" dark>
+                    <v-card
+                      class="profile"
+                      elevation="10"
+                      dark
+                      rounded="r-0 l-xl"
+                    >
                       <v-img
                         class="img"
                         :src="item.freshy"
@@ -187,7 +197,12 @@
               <v-sheet class="sheet" color="transparent" dark>
                 <v-row>
                   <v-col cols="4">
-                    <v-card class="profile" elevation="10" dark>
+                    <v-card
+                      class="profile"
+                      elevation="10"
+                      dark
+                      rounded="r-0 l-xl"
+                    >
                       <v-img
                         class="img"
                         :src="item.freshy"
@@ -240,7 +255,12 @@
               <v-sheet class="sheet" color="transparent" dark>
                 <v-row>
                   <v-col cols="4">
-                    <v-card class="profile" elevation="10" dark>
+                    <v-card
+                      class="profile"
+                      elevation="10"
+                      dark
+                      rounded="r-0 l-xl"
+                    >
                       <v-img
                         class="img"
                         :src="item.freshy"
@@ -387,7 +407,6 @@ section {
           height: 400px;
           border-bottom: 5px solid;
           border-color: #e6bb6b;
-          border-radius: 20px 0 0 20px !important;
           overflow: hidden;
           .img {
             height: 100%;
@@ -434,7 +453,6 @@ section {
           height: 400px;
           border-bottom: 5px solid;
           border-color: #e6bb6b;
-          border-radius: 20px 0 0 20px !important;
           overflow: hidden;
           .img {
             height: 100%;
@@ -481,7 +499,6 @@ section {
           height: 400px;
           border-bottom: 5px solid;
           border-color: #000000;
-          border-radius: 20px 0 0 20px !important;
           overflow: hidden;
           .img {
             height: 100%;
@@ -534,7 +551,6 @@ section {
           height: 400px;
           border-bottom: 5px solid;
           border-color: #000000;
-          border-radius: 20px 0 0 20px !important;
           overflow: hidden;
           .img {
             height: 100%;
@@ -549,11 +565,11 @@ section {
           .card {
             background: linear-gradient(
               -45deg,
-              #5F7086 0%,
-              #11193C 15%,
+              #5f7086 0%,
+              #11193c 15%,
               #435568 40%,
-              #D8B21A 75%,
-              #9A9DA3 100%
+              #d8b21a 75%,
+              #9a9da3 100%
             );
             border-right: 5px solid;
             border-bottom: 5px solid;

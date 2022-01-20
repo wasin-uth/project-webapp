@@ -121,7 +121,7 @@ section:nth-child(1) {
 
 @media only screen and(max-width: 1902px) {
   .frame {
-    height: 500px;
+    height: 350px;
   }
 }
 </style>
