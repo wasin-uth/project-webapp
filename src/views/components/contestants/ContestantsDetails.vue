@@ -8,7 +8,7 @@
         dark
         color="transparent"
       >
-        <v-row>
+        <v-row v-for="(item, i) in data" :key="i">
           <v-col cols="8" lg="4" md="4" sm="5">
             <v-card
               class="profile"
@@ -18,11 +18,7 @@
               elevation="5"
               rounded="lg"
             >
-              <v-img
-                class="img"
-                height="100%"
-                src="https://scontent.fnak1-1.fna.fbcdn.net/v/t1.6435-9/36371669_1652289811486479_7982858445227294720_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=cdbe9c&_nc_eui2=AeEzHtLUdTm9dht5OV83f_mAruN_nohgGCmu43-eiGAYKbkY2WSGbNV28-uLEMIMMr39rGdpJZshKqKKzp23-54H&_nc_ohc=7pA987nWTzsAX88seV9&_nc_ht=scontent.fnak1-1.fna&oh=00_AT9FI0W9MrFhghdnCBlhNMgZ0b6-zIHROOi2420KirJn3Q&oe=620A6985"
-              ></v-img>
+              <v-img class="img" height="100%" :src="item.image"></v-img>
             </v-card>
           </v-col>
           <v-col cols="12" lg="8" md="8" sm="7">
@@ -44,14 +40,11 @@
               </v-system-bar>
               <v-card-text class="text_contents px-5 py-1">
                 <ul style="list-style-type: none">
-                  <li>
-                    FG01 - เฟรชชี่เกิร์ล
-                    มหาวิทยาลัยราชภัฏมหาสารคาม
-                  </li>
-                  <li>ชื่อ : name  ( nickname )</li>
+                  <li>FG01 - เฟรชชี่เกิร์ล มหาวิทยาลัยราชภัฏมหาสารคาม</li>
+                  <li>ชื่อ : {{ item.name }} ( nickname )</li>
                   <!-- <li>อายุ : {{  }} ปี</li> -->
-                  <li>น้ำหนัก :  กิโลกรัม</li>
-                  <li>ส่วนสูง :  เซนติเมตร</li>
+                  <li>น้ำหนัก : กิโลกรัม</li>
+                  <li>ส่วนสูง : เซนติเมตร</li>
                   <li>คณะ : faculty</li>
                   <li>สาขา : branch</li>
                   <li>ความสามารถพิเศษ : talent</li>
@@ -59,7 +52,7 @@
                 <v-divider class="my-2"></v-divider>
                 <ul style="list-style-type: none">
                   <!-- <li>IG : freshyboy</li> -->
-                  <li>Facebook : Freshy boy</li>
+                  <li>Facebook :</li>
                 </ul>
               </v-card-text>
             </v-card>
@@ -73,7 +66,9 @@
 </template>
 
 <script>
-import Footer from "../../components/footer/Footer.vue";
+import Footer from "@/components/footer/Footer.vue";
+import { db } from "@/database/firebase.js";
+
 export default {
   name: "Home",
   components: {
@@ -82,12 +77,64 @@ export default {
   data() {
     return {
       cid: this.$route.params.cid,
+      data: [],
+      // dataLists: [],
     };
   },
   methods: {
     close() {
       this.$router.back();
     },
+  },
+  created() {
+    db.collection("data")
+      .get()
+      .then(
+        (querySnapshot) => {
+          let tempDataArray = [];
+          querySnapshot.forEach((doc) => {
+            if (doc.exists) {
+              tempDataArray = [
+                ...tempDataArray,
+                {
+                  id: doc.id,
+                  cid: doc.data().cid,
+                  name: doc.data().name,
+                  image: doc.data().image,
+                },
+              ];
+            }
+          });
+          this.data = tempDataArray;
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    // db.collection("data/2rsDianYRHptEvolAfw5/address")
+    //   .get()
+    //   .then(
+    //     (querySnapshot) => {
+    //       let tempDataArray = [];
+    //       querySnapshot.forEach((doc) => {
+    //         if (doc.exists) {
+    //           tempDataArray = [
+    //             ...tempDataArray,
+    //             {
+    //               id: doc.id,
+    //               email: doc.data().email,
+    //               // email: doc.data().email,
+    //               // profile: doc.data().profile,
+    //             },
+    //           ];
+    //         }
+    //       });
+    //       this.dataLists = tempDataArray;
+    //     },
+    //     (err) => {
+    //       console.log(err);
+    //     }
+    //   );
   },
 };
 </script>

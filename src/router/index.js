@@ -19,33 +19,59 @@ const routes = [
     path: "/about",
     component: () => import("../views/About.vue"),
   },
+  // =================================================
+  // Admin
+  {
+    name: "Admin",
+    path: "/admin",
+    component: () => import("../views/components/admin/index.vue"),
+  },
+  {
+    name: "Admins",
+    path: "/admins",
+    component: () => import("../views/components/admin/addData.vue"),
+  },
 
   // =================================================
   // Collections Gallery
   {
     name: "Gallery",
     path: "/gallery",
-    component: () =>
-      import("../views/components/collections-gallery/Gallery.vue"),
+    component: () => import("../views/components/collections/Gallery.vue"),
   },
   {
     name: "Collections",
     path: "/collections/:id",
-    component: () =>
-      import("../views/components/collections-gallery/Collections.vue"),
+    component: () => import("../views/components/collections/Collections.vue"),
   },
 
   // =================================================
   // Contestants
   {
-    name: "Contestants",
-    path: "/contestants/:id",
-    component: () => import("../views/components/Contestants.vue"),
+    name: "2017",
+    path: "/contestants/2017",
+    component: () => import("../views/components/contestants/2017.vue"),
+  },
+  {
+    name: "2018",
+    path: "/contestants/2018",
+    component: () => import("../views/components/contestants/2018.vue"),
+  },
+  {
+    name: "2019",
+    path: "/contestants/2019",
+    component: () => import("../views/components/contestants/2019.vue"),
+  },
+  {
+    name: "2020",
+    path: "/contestants/2020",
+    component: () => import("../views/components/contestants/2020.vue"),
   },
   {
     name: "Contestants Details",
     path: "/contestants/:id/details-:cid",
-    component: () => import("../views/components/ContestantsDetails.vue"),
+    component: () =>
+      import("../views/components/contestants/ContestantsDetails.vue"),
   },
 
   // =================================================
@@ -63,7 +89,7 @@ const routes = [
     path: "/videos",
     component: () => import("../views/components/Videos.vue"),
   },
-  
+
   // =================================================
   // Vote
   {

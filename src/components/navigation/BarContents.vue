@@ -4,7 +4,7 @@
       <v-row>
         <!-- Freshy Boy -->
         <v-col class="text-center">
-          <h1>{{ this.$route.name }} {{ id }}</h1>
+          <h1>{{ this.$route.name }}</h1>
         </v-col>
       </v-row>
     </v-app-bar>
