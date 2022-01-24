@@ -10,26 +10,46 @@ const routes = [
     component: Home,
   },
   {
-    name: "404 is not found",
-    path: "/error",
-    component: () => import("../views/NotFound.vue"),
-  },
-  {
     name: "About",
     path: "/about",
     component: () => import("../views/About.vue"),
   },
+  {
+    name: "404 is not found",
+    path: "/error",
+    component: () => import("../views/NotFound.vue"),
+  },
+
   // =================================================
   // Admin
   {
     name: "Admin",
-    path: "/admin",
+    path: "/admins",
     component: () => import("../views/components/admin/index.vue"),
   },
   {
-    name: "Admins",
-    path: "/admins",
-    component: () => import("../views/components/admin/addData.vue"),
+    path: "/admin/freshy-boy",
+    component: () => import("../views/components/admin/DataTableFB.vue"),
+  },
+  {
+    path: "/admin/freshy-girl",
+    component: () => import("../views/components/admin/DataTableFG.vue"),
+  },
+  {
+    path: "/admin/image-show",
+    component: () => import("../views/components/admin/imgShow.vue"),
+  },
+  {
+    path: "/admin/image-vote",
+    component: () => import("../views/components/admin/imgVote.vue"),
+  },
+  {
+    path: "/admin/upload-collection",
+    component: () => import("../views/components/admin/addCollections.vue"),
+  },
+  {
+    path: "/admin/upload-hall-of-fame",
+    component: () => import("../views/components/admin/addHOF.vue"),
   },
 
   // =================================================

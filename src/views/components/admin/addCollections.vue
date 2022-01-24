@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <NavigationDrawer>
     <v-container>
       <v-data-table
         :headers="headers"
@@ -33,7 +33,18 @@
                 <v-container>
                   <form @submit.prevent="addFreshy">
                     <v-row dense>
-                      <v-col cols="12">
+                      <v-col cols="2">
+                        <v-text-field
+                          v-model="freshy.cId"
+                          type="text"
+                          label="รหัสเฟรชชี่"
+                          required
+                          color="gold"
+                          outlined
+                        ></v-text-field>
+                      </v-col>
+
+                      <v-col cols="10">
                         <input
                           class="custom-file-input mb-8"
                           type="file"
@@ -42,18 +53,7 @@
                         />
                       </v-col>
 
-                      <v-col cols="12" md="2">
-                        <v-text-field
-                          v-model="freshy.cId"
-                          type="text"
-                          label="รหัส"
-                          required
-                          color="gold"
-                          outlined
-                        ></v-text-field>
-                      </v-col>
-
-                      <v-col cols="12" md="5">
+                      <v-col cols="12" md="6">
                         <v-text-field
                           v-model="freshy.name"
                           type="text"
@@ -64,7 +64,7 @@
                         ></v-text-field>
                       </v-col>
 
-                      <v-col cols="12" md="5">
+                      <v-col cols="12" md="6">
                         <v-text-field
                           v-model="freshy.lastName"
                           type="text"
@@ -179,8 +179,8 @@
                 v-on="on"
                 @click="
                   getData(
-                    item.profile,
                     item.cId,
+                    item.profile,
                     item.name,
                     item.lastName,
                     item.nickName,
@@ -198,7 +198,18 @@
               <v-container>
                 <form @submit.prevent="update">
                   <v-row dense>
-                    <v-col cols="12">
+                    <v-col cols="2">
+                      <v-text-field
+                        v-model="dataFreshy.cId"
+                        type="text"
+                        label="รหัสเฟรชชี่"
+                        required
+                        color="gold"
+                        outlined
+                      ></v-text-field>
+                    </v-col>
+
+                    <v-col cols="10">
                       <v-text-field
                         v-model="dataFreshy.profile"
                         placeholder="Image"
@@ -210,18 +221,7 @@
                       ></v-text-field>
                     </v-col>
 
-                    <v-col cols="12" md="2">
-                      <v-text-field
-                        v-model="dataFreshy.cId"
-                        type="text"
-                        label="รหัส"
-                        required
-                        color="gold"
-                        outlined
-                      ></v-text-field>
-                    </v-col>
-
-                    <v-col cols="12" md="5">
+                    <v-col cols="12" md="6">
                       <v-text-field
                         v-model="dataFreshy.name"
                         type="text"
@@ -232,7 +232,7 @@
                       ></v-text-field>
                     </v-col>
 
-                    <v-col cols="12" md="5">
+                    <v-col cols="12" md="6">
                       <v-text-field
                         v-model="dataFreshy.lastName"
                         type="text"
@@ -369,68 +369,74 @@
         </template>
       </v-data-table>
     </v-container>
-  </div>
+  </NavigationDrawer>
 </template>
 
 <script>
+import NavigationDrawer from "@/layouts/AdminLayouts.vue";
 import { db, storage } from "@/database/firebase.js";
 
 export default {
-  data: () => ({
-    dialogAdd: false,
-    dialogEdit: false,
-    dialogDelete: false,
-    // Table Header
-    headers: [
-      { text: "Id", value: "id", align: "start" },
-      { text: "โปรไฟล์", value: "profile", sortable: false },
-      { text: "รหัสผู้เข้าประกวด", value: "cId" },
-      { text: "ชื่อ", value: "name" },
-      { text: "นามสกุล", value: "lastName", sortable: false },
-      { text: "ชื่อเล่น", value: "nickName", sortable: false },
-      { text: "คณะ", value: "faculty", sortable: false },
-      { text: "ส่วนสูง (ซม.)", value: "height", sortable: false },
-      { text: "น้ำหนัก (กก.)", value: "weight", sortable: false },
-      { text: "แก้ไข / ลบ", value: "actions", sortable: false },
-      //   { text: "Delete", value: "delete", sortable: false },
-    ],
-    // getData
-    freshy: {
-      profile: "",
-      cId: "FB",
-      name: "",
-      lastName: "",
-      nickName: "",
-      faculty: "",
-      height: "",
-      weight: "",
-    },
-    // UpdateData
-    dataFreshy: {
-      profile: "",
-      cId: "",
-      name: "",
-      lastName: "",
-      nickName: "",
-      faculty: "",
-      height: "",
-      weight: "",
-      id: "",
-    },
-    // image
-    uploadValue: 0,
-    picture: null,
-    imageData: null,
-    imageName: "",
+  components: {
+    NavigationDrawer,
+  },
+  data() {
+    return {
+      dialogAdd: false,
+      dialogEdit: false,
+      dialogDelete: false,
+      // Table Header
+      headers: [
+        { text: "Id", value: "id", align: "start" },
+        { text: "รหัสเฟรชชี่", value: "cId" },
+        { text: "โปรไฟล์", value: "profile", sortable: false },
+        { text: "ชื่อ", value: "name" },
+        { text: "นามสกุล", value: "lastName", sortable: false },
+        { text: "ชื่อเล่น", value: "nickName", sortable: false },
+        { text: "คณะ", value: "faculty", sortable: false },
+        { text: "ส่วนสูง (ซม.)", value: "height", sortable: false },
+        { text: "น้ำหนัก (กก.)", value: "weight", sortable: false },
+        { text: "แก้ไข / ลบ", value: "actions", sortable: false },
+        //   { text: "Delete", value: "delete", sortable: false },
+      ],
+      // getData
+      freshy: {
+        cId: "FB",
+        profile: "",
+        name: "",
+        lastName: "",
+        nickName: "",
+        faculty: "",
+        height: "",
+        weight: "",
+      },
+      // UpdateData
+      dataFreshy: {
+        cId: "",
+        profile: "",
+        name: "",
+        lastName: "",
+        nickName: "",
+        faculty: "",
+        height: "",
+        weight: "",
+        id: "",
+      },
+      // image
+      uploadValue: 0,
+      picture: null,
+      imageData: null,
+      imageName: "",
 
-    // Reference form Firestore("url collecction")
-    ref: db.collection("/rmufreshyboyandgirl/2019/freshyboy"),
-    freshyLists: [],
+      // Reference form Firestore("url collecction")
+      ref: db.collection("/rmufreshyboyandgirl/2019/freshyboy"),
+      freshyLists: [],
 
-    // Message
-    messageUpdate: "",
-    messageSuccess: "",
-  }),
+      // Message
+      messageUpdate: "",
+      messageSuccess: "",
+    };
+  },
 
   created() {
     // GetData
@@ -440,8 +446,8 @@ export default {
         if (doc.exists) {
           this.freshyLists.push({
             id: doc.id,
-            profile: doc.data().profile,
             cId: doc.data().cId,
+            profile: doc.data().profile,
             name: doc.data().name,
             lastName: doc.data().lastName,
             nickName: doc.data().nickName,
@@ -460,7 +466,7 @@ export default {
       //  upload image start here
       this.picture = null;
       const storageRef = storage
-        .ref(`profile/${this.imageName}`)
+        .ref(`freshyboy/${this.imageName}`)
         .put(this.imageData);
       storageRef.on(
         `state_changed`,
@@ -482,8 +488,8 @@ export default {
                 this.messageSuccess = "เพิ่มข้อมูลสำเร็จ";
               })
               .then(() => {
-                this.freshy.profile = "";
                 this.freshy.cId = "";
+                this.freshy.profile = "";
                 this.freshy.name = "";
                 this.freshy.lastName = "";
                 this.freshy.nickName = "";
@@ -500,8 +506,8 @@ export default {
 
     // getData for Update
     getData(
-      profile,
       cId,
+      profile,
       name,
       lastName,
       nickName,
@@ -510,8 +516,8 @@ export default {
       weight,
       id
     ) {
-      this.dataFreshy.profile = profile;
       this.dataFreshy.cId = cId;
+      this.dataFreshy.profile = profile;
       this.dataFreshy.name = name;
       this.dataFreshy.lastName = lastName;
       this.dataFreshy.nickName = nickName;
@@ -527,8 +533,8 @@ export default {
       this.ref
         .doc(this.dataFreshy.id)
         .update({
-          profile: this.dataFreshy.profile,
           cId: this.dataFreshy.cId,
+          profile: this.dataFreshy.profile,
           name: this.dataFreshy.name,
           lastName: this.dataFreshy.lastName,
           nickName: this.dataFreshy.nickName,
