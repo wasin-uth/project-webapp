@@ -11,7 +11,7 @@
         <!-- Head Bar -->
         <template v-slot:top>
           <v-toolbar flat dark color="gold" rounded="t-sm 0">
-            <v-toolbar-title style="color: black">Freshy Boy</v-toolbar-title>
+            <v-toolbar-title style="color: black">Freshy Girl</v-toolbar-title>
             <v-spacer></v-spacer>
 
             <!-- Dialog Add Data -->
@@ -266,7 +266,7 @@ export default {
       // getData
       freshy: {
         no: 0,
-        cId: "fb",
+        cId: "fg",
         image: "",
       },
       // UpdateData
@@ -283,7 +283,7 @@ export default {
       imageName: "",
 
       // Reference form Firestore("url collecction")
-      ref: db.collection("/rmufreshyboyandgirl/2019/image-vote-fb"),
+      ref: db.collection("/rmufreshyboyandgirl/2019/contributor-fg"),
       freshyLists: [],
 
       // Message
@@ -315,7 +315,7 @@ export default {
       //  upload image start here
       this.picture = null;
       const storageRef = storage
-        .ref(`image-vote-fb/${this.imageName}`)
+        .ref(`contributor-fg/${this.imageName}`)
         .put(this.imageData);
       storageRef.on(
         `state_changed`,

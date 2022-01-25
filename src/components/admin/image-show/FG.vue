@@ -11,7 +11,7 @@
         <!-- Head Bar -->
         <template v-slot:top>
           <v-toolbar flat dark color="gold" rounded="t-sm 0">
-            <v-toolbar-title>Freshy Girl</v-toolbar-title>
+            <v-toolbar-title style="color: black">Freshy Girl</v-toolbar-title>
             <v-spacer></v-spacer>
 
             <!-- Dialog Add Data -->
@@ -35,6 +35,17 @@
                     <v-row dense>
                       <v-col cols="2">
                         <v-text-field
+                          v-model="freshy.no"
+                          type="number"
+                          label="ลำดับ"
+                          required
+                          color="gold"
+                          outlined
+                        ></v-text-field>
+                      </v-col>
+
+                      <v-col cols="2">
+                        <v-text-field
                           v-model="freshy.cId"
                           type="text"
                           label="รหัสเฟรชชี่"
@@ -44,7 +55,7 @@
                         ></v-text-field>
                       </v-col>
 
-                      <v-col cols="10">
+                      <v-col cols="8">
                         <input
                           class="custom-file-input mb-8"
                           type="file"
@@ -89,7 +100,9 @@
         <!-- Profile -->
         <template v-slot:item.image="{ item }">
           <v-avatar
-            size="40"
+            class="my-1"
+            width="40"
+            height="80"
             rounded="lg"
             style="border: 2px solid"
             color="gold"
@@ -111,7 +124,7 @@
                 elevation="2"
                 v-bind="attrs"
                 v-on="on"
-                @click="getData(item.cId, item.image, item.id)"
+                @click="getData(item.no, item.cId, item.image, item.id)"
               >
                 <v-icon color="black">mdi-pencil</v-icon>
               </v-btn>
@@ -120,6 +133,17 @@
               <v-container>
                 <form @submit.prevent="update">
                   <v-row dense>
+                    <v-col cols="2">
+                      <v-text-field
+                        v-model="dataFreshy.no"
+                        type="text"
+                        label="ลำดับ"
+                        required
+                        color="gold"
+                        outlined
+                      ></v-text-field>
+                    </v-col>
+
                     <v-col cols="2">
                       <v-text-field
                         v-model="dataFreshy.cId"
@@ -131,7 +155,7 @@
                       ></v-text-field>
                     </v-col>
 
-                    <v-col cols="10">
+                    <v-col cols="8">
                       <v-text-field
                         v-model="dataFreshy.image"
                         placeholder="Image"
@@ -234,17 +258,20 @@ export default {
       dialogDelete: false,
       // Table Header
       headers: [
-        { text: "รหัสเฟรชชี่", value: "cId", align: "start" },
+        { text: "ลำดับ", value: "no", align: "start" },
         { text: "รูปภาพ", value: "image", sortable: false },
+        { text: "รหัสเฟรชชี่", value: "cId" },
         { text: "แก้ไข / ลบ", value: "actions", sortable: false },
       ],
       // getData
       freshy: {
-        cId: "FG",
+        no: 0,
+        cId: "fg",
         image: "",
       },
       // UpdateData
       dataFreshy: {
+        no: "",
         cId: "",
         image: "",
         id: "",
@@ -273,6 +300,7 @@ export default {
         if (doc.exists) {
           this.freshyLists.push({
             id: doc.id,
+            no: doc.data().no,
             cId: doc.data().cId,
             image: doc.data().image,
           });
@@ -309,6 +337,7 @@ export default {
                 this.messageSuccess = "เพิ่มข้อมูลสำเร็จ";
               })
               .then(() => {
+                this.freshy.no = "";
                 this.freshy.cId = "";
                 this.freshy.image = "";
               });
@@ -320,7 +349,8 @@ export default {
     },
 
     // getData for Update
-    getData(cId, image, id) {
+    getData(no, cId, image, id) {
+      this.dataFreshy.no = no;
       this.dataFreshy.cId = cId;
       this.dataFreshy.image = image;
       this.dataFreshy.id = id;
@@ -332,6 +362,7 @@ export default {
       this.ref
         .doc(this.dataFreshy.id)
         .update({
+          no: this.dataFreshy.no,
           cId: this.dataFreshy.cId,
           image: this.dataFreshy.image,
         })

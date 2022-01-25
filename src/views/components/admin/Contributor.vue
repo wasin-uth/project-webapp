@@ -15,8 +15,8 @@
 
 <script>
 import AdminLayouts from "@/layouts/AdminLayouts.vue";
-import FreshyBoy from "@/components/admin/image-show/FB.vue";
-import FreshyGirl from "@/components/admin/image-show/FG.vue";
+import FreshyBoy from "@/components/admin/contributor/FB.vue";
+import FreshyGirl from "@/components/admin/contributor/FG.vue";
 
 export default {
   components: {

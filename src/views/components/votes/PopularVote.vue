@@ -19,7 +19,7 @@
                   lg="4"
                   md="6"
                   sm="6"
-                  v-for="(item, i) in 9"
+                  v-for="(item, i) in fbvote"
                   :key="i"
                 >
                   <v-card class="content" dark>
@@ -33,8 +33,8 @@
                     </v-img>
                     <!-- title-content -->
                     <div class="text-name px-2">
-                      <h1 class="id">{{ item.cid }}FB01</h1>
-                      <h5 class="name">{{ item.name }}Name</h5>
+                      <h1 class="id">{{ item.cId }} {{ item.nickName }}</h1>
+                      <h5 class="name">{{ item.name }} {{ item.lastName }}</h5>
                     </div>
                     <!-- header-content -->
                     <div class="list-active">
@@ -63,16 +63,17 @@
                               ></v-img>
                             </v-btn>
                           </template>
+
                           <!-- dialog-content -->
                           <v-card class="pa-10" light>
                             <v-img
                               class="qr_code"
-                              src="https://i.pinimg.com/564x/77/f6/8e/77f68ea939566849943001c3648bf5c3.jpg"
+                              :src="item.qrcode"
                               contain
                               width="300"
                             ></v-img>
                             <div class="text-center pt-5">
-                              <h3>{{ item.name }}</h3>
+                              <h1>น้อง {{ item.nickName }}</h1>
                               <h4>
                                 ร่วมโหวตให้กับผู้เข้าประกวด เพียงสแกน QR Code
                                 บนแอพ
@@ -107,7 +108,7 @@
                   lg="4"
                   md="6"
                   sm="6"
-                  v-for="(item, i) in 9"
+                  v-for="(item, i) in fgvote"
                   :key="i"
                 >
                   <v-card class="content" dark>
@@ -121,8 +122,8 @@
                     </v-img>
                     <!-- title-content -->
                     <div class="text-name px-2">
-                      <h1 class="id">{{ item.cid }}FG01</h1>
-                      <h5 class="name">{{ item.name }}Name</h5>
+                      <h1 class="id">{{ item.cId }} {{ item.nickName }}</h1>
+                      <h5 class="name">{{ item.name }} {{ item.lastName }}</h5>
                     </div>
                     <!-- header-content -->
                     <div class="list-active">
@@ -156,12 +157,12 @@
                           <v-card class="pa-10" light>
                             <v-img
                               class="qr_code"
-                              src="https://i.pinimg.com/564x/77/f6/8e/77f68ea939566849943001c3648bf5c3.jpg"
+                              :src="item.qrcode"
                               contain
                               width="300"
                             ></v-img>
                             <div class="text-center pt-5">
-                              <h1>{{ item.name }}</h1>
+                              <h1>น้อง {{ item.nickName }}</h1>
                               <h4>
                                 ร่วมโหวตให้กับผู้เข้าประกวด เพียงสแกน QR Code
                                 บนแอพ
@@ -194,6 +195,7 @@
 <script>
 import Layouts from "@/layouts/MainLayouts.vue";
 import Bar from "@/components/navigation/BarContents.vue";
+import { db } from "@/database/firebase.js";
 
 export default {
   name: "Home",
@@ -205,16 +207,122 @@ export default {
     return {
       id: 2021,
       dialog: false,
-      dataLists: [
-        {
-          cid: "FB02",
-          name: "Name",
-          profile:
-            "https://scontent.fnak1-1.fna.fbcdn.net/v/t1.6435-9/37627994_1685892651459528_7009516996509302784_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=cdbe9c&_nc_eui2=AeGHUaNxYiZdto8ur7HkdQWeX7TKoM6nwH1ftMqgzqfAfWoxgvkuBlTSIz1tFQj-3xzLXB-M49ryIoItev-hoD1t&_nc_ohc=MZvfYSiyd8cAX_FSoC0&_nc_ht=scontent.fnak1-1.fna&oh=00_AT9saMKGrXiQMLms2Ukr-ntZPIctNSl07DyLL6TqZZyWfA&oe=62078BB9",
-        },
-      ],
       selected: [],
+
+      fbvote: [],
+      freshyBoy: [],
+      fgvote: [],
+      freshyGirl: [],
     };
+  },
+  created() {
+    // Freshy Boy
+    db.collection("/rmufreshyboyandgirl/2019/freshyboy")
+      .get()
+      .then(
+        (querySnapshot) => {
+          let tempDataArray = [];
+          querySnapshot.forEach((doc) => {
+            if (doc.exists) {
+              tempDataArray = [
+                ...tempDataArray,
+                {
+                  id: doc.id,
+                  no: doc.data().no,
+                  profile: doc.data().profile,
+                  cId: doc.data().cId,
+                  name: doc.data().name,
+                  lastName: doc.data().lastName,
+                  nickName: doc.data().nickName,
+                  qrcode: doc.data().qrcode,
+                  fb: db
+                    .collection("/rmufreshyboyandgirl/2019/image-vote-fb")
+                    .get()
+                    .then(
+                      (querySnapshot) => {
+                        let tempDataArray = [];
+                        querySnapshot.forEach((doc) => {
+                          if (doc.id == doc.id) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                id: doc.id,
+                                no: doc.data().no,
+                                image: doc.data().image,
+                              },
+                            ];
+                          }
+                        });
+                        this.freshyBoy = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+                },
+              ];
+            }
+          });
+          this.fbvote = tempDataArray;
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+
+    // Freshy Girl
+    db.collection("/rmufreshyboyandgirl/2019/freshygirl")
+      .get()
+      .then(
+        (querySnapshot) => {
+          let tempDataArray = [];
+          querySnapshot.forEach((doc) => {
+            if (doc.exists) {
+              tempDataArray = [
+                ...tempDataArray,
+                {
+                  id: doc.id,
+                  no: doc.data().no,
+                  profile: doc.data().profile,
+                  cId: doc.data().cId,
+                  name: doc.data().name,
+                  lastName: doc.data().lastName,
+                  nickName: doc.data().nickName,
+                  qrcode: doc.data().qrcode,
+                  fb: db
+                    .collection("/rmufreshyboyandgirl/2019/image-vote-fg")
+                    .get()
+                    .then(
+                      (querySnapshot) => {
+                        let tempDataArray = [];
+                        querySnapshot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                id: doc.id,
+                                no: doc.data().no,
+                                image: doc.data().image,
+                              },
+                            ];
+                          }
+                        });
+                        this.freshyGirl = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+                },
+              ];
+            }
+          });
+          this.fgvote = tempDataArray;
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
   },
 };
 </script>
@@ -243,7 +351,7 @@ $back_color: #000000;
   backdrop-filter: blur(50px);
   transition: 0.4s;
   .shadow-inset {
-    box-shadow: inset 0px -60px 50px -20px $back_color;
+    box-shadow: inset 0px -80px 50px -10px $back_color;
     width: 100%;
     height: 100%;
   }

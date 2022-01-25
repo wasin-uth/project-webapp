@@ -6,12 +6,12 @@
         :items="freshyLists"
         class="elevation-10"
         light
-        :items-per-page="5"
+        :items-per-page="10"
       >
         <!-- Head Bar -->
         <template v-slot:top>
           <v-toolbar flat dark color="gold" rounded="t-sm 0">
-            <v-toolbar-title>Freshy Girl</v-toolbar-title>
+            <v-toolbar-title style="color: black">Freshy Girl</v-toolbar-title>
             <v-spacer></v-spacer>
 
             <!-- Dialog Add Data -->
@@ -35,6 +35,17 @@
                     <v-row dense>
                       <v-col cols="2">
                         <v-text-field
+                          v-model="freshy.no"
+                          type="number"
+                          label="ลำดับ"
+                          required
+                          color="gold"
+                          outlined
+                        ></v-text-field>
+                      </v-col>
+
+                      <v-col cols="2">
+                        <v-text-field
                           v-model="freshy.cId"
                           type="text"
                           label="รหัสเฟรชชี่"
@@ -44,7 +55,7 @@
                         ></v-text-field>
                       </v-col>
 
-                      <v-col cols="10">
+                      <v-col cols="8">
                         <input
                           class="custom-file-input mb-8"
                           type="file"
@@ -97,7 +108,7 @@
                         ></v-text-field>
                       </v-col>
 
-                      <v-col cols="12" md="6">
+                      <v-col cols="12" md="2">
                         <v-text-field
                           v-model="freshy.height"
                           type="text"
@@ -108,12 +119,32 @@
                         ></v-text-field>
                       </v-col>
 
-                      <v-col cols="12" md="6">
+                      <v-col cols="12" md="2">
                         <v-text-field
                           v-model="freshy.weight"
                           type="text"
                           label="น้ำหนัก"
                           required
+                          color="gold"
+                          outlined
+                        ></v-text-field>
+                      </v-col>
+
+                      <v-col cols="12" md="8">
+                        <v-text-field
+                          v-model="freshy.qrcode"
+                          type="text"
+                          label="ทรูมันนี่วอลเล็ท"
+                          color="gold"
+                          outlined
+                        ></v-text-field>
+                      </v-col>
+
+                      <v-col cols="12" md="2">
+                        <v-text-field
+                          v-model="freshy.status"
+                          type="text"
+                          label="สถานะ"
                           color="gold"
                           outlined
                         ></v-text-field>
@@ -164,6 +195,16 @@
           </v-avatar>
         </template>
 
+        <!-- QR Code -->
+        <template v-slot:item.qrcode="{ item }">
+          <v-avatar
+            size="40"
+            rounded="0"
+          >
+            <v-img :src="item.qrcode"></v-img>
+          </v-avatar>
+        </template>
+
         <!-- ================================================================ -->
         <!-- Edit/Update -->
         <template v-slot:item.actions="{ item }">
@@ -179,6 +220,7 @@
                 v-on="on"
                 @click="
                   getData(
+                    item.no,
                     item.cId,
                     item.profile,
                     item.name,
@@ -187,6 +229,8 @@
                     item.faculty,
                     item.height,
                     item.weight,
+                    item.qrcode,
+                    item.status,
                     item.id
                   )
                 "
@@ -200,6 +244,17 @@
                   <v-row dense>
                     <v-col cols="2">
                       <v-text-field
+                        v-model="dataFreshy.no"
+                        type="text"
+                        label="ลำดับ"
+                        required
+                        color="gold"
+                        outlined
+                      ></v-text-field>
+                    </v-col>
+
+                    <v-col cols="2">
+                      <v-text-field
                         v-model="dataFreshy.cId"
                         type="text"
                         label="รหัสเฟรชชี่"
@@ -209,7 +264,7 @@
                       ></v-text-field>
                     </v-col>
 
-                    <v-col cols="10">
+                    <v-col cols="8">
                       <v-text-field
                         v-model="dataFreshy.profile"
                         placeholder="Image"
@@ -265,7 +320,7 @@
                       ></v-text-field>
                     </v-col>
 
-                    <v-col cols="12" md="6">
+                    <v-col cols="12" md="2">
                       <v-text-field
                         v-model="dataFreshy.height"
                         type="text"
@@ -276,12 +331,32 @@
                       ></v-text-field>
                     </v-col>
 
-                    <v-col cols="12" md="6">
+                    <v-col cols="12" md="2">
                       <v-text-field
                         v-model="dataFreshy.weight"
                         type="text"
                         label="น้ำหนัก"
                         required
+                        color="gold"
+                        outlined
+                      ></v-text-field>
+                    </v-col>
+
+                    <v-col cols="12" md="8">
+                      <v-text-field
+                        v-model="dataFreshy.qrcode"
+                        type="text"
+                        label="ทรูมันนี่วอลเล็ท"
+                        color="gold"
+                        outlined
+                      ></v-text-field>
+                    </v-col>
+
+                    <v-col cols="12" md="2">
+                      <v-text-field
+                        v-model="dataFreshy.status"
+                        type="text"
+                        label="สถานะ"
                         color="gold"
                         outlined
                       ></v-text-field>
@@ -387,7 +462,7 @@ export default {
       dialogDelete: false,
       // Table Header
       headers: [
-        { text: "Id", value: "id", align: "start" },
+        { text: "ลำดับ", value: "no", align: "start" },
         { text: "รหัสเฟรชชี่", value: "cId" },
         { text: "โปรไฟล์", value: "profile", sortable: false },
         { text: "ชื่อ", value: "name" },
@@ -396,22 +471,27 @@ export default {
         { text: "คณะ", value: "faculty", sortable: false },
         { text: "ส่วนสูง (ซม.)", value: "height", sortable: false },
         { text: "น้ำหนัก (กก.)", value: "weight", sortable: false },
+        { text: "สถานะ", value: "status", sortable: false },
+        { text: "ทรูมันนี่วอลเล็ท", value: "qrcode", sortable: false },
         { text: "แก้ไข / ลบ", value: "actions", sortable: false },
-        //   { text: "Delete", value: "delete", sortable: false },
       ],
       // getData
       freshy: {
-        cId: "FG",
+        no: 0,
+        cId: "fg",
         profile: "",
         name: "",
         lastName: "",
         nickName: "",
         faculty: "",
-        height: "",
-        weight: "",
+        height: 0,
+        weight: 0,
+        status: "",
+        qrcode: "",
       },
       // UpdateData
       dataFreshy: {
+        no: "",
         cId: "",
         profile: "",
         name: "",
@@ -420,6 +500,8 @@ export default {
         faculty: "",
         height: "",
         weight: "",
+        status: "",
+        qrcode: "",
         id: "",
       },
       // image
@@ -446,6 +528,7 @@ export default {
         if (doc.exists) {
           this.freshyLists.push({
             id: doc.id,
+            no: doc.data().no,
             cId: doc.data().cId,
             profile: doc.data().profile,
             name: doc.data().name,
@@ -454,6 +537,8 @@ export default {
             faculty: doc.data().faculty,
             height: doc.data().height,
             weight: doc.data().weight,
+            status: doc.data().status,
+            qrcode: doc.data().qrcode,
           });
         }
       });
@@ -466,7 +551,7 @@ export default {
       //  upload image start here
       this.picture = null;
       const storageRef = storage
-        .ref(`freshygirl/${this.imageName}`)
+        .ref(`freshygirl2019/${this.imageName}`)
         .put(this.imageData);
       storageRef.on(
         `state_changed`,
@@ -488,6 +573,7 @@ export default {
                 this.messageSuccess = "เพิ่มข้อมูลสำเร็จ";
               })
               .then(() => {
+                this.freshy.no = "";
                 this.freshy.cId = "";
                 this.freshy.profile = "";
                 this.freshy.name = "";
@@ -496,6 +582,8 @@ export default {
                 this.freshy.faculty = "";
                 this.freshy.height = "";
                 this.freshy.weight = "";
+                this.freshy.status = "";
+                this.freshy.qrcode = "";
               });
           });
         }
@@ -506,6 +594,7 @@ export default {
 
     // getData for Update
     getData(
+      no,
       cId,
       profile,
       name,
@@ -514,8 +603,11 @@ export default {
       faculty,
       height,
       weight,
+      status,
+      qrcode,
       id
     ) {
+      this.dataFreshy.no = no;
       this.dataFreshy.cId = cId;
       this.dataFreshy.profile = profile;
       this.dataFreshy.name = name;
@@ -524,6 +616,8 @@ export default {
       this.dataFreshy.faculty = faculty;
       this.dataFreshy.height = height;
       this.dataFreshy.weight = weight;
+      this.dataFreshy.status = status;
+      this.dataFreshy.qrcode = qrcode;
       this.dataFreshy.id = id;
     },
 
@@ -533,6 +627,7 @@ export default {
       this.ref
         .doc(this.dataFreshy.id)
         .update({
+          no: this.dataFreshy.no,
           cId: this.dataFreshy.cId,
           profile: this.dataFreshy.profile,
           name: this.dataFreshy.name,
@@ -541,6 +636,8 @@ export default {
           faculty: this.dataFreshy.faculty,
           height: this.dataFreshy.height,
           weight: this.dataFreshy.weight,
+          status: this.dataFreshy.status,
+          qrcode: this.dataFreshy.qrcode,
         })
         .then(() => {
           this.messageUpdate = "อัพเดทสำเร็จ!";

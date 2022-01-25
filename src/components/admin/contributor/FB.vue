@@ -133,16 +133,16 @@
               <v-container>
                 <form @submit.prevent="update">
                   <v-row dense>
-                    <v-col cols="2">
-                      <v-text-field
-                        v-model="dataFreshy.no"
-                        type="text"
-                        label="ลำดับ"
-                        required
-                        color="gold"
-                        outlined
-                      ></v-text-field>
-                    </v-col>
+                      <v-col cols="2">
+                        <v-text-field
+                          v-model="dataFreshy.no"
+                          type="text"
+                          label="ลำดับ"
+                          required
+                          color="gold"
+                          outlined
+                        ></v-text-field>
+                      </v-col>
 
                     <v-col cols="2">
                       <v-text-field
@@ -283,10 +283,10 @@ export default {
       imageName: "",
 
       // Reference form Firestore("url collecction")
-      ref: db.collection("/rmufreshyboyandgirl/2019/image-vote-fb"),
+      ref: db.collection("/rmufreshyboyandgirl/2019/contributor-fb"),
       freshyLists: [],
 
-      // Message
+      // Messagea
       messageUpdate: "",
       messageSuccess: "",
     };
@@ -315,7 +315,7 @@ export default {
       //  upload image start here
       this.picture = null;
       const storageRef = storage
-        .ref(`image-vote-fb/${this.imageName}`)
+        .ref(`contributor-fb/${this.imageName}`)
         .put(this.imageData);
       storageRef.on(
         `state_changed`,

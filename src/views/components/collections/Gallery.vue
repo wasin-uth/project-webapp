@@ -66,29 +66,25 @@ export default {
   data() {
     return {
       collections: [
-        {
-          id: 2021,
-          src: "https://i.pinimg.com/564x/40/c0/83/40c083a696d18e7dc5096585598521e0.jpg",
-        },
-        {
-          id: 2020,
-          src: "https://i.pinimg.com/564x/05/17/77/051777b5d21eb07ecda0162b61db65c7.jpg",
-        },
+        // {
+        //   id: 2021,
+        //   src: "https://i.pinimg.com/564x/40/c0/83/40c083a696d18e7dc5096585598521e0.jpg",
+        // },
+        // {
+        //   id: 2020,
+        //   src: "https://i.pinimg.com/564x/05/17/77/051777b5d21eb07ecda0162b61db65c7.jpg",
+        // },
         {
           id: 2019,
-          src: "https://i.pinimg.com/564x/59/77/b5/5977b52f3490f0a9861e24283b5f54c5.jpg",
+          src: "https://firebasestorage.googleapis.com/v0/b/webapp-dd881.appspot.com/o/cover-collections%2F2019.jpg?alt=media&token=c52e8678-e864-4f8d-b1ee-a3706cc16404",
         },
         {
           id: 2018,
-          src: "https://i.pinimg.com/564x/49/79/60/49796022a1c46048817f09866ba43375.jpg",
+          src: "https://firebasestorage.googleapis.com/v0/b/webapp-dd881.appspot.com/o/cover-collections%2F2018.jpg?alt=media&token=e08071f6-dcce-471a-b4b4-26649913f2bf",
         },
         {
           id: 2017,
-          src: "https://i.pinimg.com/564x/23/75/82/2375826232a4669779e43eab189e52e1.jpg",
-        },
-        {
-          id: 2016,
-          src: "https://i.pinimg.com/564x/d1/17/86/d11786636e1546d6dd32f619c0cf9199.jpg",
+          src: "https://firebasestorage.googleapis.com/v0/b/webapp-dd881.appspot.com/o/cover-collections%2F2017.jpg?alt=media&token=d5d8a3ff-4347-43e5-9f37-2d61fb409592",
         },
       ],
     };

@@ -14,7 +14,7 @@
                 md="6"
                 sm="6"
                 v-for="(item, i) in freshyBoy"
-                :key="i.id"
+                :key="i.Id"
               >
                 <v-card class="contestants" dark max-width="200" rounded="lg">
                   <v-img
@@ -75,7 +75,7 @@
                 md="6"
                 sm="6"
                 v-for="(item, i) in freshyGirl"
-                :key="i.id"
+                :key="i"
               >
                 <v-card class="contestants" dark max-width="200" rounded="lg">
                   <v-img
@@ -144,23 +144,24 @@ export default {
   data() {
     return {
       dialog: false,
-      id: 2019,
+      id: this.$route.params.id,
       freshyBoy: [],
       freshyGirl: [],
     };
   },
   created() {
-    // getData form collection FreshyBoy
+    // getData
     db.collection("/rmufreshyboyandgirl/")
       .get()
       .then(
         (querySnapshot) => {
           let tempDataArray = [];
-          querySnapshot.forEach(() => {
+          querySnapshot.forEach((doc) => {
             if (this.$route.params.id == 2017) {
               tempDataArray = [
                 ...tempDataArray,
                 {
+                  id: doc.id,
                   FB: db
                     .collection("/rmufreshyboyandgirl/2017/freshyboy")
                     .get()
@@ -173,7 +174,6 @@ export default {
                               ...tempDataArray,
                               {
                                 Id: doc.id,
-                                no: doc.data().no,
                                 profile: doc.data().profile,
                                 cId: doc.data().cId,
                                 nickName: doc.data().nickName,
@@ -378,6 +378,68 @@ export default {
                 {
                   FG: db
                     .collection("/rmufreshyboyandgirl/2020/freshygirl")
+                    .get()
+                    .then(
+                      (querySnapshot) => {
+                        let tempDataArray = [];
+                        querySnapshot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                Id: doc.id,
+                                no: doc.data().no,
+                                profile: doc.data().profile,
+                                cId: doc.data().cId,
+                                nickName: doc.data().nickName,
+                                faculty: doc.data().faculty,
+                              },
+                            ];
+                          }
+                        });
+                        this.freshyGirl = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+                },
+              ];
+            } else if (this.$route.params.id == 2021) {
+              tempDataArray = [
+                ...tempDataArray,
+                {
+                  name: db
+                    .collection("/rmufreshyboyandgirl/2021/freshyboy")
+                    .get()
+                    .then(
+                      (querySnapshot) => {
+                        let tempDataArray = [];
+                        querySnapshot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                Id: doc.id,
+                                no: doc.data().no,
+                                profile: doc.data().profile,
+                                cId: doc.data().cId,
+                                nickName: doc.data().nickName,
+                                faculty: doc.data().faculty,
+                              },
+                            ];
+                          }
+                        });
+                        this.freshyBoy = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+                },
+                {
+                  FG: db
+                    .collection("/rmufreshyboyandgirl/2021/freshygirl")
                     .get()
                     .then(
                       (querySnapshot) => {

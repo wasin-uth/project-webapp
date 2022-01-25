@@ -15,11 +15,13 @@
       floating
     >
       <v-app-bar class="logo" elevation="2" dark>
-        <v-img
-          src="@/assets/logo/logo_name.png"
-          contain
-          max-width="100"
-        ></v-img>
+        <router-link to="/">
+          <v-img
+            src="@/assets/logo/logo_name.png"
+            contain
+            max-width="100"
+          ></v-img>
+        </router-link>
       </v-app-bar>
       <v-list dense>
         <v-list-item-group active-class="gold">
@@ -44,31 +46,31 @@ export default {
       drawer: false,
       items: [
         {
-          name: "แอดมิน",
+          name: "Admin",
           route: "/admins",
         },
         {
-          name: "ข้อมูลผู้เข้าประกวดชาย",
+          name: "ข้อมูล Freshy Boy",
           route: "/admin/freshy-boy",
         },
         {
-          name: "ข้อมูลผู้เข้าประกวดหญิง",
+          name: "ข้อมูล Freshy Girl",
           route: "/admin/freshy-girl",
         },
         {
-          name: "รูปแสดงหน้าเว็บ",
-          route: "/admin/image-show",
-        },
-        {
-          name: "รูปโหวต",
-          route: "/admin/image-vote",
-        },
-        {
-          name: "คอลเลคชั่น",
+          name: "Collections",
           route: "/admin/upload-collection",
         },
         {
-          name: "หอเกียรติยศ",
+          name: "Head Shot",
+          route: "/admin/image-vote",
+        },
+        {
+          name: "Contributor",
+          route: "/admin/contributor",
+        },
+        {
+          name: "Hall Of Fame",
           route: "/admin/upload-hall-of-fame",
         },
       ],

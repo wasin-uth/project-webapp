@@ -47,7 +47,7 @@
               v-for="(year, i) in contestants"
               :key="i"
               link
-              :to="`/contestants/${year.id}`"
+              :href="`/contestants/${year.id}`"
             >
               <v-list-item-title class="" v-text="year.id"></v-list-item-title>
             </v-list-item>

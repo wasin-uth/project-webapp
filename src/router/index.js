@@ -15,8 +15,7 @@ const routes = [
     component: () => import("../views/About.vue"),
   },
   {
-    name: "404 is not found",
-    path: "/error",
+    path: "/found",
     component: () => import("../views/NotFound.vue"),
   },
 
@@ -36,16 +35,16 @@ const routes = [
     component: () => import("../views/components/admin/DataTableFG.vue"),
   },
   {
-    path: "/admin/image-show",
-    component: () => import("../views/components/admin/imgShow.vue"),
+    path: "/admin/upload-collection",
+    component: () => import("../views/components/admin/addCollections.vue"),
   },
   {
     path: "/admin/image-vote",
     component: () => import("../views/components/admin/imgVote.vue"),
   },
   {
-    path: "/admin/upload-collection",
-    component: () => import("../views/components/admin/addCollections.vue"),
+    path: "/admin/contributor",
+    component: () => import("../views/components/admin/Contributor.vue"),
   },
   {
     path: "/admin/upload-hall-of-fame",
@@ -55,12 +54,12 @@ const routes = [
   // =================================================
   // Collections Gallery
   {
-    name: "Gallery",
+    name: "Collections",
     path: "/gallery",
     component: () => import("../views/components/collections/Gallery.vue"),
   },
   {
-    name: "Collections",
+    name: "Collection",
     path: "/collections/:id",
     component: () => import("../views/components/collections/Collections.vue"),
   },
@@ -68,30 +67,13 @@ const routes = [
   // =================================================
   // Contestants
   {
-    name: "2017",
-    path: "/contestants/2017",
-    component: () => import("../views/components/contestants/2017.vue"),
+    name: "Contestants",
+    path: "/contestants/:id",
+    component: () => import("../views/components/contestants/Contestants.vue"),
   },
   {
-    name: "2018",
-    path: "/contestants/2018",
-    component: () => import("../views/components/contestants/2018.vue"),
-  },
-  {
-    name: "2019",
-    path: "/contestants/2019",
-    component: () => import("../views/components/contestants/2019.vue"),
-  },
-  {
-    name: "2020",
-    path: "/contestants/2020",
-    component: () => import("../views/components/contestants/2020.vue"),
-  },
-  {
-    name: "Contestants Details",
-    path: "/contestants/:id/details-:cid",
-    component: () =>
-      import("../views/components/contestants/ContestantsDetails.vue"),
+    path: "/contestants/:id/details-:cId=:Id",
+    component: () => import("../views/components/contestants/ContDetails.vue"),
   },
 
   // =================================================
@@ -119,6 +101,7 @@ const routes = [
   },
   {
     name: "Popular Vote",
+    id: "v",
     path: "/vote/popular-vote",
     component: () => import("../views/components/votes/PopularVote.vue"),
   },
