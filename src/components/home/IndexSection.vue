@@ -66,7 +66,11 @@
           <!-- Logo -->
           <v-col cols="6" lg="8" md="8">
             <section class="logo">
-              <v-img contain src="@/assets/logo/logo_freshy.png" max-width="600"></v-img>
+              <v-img
+                contain
+                src="@/assets/logo/logo_freshy.png"
+                max-width="600"
+              ></v-img>
             </section>
           </v-col>
         </v-row>
@@ -107,7 +111,7 @@ export default {
             : (this.active_slide + 1) % (this.freshyGirl.length + 1);
       }, 4000);
     }
-
+    
     // Get Data
     // Freshy Boy
     db.collection("/rmufreshyboyandgirl/2019/image-show-fb")

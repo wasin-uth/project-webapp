@@ -13,8 +13,8 @@
                 lg="4"
                 md="6"
                 sm="6"
-                v-for="(item, i) in freshyBoy"
-                :key="i.Id"
+                v-for="item in freshyBoy"
+                :key="item.no"
               >
                 <v-card class="contestants" dark max-width="200" rounded="lg">
                   <v-img
@@ -27,9 +27,7 @@
                       <!-- Text -->
                       <v-card-subtitle class="pa-2">
                         <h3>
-                          <b style="text-transform: uppercase">{{
-                            item.cId
-                          }}</b>
+                          <b style="text-transform: uppercase">{{ item.no }}</b>
                           : น้อง {{ item.nickName }}
                           <br />
                           คณะ {{ item.faculty }}
@@ -145,12 +143,14 @@ export default {
     return {
       dialog: false,
       id: this.$route.params.id,
+
       freshyBoy: [],
       freshyGirl: [],
     };
   },
   created() {
     // getData
+
     db.collection("/rmufreshyboyandgirl/")
       .get()
       .then(
@@ -162,7 +162,7 @@ export default {
                 ...tempDataArray,
                 {
                   id: doc.id,
-                  FB: db
+                  fb: db
                     .collection("/rmufreshyboyandgirl/2017/freshyboy")
                     .get()
                     .then(
@@ -174,6 +174,7 @@ export default {
                               ...tempDataArray,
                               {
                                 Id: doc.id,
+                                no: doc.data().no,
                                 profile: doc.data().profile,
                                 cId: doc.data().cId,
                                 nickName: doc.data().nickName,
@@ -190,7 +191,7 @@ export default {
                     ),
                 },
                 {
-                  FG: db
+                  fg: db
                     .collection("/rmufreshyboyandgirl/2017/freshygirl")
                     .get()
                     .then(
@@ -223,7 +224,7 @@ export default {
               tempDataArray = [
                 ...tempDataArray,
                 {
-                  name: db
+                  fb: db
                     .collection("/rmufreshyboyandgirl/2018/freshyboy")
                     .get()
                     .then(
@@ -252,7 +253,7 @@ export default {
                     ),
                 },
                 {
-                  FG: db
+                  fg: db
                     .collection("/rmufreshyboyandgirl/2018/freshygirl")
                     .get()
                     .then(
@@ -285,7 +286,7 @@ export default {
               tempDataArray = [
                 ...tempDataArray,
                 {
-                  name: db
+                  fb: db
                     .collection("/rmufreshyboyandgirl/2019/freshyboy")
                     .get()
                     .then(
@@ -314,7 +315,7 @@ export default {
                     ),
                 },
                 {
-                  FG: db
+                  fg: db
                     .collection("/rmufreshyboyandgirl/2019/freshygirl")
                     .get()
                     .then(
@@ -347,7 +348,7 @@ export default {
               tempDataArray = [
                 ...tempDataArray,
                 {
-                  name: db
+                  fb: db
                     .collection("/rmufreshyboyandgirl/2020/freshyboy")
                     .get()
                     .then(
@@ -376,7 +377,7 @@ export default {
                     ),
                 },
                 {
-                  FG: db
+                  fg: db
                     .collection("/rmufreshyboyandgirl/2020/freshygirl")
                     .get()
                     .then(
@@ -409,7 +410,7 @@ export default {
               tempDataArray = [
                 ...tempDataArray,
                 {
-                  name: db
+                  fb: db
                     .collection("/rmufreshyboyandgirl/2021/freshyboy")
                     .get()
                     .then(
@@ -438,7 +439,7 @@ export default {
                     ),
                 },
                 {
-                  FG: db
+                  fg: db
                     .collection("/rmufreshyboyandgirl/2021/freshygirl")
                     .get()
                     .then(
@@ -467,7 +468,7 @@ export default {
                     ),
                 },
               ];
-            }
+            } 
           });
         },
         (err) => {

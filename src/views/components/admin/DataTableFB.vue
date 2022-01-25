@@ -33,7 +33,7 @@
                 <v-container>
                   <form @submit.prevent="addFreshy">
                     <v-row dense>
-                      <v-col cols="2">
+                      <v-col cols="6" md="2">
                         <v-text-field
                           v-model="freshy.no"
                           type="number"
@@ -44,7 +44,7 @@
                         ></v-text-field>
                       </v-col>
 
-                      <v-col cols="2">
+                      <v-col cols="6" md="2">
                         <v-text-field
                           v-model="freshy.cId"
                           type="text"
@@ -55,7 +55,7 @@
                         ></v-text-field>
                       </v-col>
 
-                      <v-col cols="8">
+                      <v-col cols="12" md="8">
                         <input
                           class="custom-file-input mb-8"
                           type="file"
@@ -64,7 +64,7 @@
                         />
                       </v-col>
 
-                      <v-col cols="12" md="6">
+                      <v-col cols="6">
                         <v-text-field
                           v-model="freshy.name"
                           type="text"
@@ -75,7 +75,7 @@
                         ></v-text-field>
                       </v-col>
 
-                      <v-col cols="12" md="6">
+                      <v-col cols="6">
                         <v-text-field
                           v-model="freshy.lastName"
                           type="text"
@@ -86,7 +86,7 @@
                         ></v-text-field>
                       </v-col>
 
-                      <v-col cols="12" md="6">
+                      <v-col cols="4">
                         <v-text-field
                           v-model="freshy.nickName"
                           type="text"
@@ -97,7 +97,7 @@
                         ></v-text-field>
                       </v-col>
 
-                      <v-col cols="12" md="6">
+                      <v-col cols="8">
                         <v-text-field
                           v-model="freshy.faculty"
                           type="text"
@@ -132,19 +132,19 @@
 
                       <v-col cols="12" md="8">
                         <v-text-field
-                          v-model="freshy.qrcode"
+                          v-model="freshy.status"
                           type="text"
-                          label="ทรูมันนี่วอลเล็ท"
+                          label="สถานะ"
                           color="gold"
                           outlined
                         ></v-text-field>
                       </v-col>
 
-                      <v-col cols="12" md="2">
+                      <v-col cols="12">
                         <v-text-field
-                          v-model="freshy.status"
+                          v-model="freshy.qrcode"
                           type="text"
-                          label="สถานะ"
+                          label="ทรูมันนี่วอลเล็ท"
                           color="gold"
                           outlined
                         ></v-text-field>
@@ -229,6 +229,7 @@
                     item.faculty,
                     item.height,
                     item.weight,
+                    item.status,
                     item.qrcode,
                     item.id
                   )
@@ -241,7 +242,7 @@
               <v-container>
                 <form @submit.prevent="update">
                   <v-row dense>
-                    <v-col cols="2">
+                    <v-col cols="6" md="2">
                       <v-text-field
                         v-model="dataFreshy.no"
                         type="text"
@@ -252,7 +253,7 @@
                       ></v-text-field>
                     </v-col>
 
-                    <v-col cols="2">
+                    <v-col cols="6" md="2">
                       <v-text-field
                         v-model="dataFreshy.cId"
                         type="text"
@@ -263,7 +264,7 @@
                       ></v-text-field>
                     </v-col>
 
-                    <v-col cols="8">
+                    <v-col cols="12" md="8">
                       <v-text-field
                         v-model="dataFreshy.profile"
                         placeholder="Image"
@@ -275,7 +276,7 @@
                       ></v-text-field>
                     </v-col>
 
-                    <v-col cols="12" md="6">
+                    <v-col cols="6">
                       <v-text-field
                         v-model="dataFreshy.name"
                         type="text"
@@ -286,7 +287,7 @@
                       ></v-text-field>
                     </v-col>
 
-                    <v-col cols="12" md="6">
+                    <v-col cols="6">
                       <v-text-field
                         v-model="dataFreshy.lastName"
                         type="text"
@@ -297,7 +298,7 @@
                       ></v-text-field>
                     </v-col>
 
-                    <v-col cols="12" md="6">
+                    <v-col cols="6" md="4">
                       <v-text-field
                         v-model="dataFreshy.nickName"
                         type="text"
@@ -308,7 +309,7 @@
                       ></v-text-field>
                     </v-col>
 
-                    <v-col cols="12" md="6">
+                    <v-col cols="6" md="8">
                       <v-text-field
                         v-model="dataFreshy.faculty"
                         type="text"
@@ -319,7 +320,7 @@
                       ></v-text-field>
                     </v-col>
 
-                    <v-col cols="12" md="2">
+                    <v-col cols="6" md="2">
                       <v-text-field
                         v-model="dataFreshy.height"
                         type="text"
@@ -330,7 +331,7 @@
                       ></v-text-field>
                     </v-col>
 
-                    <v-col cols="12" md="2">
+                    <v-col cols="6" md="2">
                       <v-text-field
                         v-model="dataFreshy.weight"
                         type="text"
@@ -343,19 +344,19 @@
 
                     <v-col cols="12" md="8">
                       <v-text-field
-                        v-model="dataFreshy.qrcode"
+                        v-model="dataFreshy.status"
                         type="text"
-                        label="ทรูมันนี่วอลเล็ท"
+                        label="สถานะ"
                         color="gold"
                         outlined
                       ></v-text-field>
                     </v-col>
 
-                    <v-col cols="12" md="2">
+                    <v-col cols="12">
                       <v-text-field
-                        v-model="dataFreshy.status"
+                        v-model="dataFreshy.qrcode"
                         type="text"
-                        label="สถานะ"
+                        label="ทรูมันนี่วอลเล็ท"
                         color="gold"
                         outlined
                       ></v-text-field>
