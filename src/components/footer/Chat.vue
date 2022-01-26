@@ -4,6 +4,7 @@
       min-width="300"
       class="menu"
       top
+      dark
       v-model="menu"
       :close-on-click="false"
       :close-on-content-click="false"
@@ -29,16 +30,28 @@
           </v-btn>
         </v-fab-transition>
       </template>
-      <v-card class="chat_box" dark>
-        <v-system-bar class="bar py-4 px-2" dark>
-          <span>Chat box</span>
-          <v-spacer></v-spacer>
-          <v-btn icon small plain>
-            <v-icon small>mdi-logout</v-icon>
+
+      <!-- Head -->
+      <v-card class="chat_box" light>
+        <v-system-bar class="bar py-4" light>
+          <input
+            placeholder="Enter your name (ตั้งชื่อ..แล้วกดปุ่มล็อก)"
+            type="text"
+            v-model="name"
+            :disabled="check_name"
+          />
+          <v-btn
+            icon
+            elevation="0"
+            dark
+            @click="check_name = name != '' ? true : false"
+          >
+            <v-icon color="gold">mdi-lock</v-icon>
           </v-btn>
-          <v-btn icon small plain>
+          <v-spacer></v-spacer>
+          <v-btn icon small class="mr-2">
             <v-icon
-              small
+              color="gold"
               @click="
                 fab = !fab;
                 menu = false;
@@ -49,95 +62,127 @@
           </v-btn>
         </v-system-bar>
 
-        <main>
-          <div>
+        <!-- Contents -->
+        <v-card
+          class="contents"
+          elevation="0"
+          width="300"
+          height="400"
+          light
+          color="light"
+          rounded="0"
+        >
+          <v-card-text style="font-size: 18px; line-height: 1.6">
             <v-card
-              class="contents"
-              elevation="0"
-              width="300"
-              height="400"
+              class="pa-2"
               light
+              width="100%"
+              height="400"
+              elevation="0"
               rounded="0"
-            ></v-card>
-          </div>
+              style="overflow: auto"
+              color="transparent"
+            >
+              <ul>
+                <li v-for="(m, i) in msg" :key="i">
+                  <v-row>
+                    <v-col cols="2" class="py-0">
+                      <v-card
+                        width="100%"
+                        height="30"
+                        style="overflow: hidden"
+                        elevation="0"
+                        color="transparent"
+                      >
+                        <span>{{ m.sender }}</span>
+                      </v-card>
+                    </v-col>
+                    <v-col cols="10" class="py-1">
+                      <v-card
+                        class="pa-1"
+                        elevation="0"
+                        rounded="lg tl-0"
+                        color="gold"
+                      >
+                        <span class="ml-2">{{ m.text }}</span>
+                      </v-card>
+                    </v-col>
+                  </v-row>
+                </li>
+              </ul>
+            </v-card>
+          </v-card-text>
+        </v-card>
 
-          <div ref="scrollable"></div>
-        </main>
-
-        <div class="form_input">
-          <form>
-            <v-row class="send_message">
-              <v-col cols="10">
-                <form class="input_message">
-                  <input type="text" placeholder="Enter your message" />
-                </form>
-              </v-col>
-              <v-col class="submit" cols="2">
-                <v-btn type="submit" icon plain>
-                  <v-icon>mdi-send</v-icon>
-                </v-btn>
-              </v-col>
-            </v-row>
-          </form>
-        </div>
+        <!-- Send Message -->
+        <v-card color="#E0E0E0" elevation="0">
+          <v-row>
+            <v-col cols="10">
+              <input
+                type="text"
+                v-model="text"
+                placeholder="Enter your message"
+              />
+            </v-col>
+            <v-col cols="2">
+              <v-btn icon plain light :disabled="name == ''" @click="sendMsg()">
+                <v-icon color="gold">mdi-send</v-icon>
+              </v-btn>
+            </v-col>
+          </v-row>
+        </v-card>
       </v-card>
     </v-menu>
   </div>
 </template>
 
 <script>
+import { realtime } from "@/database/firebase.js";
+
 export default {
   data() {
     return {
       fab: false,
-      menu: false,
+      menu: true,
+
+      // Message
+      name: "",
+      check_name: false,
+      text: "",
+      msg: {},
     };
+  },
+  created() {
+    realtime.ref("msg").on("value", (res) => {
+      this.msg = res.val();
+    });
+  },
+
+  methods: {
+    sendMsg() {
+      realtime
+        .ref("msg")
+        .push({
+          sender: this.name,
+          text: this.text,
+        })
+        .then(() => {
+          this.text = "";
+        });
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-$main_color: #ebebeb;
-$background: #1d1d1c;
-$border: #020202;
-
 * {
   margin: 0 !important;
   padding: 0 !important;
 }
 
-.v-menu__content {
-  box-shadow: -2px 2px 15px $border !important;
-  border-radius: 10px;
-}
-
-.chat_box {
-  background: $background !important;
-  .bar {
-    background: transparent !important;
-    border-bottom: 1px solid;
-    border-radius: 10px;
-  }
-  .contents {
-    background: transparent !important;
-  }
-  .form_input {
-    background: transparent !important;
-    border-top: 1px solid;
-    border-radius: 10px;
-    .send_message {
-      justify-content: center;
-      align-items: center;
-    }
-    input {
-      outline: 0;
-      width: 100%;
-      padding: 5px 10px !important;
-      color: $main_color;
-    }
-    .submit {
-      text-align: center;
-    }
-  }
+input {
+  outline: 0;
+  width: 100%;
+  padding: 5px 10px !important;
 }
 </style>

@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import { auth } from "../database/firebase.js";
 
 Vue.use(VueRouter);
 
@@ -101,7 +102,6 @@ const routes = [
   },
   {
     name: "Popular Vote",
-    id: "v",
     path: "/vote/popular-vote",
     component: () => import("../views/components/votes/PopularVote.vue"),
   },
@@ -109,6 +109,12 @@ const routes = [
     name: "Vote by Students",
     path: "/vote/students-vote",
     component: () => import("../views/components/votes/StudentsVote.vue"),
+    meta: { requiresAuth: true },
+  },
+  {
+    name: "Login std",
+    path: "/vote/login-for-students",
+    component: () => import("../views/components/votes/login/LoginSTD.vue"),
   },
   {
     name: "Vote by Directors",
@@ -123,4 +129,16 @@ const router = new VueRouter({
   routes,
 });
 
+// Firebase authentication
+router.beforeEach((to, from, next) => {
+  const authenticatedStd = auth.currentUser;
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+
+  if (requiresAuth && !authenticatedStd) {
+    alert("Login to start voting");
+    next("/vote/login-for-students");
+  } else {
+    next();
+  }
+});
 export default router;
