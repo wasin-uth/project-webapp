@@ -3,124 +3,193 @@
     <div>
       <Bar />
     </div>
-    <section class="pb-15">
+    <section>
       <v-row>
-        <v-col class="pa-2" cols="6">
-          <v-container>
-            <v-row>
-              <v-col
-                class="pa-2"
-                lg="4"
-                md="6"
-                sm="6"
-                v-for="item in freshyBoy"
-                :key="item.no"
-              >
-                <v-card class="contestants" dark max-width="200" rounded="lg">
-                  <v-img
-                    :src="item.profile"
-                    lazy-src="@/assets/image/lazy_src.png"
-                    height="400"
-                  >
-                    <div class="shadow"></div>
-                    <v-card class="profile" dark rounded="0" color="#000000ee">
-                      <!-- Text -->
-                      <v-card-subtitle class="pa-2">
-                        <h3>
-                          <b style="text-transform: uppercase">{{ item.no }}</b>
-                          : น้อง {{ item.nickName }}
-                          <br />
-                          คณะ {{ item.faculty }}
-                        </h3>
-                      </v-card-subtitle>
-
-                      <!-- Actions -->
-                      <v-card-actions class="actions">
-                        <v-row>
-                          <v-col class="pa-1" cols="6">
-                            <v-btn plain block small>
-                              <v-icon>mdi-heart-outline</v-icon>
-                              <p>20</p>
-                            </v-btn>
-                          </v-col>
-                          <v-col class="pa-1" cols="6">
-                            <v-btn
-                              plain
-                              block
-                              small
-                              :to="`/contestants/${id}/details-${item.cId}=${item.Id}`"
-                            >
-                              <v-icon>mdi-magnify</v-icon>
-                            </v-btn>
-                          </v-col>
-                        </v-row>
-                      </v-card-actions>
-                    </v-card>
-                  </v-img>
-                </v-card>
-              </v-col>
-            </v-row>
+        <!-- Freshy Boy -->
+        <v-col cols="6">
+          <v-container class="pa-1">
+            <v-item-group v-model="selectedBoy" multiple>
+              <v-row class="contents">
+                <v-col
+                  v-for="(item, i) in freshyBoy"
+                  :key="i"
+                  class="pa-2"
+                  lg="4"
+                  md="6"
+                  sm="6"
+                >
+                  <v-card dark width="100%" height="300">
+                    <v-item v-slot="{ active, toggle }">
+                      <v-img
+                        :src="item.profile"
+                        lazy-src="@/assets/image/lazy_src.png"
+                        height="100%"
+                        class="text-left"
+                      >
+                        <v-card
+                          class="shadow"
+                          color="transparent"
+                          elevation="0"
+                          width="100%"
+                          height="100%"
+                        >
+                          <v-row class="text-center">
+                            <v-col>
+                              <v-card
+                                class="pa-1"
+                                color="transparent"
+                                elevation="0"
+                              >
+                                <v-row>
+                                  <v-col>
+                                    <v-icon
+                                      color="red darken-2"
+                                      @click="toggle"
+                                    >
+                                      {{
+                                        active
+                                          ? "mdi-heart"
+                                          : "mdi-heart-outline"
+                                      }}
+                                    </v-icon>
+                                  </v-col>
+                                  <v-col>
+                                    <p style="color: black">
+                                      {{ active ? item.no + 1 : item.no - 0 }}
+                                    </p>
+                                  </v-col>
+                                </v-row>
+                              </v-card>
+                            </v-col>
+                            <v-spacer></v-spacer>
+                            <v-col class="text-right pa-1">
+                              <v-btn
+                                icon
+                                small
+                                :to="`/contestants/${item.year}/details-${item.cId}=${item.Id}`"
+                              >
+                                <v-icon color="black"> mdi-magnify </v-icon>
+                              </v-btn>
+                            </v-col>
+                          </v-row>
+                          <v-row>
+                            <v-col>
+                              <div class="title">
+                                <p>
+                                  <span
+                                    style="
+                                      font-size: 34px;
+                                      font-weight: 900 !important;
+                                      color: #c29e59;
+                                    "
+                                    >{{ item.cId }}</span
+                                  >
+                                  <span> N'{{ item.nickName }} </span>
+                                </p>
+                              </div>
+                            </v-col>
+                          </v-row>
+                        </v-card>
+                      </v-img>
+                    </v-item>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-item-group>
           </v-container>
         </v-col>
 
         <!-- Freshy Girl -->
-        <v-col class="pa-2" cols="6">
-          <v-container>
-            <v-row>
-              <v-col
-                class="pa-2"
-                lg="4"
-                md="6"
-                sm="6"
-                v-for="(item, i) in freshyGirl"
-                :key="i"
-              >
-                <v-card class="contestants" dark max-width="200" rounded="lg">
-                  <v-img
-                    :src="item.profile"
-                    lazy-src="@/assets/image/lazy_src.png"
-                    height="400"
-                  >
-                    <div class="shadow"></div>
-                    <v-card class="profile" dark rounded="0" color="#000000ee">
-                      <!-- Text -->
-                      <v-card-subtitle class="pa-2">
-                        <h3>
-                          <b style="text-transform: uppercase">{{
-                            item.cId
-                          }}</b>
-                          : น้อง {{ item.nickName }}
-                          <br />
-                          คณะ {{ item.faculty }}
-                        </h3>
-                      </v-card-subtitle>
-
-                      <!-- Actions -->
-                      <v-card-actions class="actions">
-                        <v-row>
-                          <v-col class="pa-1" cols="6">
-                            <v-btn plain block small>
-                              <v-icon>mdi-heart-outline</v-icon>
-                              <p>20</p>
-                            </v-btn>
-                          </v-col>
-                          <v-col class="pa-1" cols="6">
-                            <v-btn
-                              plain
-                              block
-                              small
-                              :to="`/contestants/${id}/details-${item.cId}=${item.Id}`"
-                            >
-                              <v-icon>mdi-magnify</v-icon>
-                            </v-btn>
-                          </v-col>
-                        </v-row>
-                      </v-card-actions>
-                    </v-card>
-                  </v-img>
-                </v-card>
-              </v-col>
-            </v-row>
+        <v-col cols="6">
+          <v-container class="pa-1">
+            <v-item-group v-model="selectedGirl" multiple>
+              <v-row class="contents">
+                <v-col
+                  v-for="(item, i) in freshyGirl"
+                  :key="i"
+                  class="pa-2"
+                  lg="4"
+                  md="6"
+                  sm="6"
+                >
+                  <v-card dark width="100%" height="300">
+                    <v-item v-slot="{ active, toggle }">
+                      <v-img
+                        :src="item.profile"
+                        lazy-src="@/assets/image/lazy_src.png"
+                        height="100%"
+                        class="text-left"
+                      >
+                        <v-card
+                          class="shadow"
+                          color="transparent"
+                          elevation="0"
+                          width="100%"
+                          height="100%"
+                        >
+                          <v-row class="text-center">
+                            <v-col>
+                              <v-card
+                                class="pa-1"
+                                color="transparent"
+                                elevation="0"
+                              >
+                                <v-row>
+                                  <v-col>
+                                    <v-icon
+                                      color="red darken-2"
+                                      @click="toggle"
+                                    >
+                                      {{
+                                        active
+                                          ? "mdi-heart"
+                                          : "mdi-heart-outline"
+                                      }}
+                                    </v-icon>
+                                  </v-col>
+                                  <v-col>
+                                    <p style="color: black">
+                                      {{ active ? item.no + 1 : item.no - 0 }}
+                                    </p>
+                                  </v-col>
+                                </v-row>
+                              </v-card>
+                            </v-col>
+                            <v-spacer></v-spacer>
+                            <v-col class="text-right pa-1">
+                              <v-btn
+                                icon
+                                small
+                                :to="`/contestants/${item.year}/details-${item.cId}=${item.Id}`"
+                              >
+                                <v-icon color="black"> mdi-magnify </v-icon>
+                              </v-btn>
+                            </v-col>
+                          </v-row>
+                          <v-row>
+                            <v-col>
+                              <div class="title">
+                                <p>
+                                  <span
+                                    style="
+                                      font-size: 34px;
+                                      font-weight: 900 !important;
+                                      color: #c29e59;
+                                    "
+                                    >{{ item.cId }}</span
+                                  >
+                                  <span> N'{{ item.nickName }} </span>
+                                </p>
+                              </div>
+                            </v-col>
+                          </v-row>
+                        </v-card>
+                      </v-img>
+                    </v-item>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-item-group>
           </v-container>
         </v-col>
       </v-row>
@@ -139,15 +208,15 @@ export default {
     Layouts,
     Bar,
   },
-  data() {
-    return {
-      dialog: false,
-      id: this.$route.params.id,
+  data: () => ({
+    dialog: false,
+    selectedBoy: [],
+    selectedGirl: [],
 
-      freshyBoy: [],
-      freshyGirl: [],
-    };
-  },
+    freshyBoy: [],
+    freshyGirl: [],
+  }),
+  methods: {},
   created() {
     // getData
 
@@ -173,8 +242,9 @@ export default {
                             tempDataArray = [
                               ...tempDataArray,
                               {
+                                year: 2017,
                                 Id: doc.id,
-                                no: doc.data().no,
+                                no: parseInt(doc.data().no),
                                 profile: doc.data().profile,
                                 cId: doc.data().cId,
                                 nickName: doc.data().nickName,
@@ -202,8 +272,9 @@ export default {
                             tempDataArray = [
                               ...tempDataArray,
                               {
+                                year: 2017,
                                 Id: doc.id,
-                                no: doc.data().no,
+                                no: parseInt(doc.data().no),
                                 profile: doc.data().profile,
                                 cId: doc.data().cId,
                                 nickName: doc.data().nickName,
@@ -235,8 +306,9 @@ export default {
                             tempDataArray = [
                               ...tempDataArray,
                               {
+                                year: 2018,
                                 Id: doc.id,
-                                no: doc.data().no,
+                                no: parseInt(doc.data().no),
                                 profile: doc.data().profile,
                                 cId: doc.data().cId,
                                 nickName: doc.data().nickName,
@@ -264,8 +336,9 @@ export default {
                             tempDataArray = [
                               ...tempDataArray,
                               {
+                                year: 2018,
                                 Id: doc.id,
-                                no: doc.data().no,
+                                no: parseInt(doc.data().no),
                                 profile: doc.data().profile,
                                 cId: doc.data().cId,
                                 nickName: doc.data().nickName,
@@ -286,6 +359,7 @@ export default {
               tempDataArray = [
                 ...tempDataArray,
                 {
+                  id: doc.id,
                   fb: db
                     .collection("/rmufreshyboyandgirl/2019/freshyboy")
                     .get()
@@ -297,8 +371,9 @@ export default {
                             tempDataArray = [
                               ...tempDataArray,
                               {
+                                year: 2019,
                                 Id: doc.id,
-                                no: doc.data().no,
+                                no: parseInt(doc.data().no),
                                 profile: doc.data().profile,
                                 cId: doc.data().cId,
                                 nickName: doc.data().nickName,
@@ -315,6 +390,7 @@ export default {
                     ),
                 },
                 {
+                  id: doc.id,
                   fg: db
                     .collection("/rmufreshyboyandgirl/2019/freshygirl")
                     .get()
@@ -326,8 +402,9 @@ export default {
                             tempDataArray = [
                               ...tempDataArray,
                               {
+                                year: 2019,
                                 Id: doc.id,
-                                no: doc.data().no,
+                                no: parseInt(doc.data().no),
                                 profile: doc.data().profile,
                                 cId: doc.data().cId,
                                 nickName: doc.data().nickName,
@@ -359,8 +436,9 @@ export default {
                             tempDataArray = [
                               ...tempDataArray,
                               {
+                                year: 2020,
                                 Id: doc.id,
-                                no: doc.data().no,
+                                no: parseInt(doc.data().no),
                                 profile: doc.data().profile,
                                 cId: doc.data().cId,
                                 nickName: doc.data().nickName,
@@ -388,8 +466,9 @@ export default {
                             tempDataArray = [
                               ...tempDataArray,
                               {
+                                year: 2020,
                                 Id: doc.id,
-                                no: doc.data().no,
+                                no: parseInt(doc.data().no),
                                 profile: doc.data().profile,
                                 cId: doc.data().cId,
                                 nickName: doc.data().nickName,
@@ -421,8 +500,9 @@ export default {
                             tempDataArray = [
                               ...tempDataArray,
                               {
+                                year: 2021,
                                 Id: doc.id,
-                                no: doc.data().no,
+                                no: parseInt(doc.data().no),
                                 profile: doc.data().profile,
                                 cId: doc.data().cId,
                                 nickName: doc.data().nickName,
@@ -450,8 +530,9 @@ export default {
                             tempDataArray = [
                               ...tempDataArray,
                               {
+                                year: 2021,
                                 Id: doc.id,
-                                no: doc.data().no,
+                                no: parseInt(doc.data().no),
                                 profile: doc.data().profile,
                                 cId: doc.data().cId,
                                 nickName: doc.data().nickName,
@@ -470,6 +551,7 @@ export default {
               ];
             }
           });
+          this.Freshy = tempDataArray;
         },
         (err) => {
           console.log(err);
@@ -483,25 +565,22 @@ export default {
 * {
   margin: 0 auto !important;
   padding: 0 !important;
+  text-transform: uppercase !important;
+}
+
+.title {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
 }
 
 section {
-  .contestants {
-    position: relative;
-    overflow: hidden;
-    .shadow {
-      background-image: linear-gradient(0deg, #000000c0 35%, #00000000 70%);
-      width: 100%;
-      height: 100%;
-    }
-    .profile {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      backdrop-filter: blur(10px) !important;
-      h3 {
-        line-height: 1.5;
-      }
+  .shadow {
+    background-image: linear-gradient(0deg, #000000c2 20%, #00000000 80%);
+    width: 100%;
+    height: 100%;
+    &:hover {
+      background-image: linear-gradient(0deg, #00000070 20%, #00000000 80%);
     }
   }
 }

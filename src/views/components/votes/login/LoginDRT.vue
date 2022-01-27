@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import { authDrt } from "@/database/directors.js";
+import { auth } from "@/database/firebase.js";
 
 export default {
   name: "Login",
@@ -96,7 +96,7 @@ export default {
       v.errorMessage = "";
       // v.successMessage = "";
 
-      authDrt
+      auth
         .signInWithEmailAndPassword(v.email, v.password)
         .then(
           // (user) => {

@@ -1,6 +1,6 @@
 <template>
   <AdminLayouts>
-      
+    <v-container> </v-container>
   </AdminLayouts>
 </template>
 

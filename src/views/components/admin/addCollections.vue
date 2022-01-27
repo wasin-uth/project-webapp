@@ -2,11 +2,17 @@
   <AdminLayouts>
     <v-container>
       <v-row>
-        <v-col cols="12" lg="6" md="6">
-          <FreshyBoy />
+        <v-col cols="12" sm="6">
+          <SetOne />
         </v-col>
-        <v-col cols="12" lg="6" md="6">
-          <FreshyGirl />
+        <v-col cols="12" sm="6">
+          <SetTwo />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <SetThree />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <SetFour />
         </v-col>
       </v-row>
     </v-container>
@@ -15,14 +21,18 @@
 
 <script>
 import AdminLayouts from "@/layouts/AdminLayouts.vue";
-import FreshyBoy from "@/components/admin/image-show/FB.vue";
-import FreshyGirl from "@/components/admin/image-show/FG.vue";
+import SetOne from "@/components/admin/collections/SetOne.vue";
+import SetTwo from "@/components/admin/collections/SetTwo.vue";
+import SetThree from "@/components/admin/collections/SetThree.vue";
+import SetFour from "@/components/admin/collections/SetFour.vue";
 
 export default {
   components: {
     AdminLayouts,
-    FreshyBoy,
-    FreshyGirl,
+    SetOne,
+    SetTwo,
+    SetThree,
+    SetFour,
   },
 };
 </script>

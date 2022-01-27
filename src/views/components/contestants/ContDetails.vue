@@ -34,7 +34,7 @@
               width="100%"
               height="100%"
               dark
-              color="gold"
+              color="black"
               elevation="10"
               rounded="lg"
             >
@@ -94,7 +94,7 @@
               width="100%"
               height="100%"
               dark
-              color="gold"
+              color="black"
               elevation="10"
               rounded="lg"
             >

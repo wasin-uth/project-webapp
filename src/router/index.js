@@ -56,13 +56,13 @@ const routes = [
   // Collections Gallery
   {
     name: "Collections",
-    path: "/gallery",
-    component: () => import("../views/components/collections/Gallery.vue"),
+    path: "/Collections",
+    component: () => import("../views/components/collections/Collections.vue"),
   },
   {
     name: "Collection",
-    path: "/collections/:id",
-    component: () => import("../views/components/collections/Collections.vue"),
+    path: "/collection/:id",
+    component: () => import("../views/components/collections/Collection.vue"),
   },
 
   // =================================================
@@ -120,6 +120,12 @@ const routes = [
     name: "Vote by Directors",
     path: "/vote/directors-vote",
     component: () => import("../views/components/votes/DirectorsVote.vue"),
+    meta: { requiresAuth: true },
+  },
+  {
+    name: "Login drt",
+    path: "/vote/login-for-directors",
+    component: () => import("../views/components/votes/login/LoginDRT.vue"),
   },
 ];
 

@@ -33,7 +33,9 @@
                     </v-img>
                     <!-- title-content -->
                     <div class="text-name px-2">
-                      <h1 class="id">{{ item.cId }} {{ item.nickName }}</h1>
+                      <h1 class="id" style="text-transform: uppercase">
+                        {{ item.cId }} {{ item.nickName }}
+                      </h1>
                       <h5 class="name">{{ item.name }} {{ item.lastName }}</h5>
                     </div>
                     <!-- header-content -->
@@ -122,7 +124,9 @@
                     </v-img>
                     <!-- title-content -->
                     <div class="text-name px-2">
-                      <h1 class="id">{{ item.cId }} {{ item.nickName }}</h1>
+                      <h1 class="id" style="text-transform: uppercase">
+                        {{ item.cId }} {{ item.nickName }}
+                      </h1>
                       <h5 class="name">{{ item.name }} {{ item.lastName }}</h5>
                     </div>
                     <!-- header-content -->

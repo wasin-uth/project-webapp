@@ -11,7 +11,7 @@
         <!-- Head Bar -->
         <template v-slot:top>
           <v-toolbar flat dark color="gold" rounded="t-sm 0">
-            <v-toolbar-title style="color: black">Freshy Girl</v-toolbar-title>
+            <v-toolbar-title style="color: black">ชุดที่ 3</v-toolbar-title>
             <v-spacer></v-spacer>
 
             <!-- Dialog Add Data -->
@@ -33,7 +33,7 @@
                 <v-container>
                   <form @submit.prevent="addFreshy">
                     <v-row dense>
-                      <v-col cols="2">
+                      <!-- <v-col cols="2">
                         <v-text-field
                           v-model="freshy.no"
                           type="number"
@@ -42,26 +42,25 @@
                           color="gold"
                           outlined
                         ></v-text-field>
-                      </v-col>
+                      </v-col> -->
 
-                      <v-col cols="2">
-                        <v-text-field
-                          v-model="freshy.cId"
-                          type="text"
-                          label="รหัสเฟรชชี่"
-                          required
-                          color="gold"
-                          outlined
-                        ></v-text-field>
-                      </v-col>
-
-                      <v-col cols="8">
+                      <v-col cols="12">
                         <input
                           class="custom-file-input mb-8"
                           type="file"
                           accept=".jpg,.png"
                           @change="previewImage"
                         />
+                      </v-col>
+
+                      <v-col cols="12">
+                        <v-textarea
+                          v-model="freshy.descriptions"
+                          type="text"
+                          outlined
+                          name="descriptions"
+                          label="คำอธิบายถาพ"
+                        ></v-textarea>
                       </v-col>
 
                       <v-col cols="12">
@@ -124,7 +123,7 @@
                 elevation="2"
                 v-bind="attrs"
                 v-on="on"
-                @click="getData(item.no, item.cId, item.image, item.id)"
+                @click="getData(item.image, item.descriptions, item.id)"
               >
                 <v-icon color="black">mdi-pencil</v-icon>
               </v-btn>
@@ -133,7 +132,7 @@
               <v-container>
                 <form @submit.prevent="update">
                   <v-row dense>
-                    <v-col cols="2">
+                    <!-- <v-col cols="2">
                       <v-text-field
                         v-model="dataFreshy.no"
                         type="text"
@@ -142,20 +141,9 @@
                         color="gold"
                         outlined
                       ></v-text-field>
-                    </v-col>
+                    </v-col> -->
 
-                    <v-col cols="2">
-                      <v-text-field
-                        v-model="dataFreshy.cId"
-                        type="text"
-                        label="รหัสเฟรชชี่"
-                        required
-                        color="gold"
-                        outlined
-                      ></v-text-field>
-                    </v-col>
-
-                    <v-col cols="8">
+                    <v-col cols="12">
                       <v-text-field
                         v-model="dataFreshy.image"
                         placeholder="Image"
@@ -165,6 +153,16 @@
                         color="gold"
                         outlined
                       ></v-text-field>
+                    </v-col>
+
+                    <v-col cols="12">
+                      <v-textarea
+                        v-model="dataFreshy.descriptions"
+                        type="text"
+                        outlined
+                        name="descriptions"
+                        label="คำอธิบายถาพ"
+                      ></v-textarea>
                     </v-col>
 
                     <v-col cols="12">
@@ -258,22 +256,22 @@ export default {
       dialogDelete: false,
       // Table Header
       headers: [
-        { text: "ลำดับ", value: "no", align: "start" },
-        { text: "รูปภาพ", value: "image", sortable: false },
-        { text: "รหัสเฟรชชี่", value: "cId" },
+        // { text: "ลำดับ", value: "no", },
+        { text: "รูปภาพ", value: "image", align: "start", sortable: false },
+        { text: "คำอธิบาย", value: "descriptions" },
         { text: "แก้ไข / ลบ", value: "actions", sortable: false },
       ],
       // getData
       freshy: {
-        no: 0,
-        cId: "fg",
+        // no: 0,
         image: "",
+        descriptions: "",
       },
       // UpdateData
       dataFreshy: {
-        no: "",
-        cId: "",
+        // no: "",
         image: "",
+        descriptions: "",
         id: "",
       },
       // image
@@ -283,10 +281,12 @@ export default {
       imageName: "",
 
       // Reference form Firestore("url collecction")
-      ref: db.collection("/rmufreshyboyandgirl/2019/image-show-fg"),
+      ref: db.collection(
+        "/rmufreshyboyandgirl/2019/collections/sets/set-three"
+      ),
       freshyLists: [],
 
-      // Message
+      // Messagea
       messageUpdate: "",
       messageSuccess: "",
     };
@@ -300,9 +300,9 @@ export default {
         if (doc.exists) {
           this.freshyLists.push({
             id: doc.id,
-            no: doc.data().no,
-            cId: doc.data().cId,
+            // no: doc.data().no,
             image: doc.data().image,
+            descriptions: doc.data().descriptions,
           });
         }
       });
@@ -315,7 +315,7 @@ export default {
       //  upload image start here
       this.picture = null;
       const storageRef = storage
-        .ref(`image-show-fg/${this.imageName}`)
+        .ref(`collections2019/${this.imageName}`)
         .put(this.imageData);
       storageRef.on(
         `state_changed`,
@@ -337,9 +337,9 @@ export default {
                 this.messageSuccess = "เพิ่มข้อมูลสำเร็จ";
               })
               .then(() => {
-                this.freshy.no = "";
-                this.freshy.cId = "";
+                // this.freshy.no = "";
                 this.freshy.image = "";
+                this.freshy.descriptions = "";
               });
           });
         }
@@ -349,10 +349,10 @@ export default {
     },
 
     // getData for Update
-    getData(no, cId, image, id) {
-      this.dataFreshy.no = no;
-      this.dataFreshy.cId = cId;
+    getData(image, descriptions, id) {
+      // this.dataFreshy.no = no;
       this.dataFreshy.image = image;
+      this.dataFreshy.descriptions = descriptions;
       this.dataFreshy.id = id;
     },
 
@@ -362,9 +362,9 @@ export default {
       this.ref
         .doc(this.dataFreshy.id)
         .update({
-          no: this.dataFreshy.no,
-          cId: this.dataFreshy.cId,
+          // no: this.dataFreshy.no,
           image: this.dataFreshy.image,
+          descriptions: this.dataFreshy.descriptions,
         })
         .then(() => {
           this.messageUpdate = "อัพเดทสำเร็จ!";

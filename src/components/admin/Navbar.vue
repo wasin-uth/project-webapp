@@ -11,7 +11,6 @@
       app
       width="200"
       light
-      permanent
       floating
     >
       <v-app-bar class="logo" elevation="2" dark>

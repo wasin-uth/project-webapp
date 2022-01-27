@@ -143,7 +143,7 @@ export default {
   data() {
     return {
       fab: false,
-      menu: true,
+      menu: false,
 
       // Message
       name: "",

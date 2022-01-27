@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <h1 id="view_count_header">Hello</h1>
+      <div id="view_count_container">
+        <p id="view_count_text"></p>
+      </div>
+    </div>
+
+    <script type="application/javascript">
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyBudf7KoZiQirUdxe_KDLGuKZeSQCYbs_M",
+        authDomain: "project-web-d95a9.firebaseapp.com",
+        databaseURL: "https://project-web-d95a9-default-rtdb.firebaseio.com",
+        projectId: "project-web-d95a9",
+        storageBucket: "project-web-d95a9.appspot.com",
+        messagingSenderId: "699682032868",
+        appId: "1:699682032868:web:9a38e10fd5a4281d8ef0f1",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+
+      function get_viewers_ip(json) {
+        viewers_ip = json.ip;
+
+        count_view(viewers_ip);
+      }
+
+      function count_view(viewers_ip) {
+        var views;
+        var ip_to_string = viewers_ip.toString();
+
+        for (var i, i = 0; i < ip_to_string.length; i++) {
+          ip_to_string = ip_to_string.replace(".", "-");
+        }
+
+        firebase
+          .database()
+          .ref()
+          .child("page_views/" + ip_to_string)
+          .set({
+            viewers_ip: viewers_ip,
+          });
+
+        firebase
+          .database()
+          .ref()
+          .child("page_views")
+          .on("value", function (snapshot) {
+            views = snapshot.numChildren();
+            document.getElementById("view_count_text").innerHTML = views;
+          });
+      }
+    </script>
+
+    <script
+      type="application/javascript"
+      src="https://api.ipify.org?format=jsonp&callback=get_viewers_ip"
+    ></script>
+  </body>
+</html>

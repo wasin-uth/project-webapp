@@ -36,18 +36,18 @@
               </div>
             </v-tooltip>
           </v-col>
-          <!-- Gallery button -->
+          <!-- Collections button -->
           <v-col cols="3">
             <v-tooltip top offset-y transition="scroll-y-transition">
               <template v-slot:activator="{ on, attrs }">
-                <v-btn class="ma-1" icon to="/gallery" plain>
+                <v-btn class="ma-1" icon to="/collections" plain>
                   <v-icon size="50" v-bind="attrs" v-on="on">
                     mdi-view-dashboard-outline
                   </v-icon>
                 </v-btn>
               </template>
               <div class="text">
-                <span>GALLERY</span>
+                <span>COLLECTIONS</span>
               </div>
             </v-tooltip>
           </v-col>
