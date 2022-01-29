@@ -5,64 +5,80 @@
         <v-flex xs12 sm8 md4>
           <v-card elevation="12">
             <v-toolbar color="gold" elevation="0">
-              <v-toolbar-title>Login</v-toolbar-title>
+              <v-toolbar-title>ล็อกอิน</v-toolbar-title>
               <v-spacer></v-spacer>
               <v-btn fab x-small elevation="0" dark @click="goBack">
                 <v-icon color="gold">mdi-close</v-icon>
               </v-btn>
             </v-toolbar>
             <v-card-text>
-              <v-form @submit.prevent="loginRequest">
-                <v-text-field
-                  prepend-icon="mdi-account"
-                  v-model="email"
-                  name="email"
-                  label="Email"
-                  type="email"
-                  outlined
-                  color="gold"
-                  dense
-                ></v-text-field>
-
-                <v-text-field
-                  id="password"
-                  prepend-icon="mdi-lock"
-                  :append-icon="icon"
-                  @click:append="showPassword"
-                  v-model="password"
-                  name="password"
-                  label="Password"
-                  :type="type"
-                  outlined
-                  color="gold"
-                  dense
-                ></v-text-field>
-
-                <v-btn
-                  block
-                  color="gold"
-                  type="submit"
-                  v-bind:disabled="xhrRequest"
-                  v-bind:class="{ disabled: xhrRequest }"
-                >
-                  <span v-if="!xhrRequest">Let's go</span>
-                  <div
-                    v-if="xhrRequest"
-                    class="spinner-border text-secondary loader"
-                    role="status"
-                  >
-                    <span class="sr-only mx-1"> Loading... </span>
-                  </div>
-                  <span v-if="xhrRequest">
-                    <v-progress-linear
-                      buffer-value="60"
-                      value="40"
-                      stream
+              <form @submit.prevent="loginRequest">
+                <v-row dense class="text-center">
+                  <v-col cols="12">
+                    <v-text-field
+                      prepend-icon="mdi-account"
+                      v-model="email"
+                      name="email"
+                      label="xxxxxxxxx@rmu.freshy.th"
+                      type="email"
+                      outlined
                       color="gold"
-                    ></v-progress-linear>
-                  </span>
-                </v-btn>
-              </v-form>
+                      dense
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-text-field
+                      id="password"
+                      prepend-icon="mdi-lock"
+                      :append-icon="showPW"
+                      @click:append="showPassword"
+                      v-model="password"
+                      name="password"
+                      label="รหัสผ่าน"
+                      :type="type"
+                      outlined
+                      color="gold"
+                      dense
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12">
+                    <span v-if="xhrRequest">
+                      <v-progress-linear
+                        buffer-value="60"
+                        value="40"
+                        stream
+                        color="gold"
+                      ></v-progress-linear>
+                    </span>
+
+                    <span v-text="errorMessage"></span>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-btn
+                      block
+                      color="gold"
+                      type="submit"
+                      v-bind:disabled="xhrRequest"
+                      v-bind:class="{ disabled: xhrRequest }"
+                    >
+                      <span v-if="!xhrRequest">ล็อกอิน</span>
+
+                      <div
+                        v-if="xhrRequest"
+                        class="spinner-border text-secondary loader"
+                        role="status"
+                      >
+                        <span class="sr-only mx-1"> Loading... </span>
+                      </div>
+                    </v-btn>
+                  </v-col>
+                  <v-col cols="12" class="text-right">
+                    <v-btn icon small plain class="mx-1" @click="loadOnce">
+                      <v-icon color="gold">mdi-refresh</v-icon>
+                    </v-btn>
+                  </v-col>
+                </v-row>
+              </form>
             </v-card-text>
           </v-card>
         </v-flex>
@@ -80,7 +96,7 @@ export default {
     return {
       email: "",
       password: "",
-      icon: "mdi-eye",
+      showPW: "mdi-eye",
       type: "password",
       xhrRequest: false,
       errorMessage: "",
@@ -103,17 +119,25 @@ export default {
           //   console.log(user);
           // },
           () => {
-            this.$router.replace("/vote/directors-vote");
-            v.xhrRequest = false;
+            if (v.email == "directors@rmu.freshy.th") {
+              this.$router.replace("/vote/directors-vote");
+              v.xhrRequest = false;
+            } else {
+              return;
+            }
           },
           (error) => {
-            v.errorMessage = error.message;
+            v.errorMessage = "ตรวจสอบความถูกต้อง อีเมลล์ และ รหัสผ่าน";
             v.xhrRequest = false;
+            return error;
           }
         )
         .catch((err) => {
           console.log(err);
         });
+    },
+    loadOnce() {
+      location.reload();
     },
     // Show Password
     showPassword() {

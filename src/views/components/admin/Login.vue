@@ -5,7 +5,7 @@
         <v-flex xs12 sm8 md4>
           <v-card elevation="12">
             <v-toolbar color="gold" elevation="0">
-              <v-toolbar-title>ล็อกอินด้วยอีเมลล์นักศึกษา</v-toolbar-title>
+              <v-toolbar-title>ล็อกอิน</v-toolbar-title>
               <v-spacer></v-spacer>
               <v-btn fab x-small elevation="0" dark @click="goBack">
                 <v-icon color="gold">mdi-close</v-icon>
@@ -19,7 +19,7 @@
                       prepend-icon="mdi-account"
                       v-model="email"
                       name="email"
-                      label="xxxxxxxxxxxx@rmu.ac.th"
+                      label="xxxxxx@rmu.freshy.th"
                       type="email"
                       outlined
                       color="gold"
@@ -119,8 +119,8 @@ export default {
           //   console.log(user);
           // },
           () => {
-            if (v.email != "directors@rmu.freshy.th") {
-              this.$router.replace("/vote/students-vote");
+            if (v.email == "admins@rmu.freshy.th") {
+              this.$router.replace("/admins");
               v.xhrRequest = false;
             } else {
               return;

@@ -74,7 +74,7 @@
           </v-list-group>
 
           <!-- About -->
-          <v-list-item link to="/admins" color="gold">
+          <v-list-item link to="/login-admins" color="gold">
             <v-list-item-icon>
               <v-icon>mdi-account-cog</v-icon>
             </v-list-item-icon>
