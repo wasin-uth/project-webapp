@@ -3,12 +3,13 @@
     <v-menu
       min-width="300"
       class="menu"
+      rounded="lg"
       top
       dark
       v-model="menu"
       :close-on-click="false"
       :close-on-content-click="false"
-      :nudge-top="10"
+      :nudge-top="20"
       offset-y
       transition="slide-y-reverse-transition"
     >
@@ -43,15 +44,14 @@
           <v-btn
             icon
             elevation="0"
-            dark
+            light
             @click="check_name = name != '' ? true : false"
           >
-            <v-icon color="gold">mdi-lock</v-icon>
+            <v-icon>mdi-lock</v-icon>
           </v-btn>
           <v-spacer></v-spacer>
-          <v-btn icon small class="mr-2">
+          <v-btn icon light small class="mr-2">
             <v-icon
-              color="gold"
               @click="
                 fab = !fab;
                 menu = false;
@@ -98,13 +98,10 @@
                       </v-card>
                     </v-col>
                     <v-col cols="10" class="py-1">
-                      <v-card
-                        class="pa-1"
-                        elevation="0"
-                        rounded="lg tl-0"
-                        color="gold"
-                      >
-                        <span class="ml-2">{{ m.text }}</span>
+                      <v-card class="pa-1" elevation="0" rounded="lg tl-0" dark>
+                        <span class="ml-2" >{{
+                          m.text
+                        }}</span>
                       </v-card>
                     </v-col>
                   </v-row>

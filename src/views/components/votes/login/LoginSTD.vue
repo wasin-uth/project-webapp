@@ -1,14 +1,14 @@
 <template>
-  <section id="login">
+  <section id="login" style="height: 100vh">
     <v-container fluid fill-height>
       <v-layout align-center justify-center>
         <v-flex xs12 sm8 md4>
-          <v-card elevation="12">
-            <v-toolbar color="gold" elevation="0">
-              <v-toolbar-title>ล็อกอินด้วยอีเมลล์นักศึกษา</v-toolbar-title>
+          <v-card elevation="12" color="light">
+            <v-toolbar color="transparent" elevation="0">
+              <v-toolbar-title>ล็อกอิน อีเมลล์นักศึกษา</v-toolbar-title>
               <v-spacer></v-spacer>
-              <v-btn fab x-small elevation="0" dark @click="goBack">
-                <v-icon color="gold">mdi-close</v-icon>
+              <v-btn plain fab small elevation="0" @click="goBack">
+                <v-icon color="black">mdi-close</v-icon>
               </v-btn>
             </v-toolbar>
             <v-card-text>
@@ -16,7 +16,7 @@
                 <v-row dense class="text-center">
                   <v-col cols="12">
                     <v-text-field
-                      prepend-icon="mdi-account"
+                      prepend-inner-icon="mdi-account"
                       v-model="email"
                       name="email"
                       label="xxxxxxxxxxxx@rmu.ac.th"
@@ -29,7 +29,7 @@
                   <v-col cols="12">
                     <v-text-field
                       id="password"
-                      prepend-icon="mdi-lock"
+                      prepend-inner-icon="mdi-lock"
                       :append-icon="showPW"
                       @click:append="showPassword"
                       v-model="password"
@@ -56,12 +56,14 @@
                   <v-col cols="12">
                     <v-btn
                       block
-                      color="gold"
+                      dark
                       type="submit"
                       v-bind:disabled="xhrRequest"
                       v-bind:class="{ disabled: xhrRequest }"
                     >
-                      <span v-if="!xhrRequest">ล็อกอิน</span>
+                      <span v-if="!xhrRequest" style="color: #c29e59"
+                        >ล็อกอิน</span
+                      >
 
                       <div
                         v-if="xhrRequest"
@@ -74,7 +76,7 @@
                   </v-col>
                   <v-col cols="12" class="text-right">
                     <v-btn icon small plain class="mx-1" @click="loadOnce">
-                      <v-icon color="gold">mdi-refresh</v-icon>
+                      <v-icon>mdi-refresh</v-icon>
                     </v-btn>
                   </v-col>
                 </v-row>
@@ -119,7 +121,10 @@ export default {
           //   console.log(user);
           // },
           () => {
-            if (v.email != "directors@rmu.freshy.th") {
+            if (
+              v.email != "directors@rmu.freshy.th" &&
+              v.password != "directors123"
+            ) {
               this.$router.replace("/vote/students-vote");
               v.xhrRequest = false;
             } else {

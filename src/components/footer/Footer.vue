@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-footer class="footer px-1 py-0" dark elevation="0">
+    <v-footer class="footer px-2 py-1" dark elevation="10">
       <v-container fluid>
         <v-row dense>
           <!-- Vote button -->
@@ -30,6 +30,7 @@
                     </v-icon>
                   </v-badge>
                 </v-btn>
+                <h3>Vote</h3>
               </template>
               <div class="text">
                 <span>VOTE</span>
@@ -45,6 +46,7 @@
                     mdi-view-dashboard-outline
                   </v-icon>
                 </v-btn>
+                <h3>Collections</h3>
               </template>
               <div class="text">
                 <span>COLLECTIONS</span>
@@ -60,6 +62,7 @@
                     mdi-view-gallery-outline
                   </v-icon>
                 </v-btn>
+                <h3>Videos</h3>
               </template>
               <div class="text">
                 <span>VIDEOS</span>
@@ -73,6 +76,7 @@
                 <div v-bind="attrs" v-on="on">
                   <Chat />
                 </div>
+                <h3>Chat</h3>
               </template>
               <div class="text">
                 <span>CHAT</span>
@@ -101,6 +105,11 @@ export default {
   padding: 0;
 }
 
+h3 {
+  color: #c4c3c3bd;
+  display: none;
+}
+
 .footer {
   z-index: 999;
   position: fixed;
@@ -109,7 +118,7 @@ export default {
   border-radius: 10px 0 0 0 !important;
   background: #000000 !important;
   backdrop-filter: blur(10px);
-  width: 20%;
+  width: 24%;
   .text {
     padding: 0px 10px !important;
     border-radius: 5px;
@@ -124,6 +133,9 @@ export default {
   }
   .text {
     display: none !important;
+  }
+  h3 {
+    display: block !important;
   }
 }
 </style>
