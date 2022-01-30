@@ -2,10 +2,10 @@
   <AdminLayouts>
     <v-container>
       <v-row>
-        <v-col cols="12" sm="12">
+        <v-col cols="12" sm="6">
           <SetOne />
         </v-col>
-        <!-- <v-col cols="12" sm="6">
+        <v-col cols="12" sm="6">
           <SetTwo />
         </v-col>
         <v-col cols="12" sm="6">
@@ -13,7 +13,7 @@
         </v-col>
         <v-col cols="12" sm="6">
           <SetFour />
-        </v-col> -->
+        </v-col>
       </v-row>
     </v-container>
   </AdminLayouts>
@@ -22,17 +22,17 @@
 <script>
 import AdminLayouts from "@/layouts/AdminLayouts.vue";
 import SetOne from "@/components/admin/collections/SetOne.vue";
-// import SetTwo from "@/components/admin/collections/SetTwo.vue";
-// import SetThree from "@/components/admin/collections/SetThree.vue";
-// import SetFour from "@/components/admin/collections/SetFour.vue";
+import SetTwo from "@/components/admin/collections/SetTwo.vue";
+import SetThree from "@/components/admin/collections/SetThree.vue";
+import SetFour from "@/components/admin/collections/SetFour.vue";
 
 export default {
   components: {
     AdminLayouts,
     SetOne,
-    // SetTwo,
-    // SetThree,
-    // SetFour,
+    SetTwo,
+    SetThree,
+    SetFour,
   },
 };
 </script>

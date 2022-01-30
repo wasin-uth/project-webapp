@@ -15,9 +15,12 @@
 export default {
   data() {
     return {
-      id: 2021,
+      id: this.$route.params.id,
     };
   },
+  created: {
+    
+  }
 };
 </script>
 

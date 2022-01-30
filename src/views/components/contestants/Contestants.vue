@@ -3,7 +3,7 @@
     <div>
       <Bar />
     </div>
-    <section>
+    <section class="pb-15">
       <v-row>
         <!-- Freshy Boy -->
         <v-col cols="6">

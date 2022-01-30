@@ -5,7 +5,7 @@
         <v-flex xs12 sm8 md4>
           <v-card elevation="12" color="light">
             <v-toolbar color="transparent" elevation="0">
-              <v-toolbar-title>ล็อกอิน</v-toolbar-title>
+              <v-toolbar-title>LOGIN</v-toolbar-title>
               <v-spacer></v-spacer>
               <v-btn plain fab small elevation="0" @click="goBack">
                 <v-icon color="black">mdi-close</v-icon>
@@ -34,7 +34,7 @@
                       @click:append="showPassword"
                       v-model="password"
                       name="password"
-                      label="รหัสผ่าน"
+                      label="password"
                       :type="type"
                       outlined
                       color="gold"
@@ -61,9 +61,9 @@
                       v-bind:disabled="xhrRequest"
                       v-bind:class="{ disabled: xhrRequest }"
                     >
-                      <span v-if="!xhrRequest" style="color: #c29e59"
-                        >ล็อกอิน</span
-                      >
+                      <span v-if="!xhrRequest" style="color: #c29e59">
+                        Login
+                      </span>
 
                       <div
                         v-if="xhrRequest"
@@ -123,14 +123,12 @@ export default {
           () => {
             if (v.password == "directors123") {
               this.$router.replace("/vote/directors-vote");
-              v.xhrRequest = false;
             } else {
-              return;
+              v.errorMessage = "ตรวจสอบความถูกต้อง อีเมลล์ และ รหัสผ่าน";
+              v.xhrRequest = false;
             }
           },
           (error) => {
-            v.errorMessage = "ตรวจสอบความถูกต้อง อีเมลล์ และ รหัสผ่าน";
-            v.xhrRequest = false;
             return error;
           }
         )
