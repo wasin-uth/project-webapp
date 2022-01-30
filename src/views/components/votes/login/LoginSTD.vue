@@ -74,11 +74,11 @@
                       </div>
                     </v-btn>
                   </v-col>
-                  <v-col cols="12" class="text-right">
+                  <!-- <v-col cols="12" class="text-right">
                     <v-btn icon small plain class="mx-1" @click="loadOnce">
                       <v-icon>mdi-refresh</v-icon>
                     </v-btn>
-                  </v-col>
+                  </v-col> -->
                 </v-row>
               </form>
             </v-card-text>
@@ -129,6 +129,8 @@ export default {
             }
           },
           (error) => {
+            v.errorMessage = "ตรวจสอบความถูกต้อง อีเมลล์ และ รหัสผ่าน";
+            v.xhrRequest = false;
             return error;
           }
         )
