@@ -6,7 +6,7 @@
 
     <section class="pb-15">
       <v-container>
-        <v-row dense>
+        <v-row dense class="pb-5">
           <!-- Set 1 -->
           <v-col cols="6" md="3" sm="6">
             <div v-for="(item, i) in setOne" :key="i">

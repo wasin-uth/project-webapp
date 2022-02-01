@@ -50,7 +50,7 @@
           </v-row>
         </v-app-bar>
         <!-- Contents -->
-        <v-row class="pa-2">
+        <v-row class="pa-2 pb-10">
           <v-col
             class="pa-2"
             cols="12"

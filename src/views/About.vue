@@ -4,8 +4,8 @@
       <Bar />
     </div>
 
-    <section>
-      <v-container class="text-center pa-10 pb-15">
+    <section class="pb-15">
+      <v-container class="text-center pa-5 pb-15">
         <!-- Title -->
         <div>
           <h1 class="head-title">FRESHY BOY AND GIRL</h1>

@@ -54,10 +54,10 @@ export default {
           name: "Collections",
           route: "/admin/upload-collection",
         },
-        {
-          name: "Head Shot",
-          route: "/admin/image-vote",
-        },
+        // {
+        //   name: "Head Shot",
+        //   route: "/admin/image-vote",
+        // },
         {
           name: "Contributor",
           route: "/admin/contributor",

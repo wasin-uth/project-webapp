@@ -4,7 +4,7 @@
       <Bar />
     </div>
     <section class="pb-15">
-      <v-row>
+      <v-row class="pb-8">
         <!-- Freshy Boy -->
         <v-col cols="6">
           <v-container class="pa-1">

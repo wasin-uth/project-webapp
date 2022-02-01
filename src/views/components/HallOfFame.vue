@@ -5,7 +5,7 @@
     </div>
 
     <section class="pa-2 pb-15">
-      <v-container>
+      <v-container class="pb-8">
         <!-- Freshy Boy and Girl RMU -->
         <div class="award_winning pb-10">
           <v-app-bar class="bar" dark rounded="lg" height="80">

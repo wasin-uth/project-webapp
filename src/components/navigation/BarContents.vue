@@ -18,9 +18,6 @@ export default {
       id: this.$route.params.id,
     };
   },
-  created: {
-    
-  }
 };
 </script>
 

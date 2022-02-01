@@ -136,6 +136,7 @@ h3 {
   }
   h3 {
     display: block !important;
+    font-size: 16px;
   }
 }
 </style>

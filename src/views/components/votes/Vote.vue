@@ -6,7 +6,7 @@
 
     <!-- Contents -->
     <section class="pa-8 pb-15">
-      <v-row>
+      <v-row class="pb-8">
         <v-col
           class="card pa-5"
           cols="12"

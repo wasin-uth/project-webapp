@@ -7,7 +7,7 @@
     <!-- Contents -->
     <section class="px-5 py-2 pb-15">
       <v-container>
-        <v-row>
+        <v-row class="pb-10">
           <v-col
             class="pa-2"
             cols="12"
