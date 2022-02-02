@@ -70,7 +70,7 @@
             </v-tooltip>
           </v-col>
           <!-- Chatbox button -->
-          <v-col class="chat" cols="3">
+          <v-col cols="3">
             <v-tooltip top offset-y transition="scroll-y-transition">
               <template v-slot:activator="{ on, attrs }">
                 <div v-bind="attrs" v-on="on">

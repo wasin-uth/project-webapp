@@ -152,7 +152,7 @@ router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
 
   if (requiresAuth && !authenticatedStd) {
-    next("/");
+    next("/vote");
   } else {
     next();
   }

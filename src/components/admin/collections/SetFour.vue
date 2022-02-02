@@ -11,7 +11,7 @@
         <!-- Head Bar -->
         <template v-slot:top>
           <v-toolbar flat dark color="gold" rounded="t-sm 0">
-            <v-toolbar-title style="color: black">ชุดที่ 4</v-toolbar-title>
+            <v-toolbar-title style="color: black">Column 4</v-toolbar-title>
             <v-spacer></v-spacer>
 
             <!-- Dialog Add Data -->

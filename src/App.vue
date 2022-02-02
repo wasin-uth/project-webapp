@@ -16,7 +16,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@600;800&family=Charm:wght@400;700&family=Krub:wght@300;400;600&display=swap");
 
 $main_color: #ebebeb;
-$background: hsl(0, 0%, 8%);
+$background: #111111;
 
 * {
   font-family: "Charm", cursive !important;

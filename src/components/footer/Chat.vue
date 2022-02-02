@@ -99,14 +99,13 @@
                     </v-col>
                     <v-col cols="10" class="py-1">
                       <v-card class="pa-1" elevation="0" rounded="lg tl-0" dark>
-                        <span class="ml-2" >{{
-                          m.text
-                        }}</span>
+                        <span class="ml-2">{{ m.text }}</span>
                       </v-card>
                     </v-col>
                   </v-row>
                 </li>
               </ul>
+              <div ref="scroll"></div>
             </v-card>
           </v-card-text>
         </v-card>
@@ -165,6 +164,7 @@ export default {
         })
         .then(() => {
           this.text = "";
+          this.$refs["scroll"].scrollIntoView({ behavior: "smooth" });
         });
     },
   },
