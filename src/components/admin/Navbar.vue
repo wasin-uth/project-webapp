@@ -6,7 +6,14 @@
       </v-btn>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer" app width="200" light floating permanent>
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+      width="200"
+      light
+      floating
+      permanent
+    >
       <v-app-bar class="logo" elevation="2" dark>
         <router-link to="/">
           <v-img
@@ -43,6 +50,10 @@ export default {
           route: "/admins",
         },
         {
+          name: "Score",
+          route: "/admin/image-vote",
+        },
+        {
           name: "ข้อมูล Freshy Boy",
           route: "/admin/freshy-boy",
         },
@@ -54,10 +65,6 @@ export default {
           name: "Collections",
           route: "/admin/upload-collection",
         },
-        // {
-        //   name: "Head Shot",
-        //   route: "/admin/image-vote",
-        // },
         {
           name: "Contributor",
           route: "/admin/contributor",

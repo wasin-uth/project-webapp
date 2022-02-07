@@ -67,7 +67,7 @@
               v-for="(year, i) in halloffame"
               :key="i"
               link
-              :to="`/hall-of-fame/${year.id}`"
+              :href="`/hall-of-fame/${year.id}`"
             >
               <v-list-item-title class="" v-text="year.id"></v-list-item-title>
             </v-list-item>

@@ -2,10 +2,10 @@
   <AdminLayouts>
     <v-container>
       <v-row>
-        <v-col cols="12" lg="6" md="6">
+        <v-col cols="12">
           <FreshyBoy />
         </v-col>
-        <v-col cols="12" lg="6" md="6">
+        <v-col cols="12">
           <FreshyGirl />
         </v-col>
       </v-row>

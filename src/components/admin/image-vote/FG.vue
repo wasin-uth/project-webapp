@@ -56,6 +56,17 @@
                       </v-col>
 
                       <v-col cols="8">
+                        <v-text-field
+                          v-model="freshy.faculty"
+                          type="text"
+                          label="คณะ"
+                          required
+                          color="gold"
+                          outlined
+                        ></v-text-field>
+                      </v-col>
+
+                      <v-col cols="12">
                         <input
                           class="custom-file-input mb-8"
                           type="file"
@@ -124,7 +135,9 @@
                 elevation="2"
                 v-bind="attrs"
                 v-on="on"
-                @click="getData(item.no, item.cId, item.image, item.id)"
+                @click="
+                  getData(item.no, item.cId, item.faculty, item.image, item.id)
+                "
               >
                 <v-icon color="black">mdi-pencil</v-icon>
               </v-btn>
@@ -156,6 +169,17 @@
                     </v-col>
 
                     <v-col cols="8">
+                      <v-text-field
+                        v-model="dataFreshy.faculty"
+                        type="text"
+                        label="คณะ"
+                        required
+                        color="gold"
+                        outlined
+                      ></v-text-field>
+                    </v-col>
+
+                    <v-col cols="12">
                       <v-text-field
                         v-model="dataFreshy.image"
                         placeholder="Image"
@@ -261,18 +285,21 @@ export default {
         { text: "ลำดับ", value: "no", align: "start" },
         { text: "รูปภาพ", value: "image", sortable: false },
         { text: "รหัสเฟรชชี่", value: "cId" },
+        { text: "คณะ", value: "faculty", sortable: false },
         { text: "แก้ไข / ลบ", value: "actions", sortable: false },
       ],
       // getData
       freshy: {
         no: 0,
-        cId: "fg",
+        cId: "fb",
+        faculty: "",
         image: "",
       },
       // UpdateData
       dataFreshy: {
         no: "",
         cId: "",
+        faculty: "",
         image: "",
         id: "",
       },
@@ -302,6 +329,7 @@ export default {
             id: doc.id,
             no: doc.data().no,
             cId: doc.data().cId,
+            faculty: doc.data().faculty,
             image: doc.data().image,
           });
         }
@@ -339,6 +367,7 @@ export default {
               .then(() => {
                 this.freshy.no = "";
                 this.freshy.cId = "";
+                this.freshy.faculty = "";
                 this.freshy.image = "";
               });
           });
@@ -349,9 +378,10 @@ export default {
     },
 
     // getData for Update
-    getData(no, cId, image, id) {
+    getData(no, cId, faculty, image, id) {
       this.dataFreshy.no = no;
       this.dataFreshy.cId = cId;
+      this.dataFreshy.faculty = faculty;
       this.dataFreshy.image = image;
       this.dataFreshy.id = id;
     },
@@ -364,6 +394,7 @@ export default {
         .update({
           no: this.dataFreshy.no,
           cId: this.dataFreshy.cId,
+          faculty: this.dataFreshy.faculty,
           image: this.dataFreshy.image,
         })
         .then(() => {

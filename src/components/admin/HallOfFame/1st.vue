@@ -11,7 +11,9 @@
         <!-- Head Bar -->
         <template v-slot:top>
           <v-toolbar flat dark color="gold" rounded="t-sm 0">
-            <v-toolbar-title style="color: black">Freshy Boy</v-toolbar-title>
+            <v-toolbar-title style="color: black"
+              >1st Freshy Boy & Girl</v-toolbar-title
+            >
             <v-spacer></v-spacer>
 
             <!-- Dialog Add Data -->
@@ -33,18 +35,7 @@
                 <v-container>
                   <form @submit.prevent="addFreshy">
                     <v-row dense>
-                      <v-col cols="2">
-                        <v-text-field
-                          v-model="freshy.no"
-                          type="number"
-                          label="ลำดับ"
-                          required
-                          color="gold"
-                          outlined
-                        ></v-text-field>
-                      </v-col>
-
-                      <v-col cols="2">
+                      <v-col cols="4">
                         <v-text-field
                           v-model="freshy.cId"
                           type="text"
@@ -73,6 +64,50 @@
                           accept=".jpg,.png"
                           @change="previewImage"
                         />
+                      </v-col>
+
+                      <v-col cols="6">
+                        <v-text-field
+                          v-model="freshy.reward"
+                          type="text"
+                          label="ตำแหน่ง"
+                          required
+                          color="gold"
+                          outlined
+                        ></v-text-field>
+                      </v-col>
+
+                      <v-col cols="6">
+                        <v-text-field
+                          v-model="freshy.nickName"
+                          type="text"
+                          label="ชื่อเล่น"
+                          required
+                          color="gold"
+                          outlined
+                        ></v-text-field>
+                      </v-col>
+
+                      <v-col cols="6">
+                        <v-text-field
+                          v-model="freshy.name"
+                          type="text"
+                          label="ชื่อ"
+                          required
+                          color="gold"
+                          outlined
+                        ></v-text-field>
+                      </v-col>
+
+                      <v-col cols="6">
+                        <v-text-field
+                          v-model="freshy.lastName"
+                          type="text"
+                          label="นามสกุล"
+                          required
+                          color="gold"
+                          outlined
+                        ></v-text-field>
                       </v-col>
 
                       <v-col cols="12">
@@ -136,7 +171,16 @@
                 v-bind="attrs"
                 v-on="on"
                 @click="
-                  getData(item.no, item.cId, item.faculty, item.image, item.id)
+                  getData(
+                    item.cId,
+                    item.faculty,
+                    item.image,
+                    item.reward,
+                    item.nickName,
+                    item.name,
+                    item.lastName,
+                    item.id
+                  )
                 "
               >
                 <v-icon color="black">mdi-pencil</v-icon>
@@ -146,18 +190,7 @@
               <v-container>
                 <form @submit.prevent="update">
                   <v-row dense>
-                    <v-col cols="2">
-                      <v-text-field
-                        v-model="dataFreshy.no"
-                        type="text"
-                        label="ลำดับ"
-                        required
-                        color="gold"
-                        outlined
-                      ></v-text-field>
-                    </v-col>
-
-                    <v-col cols="2">
+                    <v-col cols="4">
                       <v-text-field
                         v-model="dataFreshy.cId"
                         type="text"
@@ -186,6 +219,50 @@
                         type="text"
                         label="เปลี่ยนรูปโปรไฟล์"
                         accept=".jpg,.png"
+                        color="gold"
+                        outlined
+                      ></v-text-field>
+                    </v-col>
+
+                    <v-col cols="6">
+                      <v-text-field
+                        v-model="dataFreshy.reward"
+                        type="text"
+                        label="ตำแหน่ง"
+                        required
+                        color="gold"
+                        outlined
+                      ></v-text-field>
+                    </v-col>
+
+                    <v-col cols="6">
+                      <v-text-field
+                        v-model="dataFreshy.nickName"
+                        type="text"
+                        label="ชื่อเล่น"
+                        required
+                        color="gold"
+                        outlined
+                      ></v-text-field>
+                    </v-col>
+
+                    <v-col cols="6">
+                      <v-text-field
+                        v-model="dataFreshy.name"
+                        type="text"
+                        label="ชื่อ"
+                        required
+                        color="gold"
+                        outlined
+                      ></v-text-field>
+                    </v-col>
+
+                    <v-col cols="6">
+                      <v-text-field
+                        v-model="dataFreshy.lastName"
+                        type="text"
+                        label="นามสกุล"
+                        required
                         color="gold"
                         outlined
                       ></v-text-field>
@@ -282,25 +359,34 @@ export default {
       dialogDelete: false,
       // Table Header
       headers: [
-        { text: "ลำดับ", value: "no", align: "start" },
-        { text: "รูปภาพ", value: "image", sortable: false },
+        { text: "รูปภาพ", value: "image", sortable: false, align: "start" },
         { text: "รหัสเฟรชชี่", value: "cId" },
         { text: "คณะ", value: "faculty", sortable: false },
+        { text: "ตำแหน่ง", value: "reward", sortable: false },
+        { text: "ชื่อเล่น", value: "nickName", sortable: false },
+        { text: "ชื่อ", value: "name", sortable: false },
+        { text: "นามสกุล", value: "lastName", sortable: false },
         { text: "แก้ไข / ลบ", value: "actions", sortable: false },
       ],
       // getData
       freshy: {
-        no: 0,
-        cId: "fb",
-        faculty: "",
-        image: "",
-      },
-      // UpdateData
-      dataFreshy: {
-        no: "",
         cId: "",
         faculty: "",
         image: "",
+        reward: "",
+        nickName: "",
+        name: "",
+        lastName: "",
+      },
+      // UpdateData
+      dataFreshy: {
+        cId: "",
+        faculty: "",
+        image: "",
+        reward: "",
+        nickName: "",
+        name: "",
+        lastName: "",
         id: "",
       },
       // image
@@ -310,7 +396,9 @@ export default {
       imageName: "",
 
       // Reference form Firestore("url collecction")
-      ref: db.collection("/rmufreshyboyandgirl/2019/image-vote-fb"),
+      ref: db.collection(
+        "/rmufreshyboyandgirl/2018/hall-of-fame/OCaAPC3wMthWXP75nc1s/1st"
+      ),
       freshyLists: [],
 
       // Message
@@ -327,10 +415,13 @@ export default {
         if (doc.exists) {
           this.freshyLists.push({
             id: doc.id,
-            no: doc.data().no,
             cId: doc.data().cId,
             faculty: doc.data().faculty,
             image: doc.data().image,
+            reward: doc.data().reward,
+            nickName: doc.data().nickName,
+            name: doc.data().name,
+            lastName: doc.data().lastName,
           });
         }
       });
@@ -343,7 +434,7 @@ export default {
       //  upload image start here
       this.picture = null;
       const storageRef = storage
-        .ref(`image-vote-fb/${this.imageName}`)
+        .ref(`halloffame2018/${this.imageName}`)
         .put(this.imageData);
       storageRef.on(
         `state_changed`,
@@ -365,10 +456,13 @@ export default {
                 this.messageSuccess = "เพิ่มข้อมูลสำเร็จ";
               })
               .then(() => {
-                this.freshy.no = "";
                 this.freshy.cId = "";
                 this.freshy.faculty = "";
                 this.freshy.image = "";
+                this.freshy.reward = "";
+                this.freshy.nickName = "";
+                this.freshy.name = "";
+                this.freshy.lastName = "";
               });
           });
         }
@@ -378,11 +472,14 @@ export default {
     },
 
     // getData for Update
-    getData(no, cId, faculty, image, id) {
-      this.dataFreshy.no = no;
+    getData(cId, faculty, image, reward, nickName, name, lastName, id) {
       this.dataFreshy.cId = cId;
       this.dataFreshy.faculty = faculty;
       this.dataFreshy.image = image;
+      this.dataFreshy.reward = reward;
+      this.dataFreshy.nickName = nickName;
+      this.dataFreshy.name = name;
+      this.dataFreshy.lastName = lastName;
       this.dataFreshy.id = id;
     },
 
@@ -392,10 +489,13 @@ export default {
       this.ref
         .doc(this.dataFreshy.id)
         .update({
-          no: this.dataFreshy.no,
           cId: this.dataFreshy.cId,
           faculty: this.dataFreshy.faculty,
           image: this.dataFreshy.image,
+          reward: this.dataFreshy.reward,
+          nickName: this.dataFreshy.nickName,
+          name: this.dataFreshy.name,
+          lastName: this.dataFreshy.lastName,
         })
         .then(() => {
           this.messageUpdate = "อัพเดทสำเร็จ!";

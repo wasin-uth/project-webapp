@@ -11,7 +11,7 @@
           <v-app-bar class="bar" dark rounded="lg" height="80">
             <v-row>
               <v-col class="text-center">
-                <h1>รางวัลชนะเลิศ Freshy Boy and Girl 2021</h1>
+                <h1>รางวัลชนะเลิศ Freshy Boy and Girl</h1>
               </v-col>
             </v-row>
           </v-app-bar>
@@ -22,7 +22,7 @@
               cols="12"
               lg="6"
               md="6"
-              v-for="(item, i) in database"
+              v-for="(item, i) in rmufreshyboyandgirl"
               :key="i"
             >
               <v-sheet class="sheet" color="transparent" dark>
@@ -31,7 +31,7 @@
                     <v-card class="profile" elevation="10" dark rounded="xl">
                       <v-img
                         class="img"
-                        :src="item.freshy"
+                        :src="item.image"
                         lazy-src="@/assets/image/lazy_src.png"
                       ></v-img>
                     </v-card>
@@ -45,10 +45,15 @@
                         dark
                       >
                         <v-card-text class="text">
-                          <h1>{{ item.cid }}</h1>
-                          <h2>{{ item.reward }}</h2>
-                          <h3>{{ item.branch }}</h3>
-                          <h3>{{ item.nickname }} || {{ item.name }}</h3>
+                          <h1 style="text-transform: uppercase">
+                            {{ item.cId }}
+                          </h1>
+                          <h2>{{ item.reward }} {{ id }}</h2>
+                          <h3>{{ item.faculty }}</h3>
+                          <h3>
+                            {{ item.nickName }} : {{ item.name }}
+                            {{ item.lastName }}
+                          </h3>
                         </v-card-text>
                       </v-card>
                     </div>
@@ -75,7 +80,7 @@
               cols="12"
               lg="6"
               md="6"
-              v-for="(item, i) in database"
+              v-for="(item, i) in st"
               :key="i"
             >
               <v-sheet class="sheet" color="transparent" dark>
@@ -89,7 +94,7 @@
                     >
                       <v-img
                         class="img"
-                        :src="item.freshy"
+                        :src="item.image"
                         lazy-src="@/assets/image/lazy_src.png"
                       ></v-img>
                     </v-card>
@@ -103,10 +108,15 @@
                         dark
                       >
                         <v-card-text class="text">
-                          <h1>{{ item.cid }}</h1>
-                          <h2>{{ item.reward }}</h2>
-                          <h3>{{ item.branch }}</h3>
-                          <h3>{{ item.nickname }} || {{ item.name }}</h3>
+                          <h1 style="text-transform: uppercase">
+                            {{ item.cId }}
+                          </h1>
+                          <h2>{{ item.reward }} {{ id }}</h2>
+                          <h3>{{ item.faculty }}</h3>
+                          <h3>
+                            {{ item.nickName }} : {{ item.name }}
+                            {{ item.lastName }}
+                          </h3>
                         </v-card-text>
                       </v-card>
                     </div>
@@ -133,7 +143,7 @@
               cols="12"
               lg="6"
               md="6"
-              v-for="(item, i) in database"
+              v-for="(item, i) in nd"
               :key="i"
             >
               <v-sheet class="sheet" color="transparent" dark>
@@ -147,7 +157,7 @@
                     >
                       <v-img
                         class="img"
-                        :src="item.freshy"
+                        :src="item.image"
                         lazy-src="@/assets/image/lazy_src.png"
                       ></v-img>
                     </v-card>
@@ -161,10 +171,15 @@
                         dark
                       >
                         <v-card-text class="text">
-                          <h1>{{ item.cid }}</h1>
-                          <h2>{{ item.reward }}</h2>
-                          <h3>{{ item.branch }}</h3>
-                          <h3>{{ item.nickname }} || {{ item.name }}</h3>
+                          <h1 style="text-transform: uppercase">
+                            {{ item.cId }}
+                          </h1>
+                          <h2>{{ item.reward }} {{ id }}</h2>
+                          <h3>{{ item.faculty }}</h3>
+                          <h3>
+                            {{ item.nickName }} : {{ item.name }}
+                            {{ item.lastName }}
+                          </h3>
                         </v-card-text>
                       </v-card>
                     </div>
@@ -180,7 +195,7 @@
           <v-app-bar class="bar" dark rounded="lg" height="80">
             <v-row>
               <v-col class="text-center">
-                <h1>รางวัล Popular Vote</h1>
+                <h1>รางวัล Popular Vote จากการโหวตผ่าน TrueMoney Wallet</h1>
               </v-col>
             </v-row>
           </v-app-bar>
@@ -191,7 +206,7 @@
               cols="12"
               lg="6"
               md="6"
-              v-for="(item, i) in database"
+              v-for="(item, i) in popularVote"
               :key="i"
             >
               <v-sheet class="sheet" color="transparent" dark>
@@ -205,7 +220,7 @@
                     >
                       <v-img
                         class="img"
-                        :src="item.freshy"
+                        :src="item.image"
                         lazy-src="@/assets/image/lazy_src.png"
                       ></v-img>
                     </v-card>
@@ -219,10 +234,15 @@
                         dark
                       >
                         <v-card-text class="text">
-                          <h1>{{ item.cid }}</h1>
-                          <h2>{{ item.reward }}</h2>
-                          <h3>{{ item.branch }}</h3>
-                          <h3>{{ item.nickname }} || {{ item.name }}</h3>
+                          <h1 style="text-transform: uppercase">
+                            {{ item.cId }}
+                          </h1>
+                          <h2>{{ item.reward }} {{ id }}</h2>
+                          <h3>{{ item.faculty }}</h3>
+                          <h3>
+                            {{ item.nickName }} : {{ item.name }}
+                            {{ item.lastName }}
+                          </h3>
                         </v-card-text>
                       </v-card>
                     </div>
@@ -233,12 +253,12 @@
           </v-row>
         </div>
 
-        <!-- รางวัลขวัญใจมหาชน -->
+        <!-- SocialAward -->
         <div class="favorite">
           <v-app-bar class="bar" dark rounded="lg" height="80">
             <v-row>
               <v-col class="text-center">
-                <h1>รางวัลขวัญใจมหาชน</h1>
+                <h1>Top 5 รางวัลขวัญใจมหาชน ที่ได้หัวใจมากที่สุด</h1>
               </v-col>
             </v-row>
           </v-app-bar>
@@ -249,7 +269,7 @@
               cols="12"
               lg="6"
               md="6"
-              v-for="(item, i) in database"
+              v-for="(item, i) in socialAward"
               :key="i"
             >
               <v-sheet class="sheet" color="transparent" dark>
@@ -263,7 +283,7 @@
                     >
                       <v-img
                         class="img"
-                        :src="item.freshy"
+                        :src="item.image"
                         lazy-src="@/assets/image/lazy_src.png"
                       ></v-img>
                     </v-card>
@@ -277,10 +297,15 @@
                         dark
                       >
                         <v-card-text class="text">
-                          <h1>{{ item.cid }}</h1>
-                          <h2>{{ item.reward }}</h2>
-                          <h3>{{ item.branch }}</h3>
-                          <h3>{{ item.nickname }} || {{ item.name }}</h3>
+                          <h1 style="text-transform: uppercase">
+                            {{ item.cId }}
+                          </h1>
+                          <h2>{{ item.reward }} {{ id }}</h2>
+                          <h3>{{ item.faculty }}</h3>
+                          <h3>
+                            {{ item.nickName }} : {{ item.name }}
+                            {{ item.lastName }}
+                          </h3>
                         </v-card-text>
                       </v-card>
                     </div>
@@ -298,6 +323,7 @@
 <script>
 import Layouts from "@/layouts/MainLayouts.vue";
 import Bar from "@/components/navigation/BarContents.vue";
+import { db } from "@/database/firebase.js";
 
 export default {
   name: "Home",
@@ -307,28 +333,853 @@ export default {
   },
   data() {
     return {
-      id: 2021,
-      database: [
-        {
-          cid: "FB01",
-          reward: "Freshy Boy มหาวิทยาลัยราชภัฏมหาสารคาม",
-          branch: "คณะ วิทยาศาสตร์และเทคโนโลยี",
-          nickname: "ไนล์",
-          name: "ไนล์ ณภัทร์",
-          freshy:
-            "https://i.pinimg.com/564x/6b/ea/ec/6beaec5d5554b516d809773272699186.jpg",
-        },
-        {
-          cid: "FG01",
-          reward: "Freshy Girl มหาวิทยาลัยราชภัฏมหาสารคาม",
-          branch: "คณะ วิทยาศาสตร์และเทคโนโลยี",
-          nickname: "อั้ม",
-          name: "อั้ม พัชราภา",
-          freshy:
-            "https://i.pinimg.com/564x/6c/01/cb/6c01cbd44b32fd816d5de787355e35a8.jpg",
-        },
-      ],
+      id: this.$route.params.id,
+      rmufreshyboyandgirl: [],
+      st: [],
+      nd: [],
+      popularVote: [],
+      socialAward: [],
     };
+  },
+  created() {
+    db.collection("/rmufreshyboyandgirl")
+      .get()
+      .then(
+        (querySnapShot) => {
+          let tempDataArray = [];
+          querySnapShot.forEach((doc) => {
+            if (this.$route.params.id == 2017) {
+              tempDataArray = [
+                ...tempDataArray,
+                {
+                  id: doc.id,
+                  freshy: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2017/hall-of-fame/OCaAPC3wMthWXP75nc1s/rmufreshyboyandgirl"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.rmufreshyboyandgirl = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+
+                  // 1st
+                  st: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2017/hall-of-fame/OCaAPC3wMthWXP75nc1s/1st"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.st = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+
+                  // 2nd
+                  nd: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2017/hall-of-fame/OCaAPC3wMthWXP75nc1s/2nd"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.nd = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+
+                  // Popular Vote
+                  pop: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2017/hall-of-fame/OCaAPC3wMthWXP75nc1s/popularvote"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.popularVote = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+
+                  // Social Award
+                  socialAward: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2017/hall-of-fame/OCaAPC3wMthWXP75nc1s/social-award"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.socialAward = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+                },
+              ];
+            } else if (this.$route.params.id == 2018) {
+              tempDataArray = [
+                ...tempDataArray,
+                {
+                  id: doc.id,
+                  freshy: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2018/hall-of-fame/OCaAPC3wMthWXP75nc1s/rmufreshyboyandgirl"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.rmufreshyboyandgirl = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+
+                  // 1st
+                  st: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2018/hall-of-fame/OCaAPC3wMthWXP75nc1s/1st"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.st = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+
+                  // 2nd
+                  nd: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2018/hall-of-fame/OCaAPC3wMthWXP75nc1s/2nd"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.nd = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+
+                  // Popular Vote
+                  pop: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2018/hall-of-fame/OCaAPC3wMthWXP75nc1s/popularvote"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.popularVote = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+
+                  // Social Award
+                  socialAward: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2018/hall-of-fame/OCaAPC3wMthWXP75nc1s/social-award"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.socialAward = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+                },
+              ];
+            } else if (this.$route.params.id == 2019) {
+              tempDataArray = [
+                ...tempDataArray,
+                {
+                  id: doc.id,
+                  freshy: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2019/hall-of-fame/OCaAPC3wMthWXP75nc1s/rmufreshyboyandgirl"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.rmufreshyboyandgirl = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+
+                  // 1st
+                  st: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2019/hall-of-fame/OCaAPC3wMthWXP75nc1s/1st"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.st = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+
+                  // 2nd
+                  nd: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2019/hall-of-fame/OCaAPC3wMthWXP75nc1s/2nd"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.nd = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+
+                  // Popular Vote
+                  pop: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2019/hall-of-fame/OCaAPC3wMthWXP75nc1s/popularvote"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.popularVote = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+
+                  // Social Award
+                  socialAward: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2019/hall-of-fame/OCaAPC3wMthWXP75nc1s/social-award"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.socialAward = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+                },
+              ];
+            } else if (this.$route.params.id == 2020) {
+              tempDataArray = [
+                ...tempDataArray,
+                {
+                  id: doc.id,
+                  freshy: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2020/hall-of-fame/OCaAPC3wMthWXP75nc1s/rmufreshyboyandgirl"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.rmufreshyboyandgirl = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+
+                  // 1st
+                  st: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2020/hall-of-fame/OCaAPC3wMthWXP75nc1s/1st"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.st = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+
+                  // 2nd
+                  nd: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2020/hall-of-fame/OCaAPC3wMthWXP75nc1s/2nd"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.nd = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+
+                  // Popular Vote
+                  pop: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2020/hall-of-fame/OCaAPC3wMthWXP75nc1s/popularvote"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.popularVote = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+
+                  // Social Award
+                  socialAward: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2020/hall-of-fame/OCaAPC3wMthWXP75nc1s/social-award"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.socialAward = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+                },
+              ];
+            } else if (this.$route.params.id == 2021) {
+              tempDataArray = [
+                ...tempDataArray,
+                {
+                  id: doc.id,
+                  freshy: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2021/hall-of-fame/OCaAPC3wMthWXP75nc1s/rmufreshyboyandgirl"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.rmufreshyboyandgirl = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+
+                  // 1st
+                  st: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2021/hall-of-fame/OCaAPC3wMthWXP75nc1s/1st"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.st = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+
+                  // 2nd
+                  nd: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2021/hall-of-fame/OCaAPC3wMthWXP75nc1s/2nd"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.nd = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+
+                  // Popular Vote
+                  pop: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2021/hall-of-fame/OCaAPC3wMthWXP75nc1s/popularvote"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.popularVote = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+
+                  // Social Award
+                  socialAward: db
+                    .collection(
+                      "/rmufreshyboyandgirl/2021/hall-of-fame/OCaAPC3wMthWXP75nc1s/social-award"
+                    )
+                    .get()
+                    .then(
+                      (querySnapShot) => {
+                        let tempDataArray = [];
+                        querySnapShot.forEach((doc) => {
+                          if (doc.exists) {
+                            tempDataArray = [
+                              ...tempDataArray,
+                              {
+                                cId: doc.data().cId,
+                                image: doc.data().image,
+                                reward: doc.data().reward,
+                                faculty: doc.data().faculty,
+                                nickName: doc.data().nickName,
+                                name: doc.data().name,
+                                lastName: doc.data().lastName,
+                              },
+                            ];
+                          }
+                        });
+                        this.socialAward = tempDataArray;
+                      },
+                      (err) => {
+                        console.log(err);
+                      }
+                    ),
+                },
+              ];
+            }
+          });
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
   },
 };
 </script>
