@@ -40,9 +40,6 @@
                           <th class="text-center">รหัสเฟรชชี่</th>
                           <th class="text-center">โปรไฟล์</th>
                           <th class="text-left">คณะ</th>
-                          <th class="text-center" style="color: red !important">
-                            ยอดกดถูกใจ
-                          </th>
                           <th
                             class="text-center"
                             style="color: #c29e59 !important"
@@ -62,16 +59,11 @@
                           </td>
                           <td>{{ item.faculty }}</td>
                           <td>
-                            <v-btn color="red" to="/contestants/2019">
-                              {{ item.count }}
-                            </v-btn>
-                          </td>
-                          <td>
                             <v-btn
                               color="gold lighten-1"
                               to="/vote/popular-vote"
                             >
-                              {{ item.count }}
+                              {{ item.popularScore }}
                             </v-btn>
                           </td>
                         </tr>
@@ -94,9 +86,6 @@
                           <th class="text-center">รหัสเฟรชชี่</th>
                           <th class="text-center">โปรไฟล์</th>
                           <th class="text-left">คณะ</th>
-                          <th class="text-center" style="color: red !important">
-                            ยอดกดถูกใจ
-                          </th>
                           <th
                             class="text-center"
                             style="color: #c29e59 !important"
@@ -116,16 +105,11 @@
                           </td>
                           <td>{{ item.faculty }}</td>
                           <td>
-                            <v-btn color="red" to="/contestants/2019">
-                              {{ item.count }}
-                            </v-btn>
-                          </td>
-                          <td>
                             <v-btn
                               color="gold lighten-1"
                               to="/vote/popular-vote"
                             >
-                              {{ item.count }}
+                              {{ item.popularScore }}
                             </v-btn>
                           </td>
                         </tr>
@@ -168,7 +152,7 @@ export default {
                   cId: doc.data().cId,
                   profile: doc.data().image,
                   faculty: doc.data().faculty,
-                  count: 0,
+                  popularScore: doc.data().popularScore,
                 },
               ];
             }
@@ -195,7 +179,7 @@ export default {
                   cId: doc.data().cId,
                   profile: doc.data().image,
                   faculty: doc.data().faculty,
-                  count: 0,
+                  popularScore: doc.data().popularScore,
                 },
               ];
             }

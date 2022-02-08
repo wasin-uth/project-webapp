@@ -76,6 +76,17 @@
                       </v-col>
 
                       <v-col cols="12">
+                        <v-text-field
+                          v-model="freshy.popularScore"
+                          type="number"
+                          label="คะแนนโหวต"
+                          required
+                          color="gold"
+                          outlined
+                        ></v-text-field>
+                      </v-col>
+
+                      <v-col cols="12">
                         <v-alert
                           dense
                           text
@@ -136,7 +147,14 @@
                 v-bind="attrs"
                 v-on="on"
                 @click="
-                  getData(item.no, item.cId, item.faculty, item.image, item.id)
+                  getData(
+                    item.no,
+                    item.cId,
+                    item.faculty,
+                    item.image,
+                    item.popularScore,
+                    item.id
+                  )
                 "
               >
                 <v-icon color="black">mdi-pencil</v-icon>
@@ -186,6 +204,17 @@
                         type="text"
                         label="เปลี่ยนรูปโปรไฟล์"
                         accept=".jpg,.png"
+                        color="gold"
+                        outlined
+                      ></v-text-field>
+                    </v-col>
+
+                    <v-col cols="12">
+                      <v-text-field
+                        v-model="dataFreshy.popularScore"
+                        type="text"
+                        label="คะแนนโหวต"
+                        required
                         color="gold"
                         outlined
                       ></v-text-field>
@@ -286,6 +315,7 @@ export default {
         { text: "รูปภาพ", value: "image", sortable: false },
         { text: "รหัสเฟรชชี่", value: "cId" },
         { text: "คณะ", value: "faculty", sortable: false },
+        { text: "คะแนนโหวต", value: "popularScore", sortable: false },
         { text: "แก้ไข / ลบ", value: "actions", sortable: false },
       ],
       // getData
@@ -294,6 +324,7 @@ export default {
         cId: "fb",
         faculty: "",
         image: "",
+        popularScore: "",
       },
       // UpdateData
       dataFreshy: {
@@ -301,6 +332,7 @@ export default {
         cId: "",
         faculty: "",
         image: "",
+        popularScore: "",
         id: "",
       },
       // image
@@ -331,6 +363,7 @@ export default {
             cId: doc.data().cId,
             faculty: doc.data().faculty,
             image: doc.data().image,
+            popularScore: doc.data().popularScore,
           });
         }
       });
@@ -369,6 +402,7 @@ export default {
                 this.freshy.cId = "";
                 this.freshy.faculty = "";
                 this.freshy.image = "";
+                this.freshy.popularScore = "";
               });
           });
         }
@@ -378,11 +412,12 @@ export default {
     },
 
     // getData for Update
-    getData(no, cId, faculty, image, id) {
+    getData(no, cId, faculty, image, popularScore, id) {
       this.dataFreshy.no = no;
       this.dataFreshy.cId = cId;
       this.dataFreshy.faculty = faculty;
       this.dataFreshy.image = image;
+      this.dataFreshy.popularScore = popularScore;
       this.dataFreshy.id = id;
     },
 
@@ -396,6 +431,7 @@ export default {
           cId: this.dataFreshy.cId,
           faculty: this.dataFreshy.faculty,
           image: this.dataFreshy.image,
+          popularScore: this.dataFreshy.popularScore,
         })
         .then(() => {
           this.messageUpdate = "อัพเดทสำเร็จ!";

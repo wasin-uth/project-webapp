@@ -194,7 +194,7 @@ export default {
                               {
                                 year: 2017,
                                 Id: doc.id,
-                                no: parseInt(doc.data().no),
+                                no: 0,
                                 profile: doc.data().profile,
                                 cId: doc.data().cId,
                                 nickName: doc.data().nickName,
@@ -224,7 +224,7 @@ export default {
                               {
                                 year: 2017,
                                 Id: doc.id,
-                                no: parseInt(doc.data().no),
+                                no: 0,
                                 profile: doc.data().profile,
                                 cId: doc.data().cId,
                                 nickName: doc.data().nickName,
@@ -258,7 +258,7 @@ export default {
                               {
                                 year: 2018,
                                 Id: doc.id,
-                                no: parseInt(doc.data().no),
+                                no: 0,
                                 profile: doc.data().profile,
                                 cId: doc.data().cId,
                                 nickName: doc.data().nickName,
@@ -288,7 +288,7 @@ export default {
                               {
                                 year: 2018,
                                 Id: doc.id,
-                                no: parseInt(doc.data().no),
+                                no: 0,
                                 profile: doc.data().profile,
                                 cId: doc.data().cId,
                                 nickName: doc.data().nickName,
@@ -323,7 +323,7 @@ export default {
                               {
                                 year: 2019,
                                 Id: doc.id,
-                                no: parseInt(doc.data().no),
+                                no: 0,
                                 profile: doc.data().profile,
                                 cId: doc.data().cId,
                                 nickName: doc.data().nickName,
@@ -354,7 +354,7 @@ export default {
                               {
                                 year: 2019,
                                 Id: doc.id,
-                                no: parseInt(doc.data().no),
+                                no: 0,
                                 profile: doc.data().profile,
                                 cId: doc.data().cId,
                                 nickName: doc.data().nickName,
@@ -388,7 +388,7 @@ export default {
                               {
                                 year: 2020,
                                 Id: doc.id,
-                                no: parseInt(doc.data().no),
+                                no: 0,
                                 profile: doc.data().profile,
                                 cId: doc.data().cId,
                                 nickName: doc.data().nickName,
@@ -418,7 +418,7 @@ export default {
                               {
                                 year: 2020,
                                 Id: doc.id,
-                                no: parseInt(doc.data().no),
+                                no: 0,
                                 profile: doc.data().profile,
                                 cId: doc.data().cId,
                                 nickName: doc.data().nickName,
@@ -452,7 +452,7 @@ export default {
                               {
                                 year: 2021,
                                 Id: doc.id,
-                                no: parseInt(doc.data().no),
+                                no: 0,
                                 profile: doc.data().profile,
                                 cId: doc.data().cId,
                                 nickName: doc.data().nickName,
@@ -482,7 +482,7 @@ export default {
                               {
                                 year: 2021,
                                 Id: doc.id,
-                                no: parseInt(doc.data().no),
+                                no: 0,
                                 profile: doc.data().profile,
                                 cId: doc.data().cId,
                                 nickName: doc.data().nickName,

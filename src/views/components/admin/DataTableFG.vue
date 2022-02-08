@@ -33,7 +33,7 @@
                 <v-container>
                   <form @submit.prevent="addFreshy">
                     <v-row dense>
-                      <v-col cols="6" md="2">
+                      <!-- <v-col cols="6" md="2">
                         <v-text-field
                           v-model="freshy.no"
                           type="number"
@@ -42,9 +42,9 @@
                           color="gold"
                           outlined
                         ></v-text-field>
-                      </v-col>
+                      </v-col> -->
 
-                      <v-col cols="6" md="2">
+                      <v-col cols="6" md="4">
                         <v-text-field
                           v-model="freshy.cId"
                           type="text"
@@ -217,7 +217,6 @@
                 v-on="on"
                 @click="
                   getData(
-                    item.no,
                     item.cId,
                     item.profile,
                     item.name,
@@ -239,7 +238,7 @@
               <v-container>
                 <form @submit.prevent="update">
                   <v-row dense>
-                    <v-col cols="6" md="2">
+                    <!-- <v-col cols="6" md="2">
                       <v-text-field
                         v-model="dataFreshy.no"
                         type="text"
@@ -248,9 +247,9 @@
                         color="gold"
                         outlined
                       ></v-text-field>
-                    </v-col>
+                    </v-col> -->
 
-                    <v-col cols="6" md="2">
+                    <v-col cols="6" md="4">
                       <v-text-field
                         v-model="dataFreshy.cId"
                         type="text"
@@ -459,8 +458,8 @@ export default {
       dialogDelete: false,
       // Table Header
       headers: [
-        { text: "ลำดับ", value: "no", align: "start" },
-        { text: "รหัสเฟรชชี่", value: "cId" },
+        // { text: "ลำดับ", value: "no" },
+        { text: "รหัสเฟรชชี่", value: "cId", align: "start" },
         { text: "โปรไฟล์", value: "profile", sortable: false },
         { text: "ชื่อ", value: "name" },
         { text: "นามสกุล", value: "lastName", sortable: false },
@@ -474,7 +473,7 @@ export default {
       ],
       // getData
       freshy: {
-        no: 0,
+        // no: 0,
         cId: "fg",
         profile: "",
         name: "",
@@ -488,7 +487,7 @@ export default {
       },
       // UpdateData
       dataFreshy: {
-        no: "",
+        // no: "",
         cId: "",
         profile: "",
         name: "",
@@ -525,7 +524,7 @@ export default {
         if (doc.exists) {
           this.freshyLists.push({
             id: doc.id,
-            no: doc.data().no,
+            // no: doc.data().no,
             cId: doc.data().cId,
             profile: doc.data().profile,
             name: doc.data().name,
@@ -570,7 +569,7 @@ export default {
                 this.messageSuccess = "เพิ่มข้อมูลสำเร็จ";
               })
               .then(() => {
-                this.freshy.no = "";
+                // this.freshy.no = "";
                 this.freshy.cId = "";
                 this.freshy.profile = "";
                 this.freshy.name = "";
@@ -591,7 +590,7 @@ export default {
 
     // getData for Update
     getData(
-      no,
+      // no,
       cId,
       profile,
       name,
@@ -604,7 +603,7 @@ export default {
       qrcode,
       id
     ) {
-      this.dataFreshy.no = no;
+      // this.dataFreshy.no = no;
       this.dataFreshy.cId = cId;
       this.dataFreshy.profile = profile;
       this.dataFreshy.name = name;
@@ -624,7 +623,7 @@ export default {
       this.ref
         .doc(this.dataFreshy.id)
         .update({
-          no: this.dataFreshy.no,
+          // no: this.dataFreshy.no,
           cId: this.dataFreshy.cId,
           profile: this.dataFreshy.profile,
           name: this.dataFreshy.name,

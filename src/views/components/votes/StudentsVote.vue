@@ -32,7 +32,7 @@
                     <v-card-text>
                       <p>
                         <b>{{ item.cId }}</b>
-                        <span>น้อง{{ item.nickName }}</span>
+                        <span> น้อง{{ item.nickName }}</span>
                         <br />
                         {{ item.faculty }}
                       </p>
@@ -71,7 +71,7 @@
                     <v-card-text>
                       <p>
                         <b>{{ item.cId }}</b>
-                        <span>น้อง{{ item.nickName }}</span>
+                        <span> น้อง{{ item.nickName }}</span>
                         <br />
                         {{ item.faculty }}
                       </p>
@@ -164,7 +164,7 @@
                               justify-center
                               style="
                                 height: 100px;
-                                font-size: 18px;
+                                font-size: 14px;
                                 color: black;
                               "
                             >

@@ -6,14 +6,7 @@
       </v-btn>
     </v-app-bar>
 
-    <v-navigation-drawer
-      v-model="drawer"
-      app
-      width="200"
-      light
-      floating
-      permanent
-    >
+    <v-navigation-drawer v-model="drawer" app width="200" light floating>
       <v-app-bar class="logo" elevation="2" dark>
         <router-link to="/">
           <v-img

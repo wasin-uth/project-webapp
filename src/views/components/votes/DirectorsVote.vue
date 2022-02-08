@@ -176,7 +176,7 @@
                               justify-center
                               style="
                                 height: 100px;
-                                font-size: 18px;
+                                font-size: 14px;
                                 color: black;
                               "
                             >
