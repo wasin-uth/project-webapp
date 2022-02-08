@@ -30,37 +30,37 @@ const routes = [
     name: "Admin",
     path: "/admins",
     component: () => import("../views/components/admin/index.vue"),
-    // meta: { requiresAuth: true },
+    meta: { requiresAuth: true },
   },
   {
     path: "/admin/freshy-boy",
     component: () => import("../views/components/admin/DataTableFB.vue"),
-    // meta: { requiresAuth: true },
+    meta: { requiresAuth: true },
   },
   {
     path: "/admin/freshy-girl",
     component: () => import("../views/components/admin/DataTableFG.vue"),
-    // meta: { requiresAuth: true },
+    meta: { requiresAuth: true },
   },
   {
     path: "/admin/upload-collection",
     component: () => import("../views/components/admin/addCollections.vue"),
-    // meta: { requiresAuth: true },
+    meta: { requiresAuth: true },
   },
   {
     path: "/admin/image-vote",
     component: () => import("../views/components/admin/imgVote.vue"),
-    // meta: { requiresAuth: true },
+    meta: { requiresAuth: true },
   },
   {
     path: "/admin/contributor",
     component: () => import("../views/components/admin/Contributor.vue"),
-    // meta: { requiresAuth: true },
+    meta: { requiresAuth: true },
   },
   {
     path: "/admin/upload-hall-of-fame",
     component: () => import("../views/components/admin/addHOF.vue"),
-    // meta: { requiresAuth: true },
+    meta: { requiresAuth: true },
   },
 
   // =================================================

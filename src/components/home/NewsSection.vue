@@ -33,7 +33,7 @@
                   <h1 style="color: #ffffff !important">Freshy Boy</h1>
                 </v-card>
                 <v-card rounded="lg">
-                  <v-simple-table v-model="onboarding">
+                  <v-simple-table>
                     <template v-slot:default>
                       <thead>
                         <tr>
@@ -87,7 +87,7 @@
                   <h1 style="color: #ffffff !important">Freshy Girl</h1>
                 </v-card>
                 <v-card rounded="lg">
-                  <v-simple-table v-model="onboarding">
+                  <v-simple-table>
                     <template v-slot:default>
                       <thead>
                         <tr>

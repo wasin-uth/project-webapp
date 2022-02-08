@@ -5,7 +5,7 @@
         <v-flex xs12 sm8 md4>
           <v-card elevation="12" color="light">
             <v-toolbar color="transparent" elevation="0">
-              <v-toolbar-title>LOGIN</v-toolbar-title>
+              <v-toolbar-title>LOGIN (อีเมลล์คณะกรรมการ)</v-toolbar-title>
               <v-spacer></v-spacer>
               <v-btn plain fab small elevation="0" @click="goBack">
                 <v-icon color="black">mdi-close</v-icon>
@@ -74,11 +74,6 @@
                       </div>
                     </v-btn>
                   </v-col>
-                  <!-- <v-col cols="12" class="text-right">
-                    <v-btn icon small plain class="mx-1" @click="loadOnce">
-                      <v-icon>mdi-refresh</v-icon>
-                    </v-btn> -->
-                  <!-- </v-col> -->
                 </v-row>
               </form>
             </v-card-text>
@@ -105,7 +100,6 @@ export default {
       // successMessage: "",
     };
   },
-  // props: ["user"],
   methods: {
     loginRequest() {
       let v = this;
@@ -117,14 +111,11 @@ export default {
       auth
         .signInWithEmailAndPassword(v.email, v.password)
         .then(
-          // (user) => {
-          //   console.log(user);
-          // },
           () => {
-            if (v.password == "directors123") {
+            if (v.password == "d123456") {
               this.$router.replace("/vote/directors-vote");
             } else {
-              v.errorMessage = "ตรวจสอบความถูกต้อง อีเมลล์ และ รหัสผ่าน";
+              v.errorMessage = "คุณไม่ใช่คณะกรรมการ";
               v.xhrRequest = false;
             }
           },
@@ -137,9 +128,6 @@ export default {
         .catch((err) => {
           console.log(err);
         });
-    },
-    loadOnce() {
-      location.reload();
     },
     // Show Password
     showPassword() {

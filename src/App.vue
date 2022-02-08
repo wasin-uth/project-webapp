@@ -13,13 +13,15 @@ export default {
 </script>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@600;800&family=Charm:wght@400;700&family=Krub:wght@300;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Taviraj:ital,wght@0,200;0,300;0,800;0,900;1,100;1,700;1,900&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@600;800&family=Charm:wght@400;700&family=Krub:wght@300;400;600&display=swap");
 
 $main_color: #000000;
 $background: #111111;
 
 * {
-  font-family: "Charm", cursive !important;
+  font-family: "Taviraj", serif !important;
+  // font-family: "Charm", cursive !important;
 }
 
 .v-application {
@@ -31,22 +33,22 @@ $background: #111111;
 }
 
 /* Scroll bar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-/* Track */
-::-webkit-scrollbar-track {
-  background: $background;
-  background-color: $main_color !important;
-  background-repeat: repeat !important;
-}
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: $background;
-  border-radius: 0;
-  border: 2px solid $main_color;
-  border-radius: 10px;
-}
+// ::-webkit-scrollbar {
+//   width: 10px;
+// }
+// /* Track */
+// ::-webkit-scrollbar-track {
+//   background: $background;
+//   background-color: $main_color !important;
+//   background-repeat: repeat !important;
+// }
+// /* Handle */
+// ::-webkit-scrollbar-thumb {
+//   background: $background;
+//   border-radius: 0;
+//   border: 2px solid $main_color;
+//   border-radius: 10px;
+// }
 
 @media only screen and(max-width: 960px) {
   .v-main {

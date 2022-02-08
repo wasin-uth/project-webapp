@@ -33,9 +33,9 @@
                     </v-img>
                     <!-- title-content -->
                     <div class="text-name px-2">
-                      <h1 class="id" style="text-transform: uppercase">
+                      <h2 class="id" style="text-transform: uppercase">
                         {{ item.cId }} {{ item.nickName }}
-                      </h1>
+                      </h2>
                       <h5 class="name">{{ item.name }} {{ item.lastName }}</h5>
                     </div>
                     <!-- header-content -->
@@ -75,8 +75,8 @@
                               width="300"
                             ></v-img>
                             <div class="text-center pt-5">
-                              <h1>น้อง {{ item.nickName }}</h1>
-                              <h4>
+                              <h3>{{ item.name }} {{ item.nickName }}</h3>
+                              <h5>
                                 ร่วมโหวตให้กับผู้เข้าประกวด เพียงสแกน QR Code
                                 บนแอพ
                                 <br />
@@ -87,7 +87,7 @@
                                   >Money</span
                                 >
                                 Wallet
-                              </h4>
+                              </h5>
                               <h4 class="warning">1 บาท = 1 คะแนน</h4>
                             </div>
                           </v-card>
@@ -124,9 +124,9 @@
                     </v-img>
                     <!-- title-content -->
                     <div class="text-name px-2">
-                      <h1 class="id" style="text-transform: uppercase">
+                      <h2 class="id" style="text-transform: uppercase">
                         {{ item.cId }} {{ item.nickName }}
-                      </h1>
+                      </h2>
                       <h5 class="name">{{ item.name }} {{ item.lastName }}</h5>
                     </div>
                     <!-- header-content -->
@@ -166,8 +166,8 @@
                               width="300"
                             ></v-img>
                             <div class="text-center pt-5">
-                              <h1>น้อง {{ item.nickName }}</h1>
-                              <h4>
+                              <h3>{{ item.name }} {{ item.nickName }}</h3>
+                              <h5>
                                 ร่วมโหวตให้กับผู้เข้าประกวด เพียงสแกน QR Code
                                 บนแอพ
                                 <br />
@@ -178,7 +178,7 @@
                                   >Money</span
                                 >
                                 Wallet
-                              </h4>
+                              </h5>
                               <h4 class="warning">1 บาท = 1 คะแนน</h4>
                             </div>
                           </v-card>

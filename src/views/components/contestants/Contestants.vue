@@ -32,61 +32,36 @@
                           elevation="0"
                           width="100%"
                           height="100%"
+                          light
                         >
-                          <v-row class="text-center">
-                            <v-col>
-                              <v-card
-                                class="pa-1"
-                                color="transparent"
-                                elevation="0"
-                              >
-                                <v-row>
-                                  <v-col>
-                                    <v-icon
-                                      color="red darken-2"
-                                      @click="toggle"
-                                    >
-                                      {{
-                                        active
-                                          ? "mdi-heart"
-                                          : "mdi-heart-outline"
-                                      }}
-                                    </v-icon>
-                                  </v-col>
-                                  <v-col>
-                                    <p style="color: black">
-                                      {{ active ? item.no + 1 : item.no - 0 }}
-                                    </p>
-                                  </v-col>
-                                </v-row>
-                              </v-card>
+                          <!-- Actions -->
+                          <v-row class="actions text-center pr-2 pl-3">
+                            <v-col cols="4">
+                              <v-row>
+                                <v-col cols="6">
+                                  <v-icon color="red" @click="toggle">
+                                    {{
+                                      active ? "mdi-heart" : "mdi-heart-outline"
+                                    }}
+                                  </v-icon>
+                                </v-col>
+                                <v-col cols="6">
+                                  <p style="color: white">
+                                    {{ active ? item.no + 1 : item.no - 0 }}
+                                  </p>
+                                </v-col>
+                              </v-row>
                             </v-col>
-                            <v-spacer></v-spacer>
-                            <v-col class="text-right pa-1">
+
+                            <v-col cols="8" class="text-right pa-0 pr-2">
                               <v-btn
                                 icon
                                 small
                                 :to="`/contestants/${item.year}/details-${item.cId}=${item.Id}`"
+                                plain
                               >
-                                <v-icon color="black"> mdi-magnify </v-icon>
+                                <v-icon color="white"> mdi-magnify </v-icon>
                               </v-btn>
-                            </v-col>
-                          </v-row>
-                          <v-row>
-                            <v-col>
-                              <div class="title">
-                                <p>
-                                  <span
-                                    style="
-                                      font-size: 34px;
-                                      font-weight: 900 !important;
-                                      color: #c29e59;
-                                    "
-                                    >{{ item.cId }}</span
-                                  >
-                                  <span> N'{{ item.nickName }} </span>
-                                </p>
-                              </div>
                             </v-col>
                           </v-row>
                         </v-card>
@@ -126,61 +101,36 @@
                           elevation="0"
                           width="100%"
                           height="100%"
+                          light
                         >
-                          <v-row class="text-center">
-                            <v-col>
-                              <v-card
-                                class="pa-1"
-                                color="transparent"
-                                elevation="0"
-                              >
-                                <v-row>
-                                  <v-col>
-                                    <v-icon
-                                      color="red darken-2"
-                                      @click="toggle"
-                                    >
-                                      {{
-                                        active
-                                          ? "mdi-heart"
-                                          : "mdi-heart-outline"
-                                      }}
-                                    </v-icon>
-                                  </v-col>
-                                  <v-col>
-                                    <p style="color: black">
-                                      {{ active ? item.no + 1 : item.no - 0 }}
-                                    </p>
-                                  </v-col>
-                                </v-row>
-                              </v-card>
+                          <!-- Actions -->
+                          <v-row class="actions text-center pr-2 pl-3">
+                            <v-col cols="4">
+                              <v-row>
+                                <v-col cols="6">
+                                  <v-icon color="red" @click="toggle">
+                                    {{
+                                      active ? "mdi-heart" : "mdi-heart-outline"
+                                    }}
+                                  </v-icon>
+                                </v-col>
+                                <v-col cols="6">
+                                  <p style="color: white">
+                                    {{ active ? item.no + 1 : item.no - 0 }}
+                                  </p>
+                                </v-col>
+                              </v-row>
                             </v-col>
-                            <v-spacer></v-spacer>
-                            <v-col class="text-right pa-1">
+
+                            <v-col cols="8" class="text-right pa-0 pr-2">
                               <v-btn
                                 icon
                                 small
                                 :to="`/contestants/${item.year}/details-${item.cId}=${item.Id}`"
+                                plain
                               >
-                                <v-icon color="black"> mdi-magnify </v-icon>
+                                <v-icon color="white"> mdi-magnify </v-icon>
                               </v-btn>
-                            </v-col>
-                          </v-row>
-                          <v-row>
-                            <v-col>
-                              <div class="title">
-                                <p>
-                                  <span
-                                    style="
-                                      font-size: 34px;
-                                      font-weight: 900 !important;
-                                      color: #c29e59;
-                                    "
-                                    >{{ item.cId }}</span
-                                  >
-                                  <span> N'{{ item.nickName }} </span>
-                                </p>
-                              </div>
                             </v-col>
                           </v-row>
                         </v-card>
@@ -568,19 +518,29 @@ export default {
   text-transform: uppercase !important;
 }
 
-.title {
+.actions {
   position: absolute;
   bottom: 10px;
-  left: 10px;
+  width: 100%;
 }
 
 section {
   .shadow {
-    background-image: linear-gradient(0deg, #000000c2 20%, #00000000 80%);
+    background-image: linear-gradient(
+      0deg,
+      #000000e8 10%,
+      #00000000 50%,
+      #00000000 90%
+    );
     width: 100%;
     height: 100%;
     &:hover {
-      background-image: linear-gradient(0deg, #00000070 20%, #00000000 80%);
+      background-image: linear-gradient(
+        0deg,
+        #000000 10%,
+        #00000000 50%,
+        #00000000 90%
+      );
     }
   }
 }

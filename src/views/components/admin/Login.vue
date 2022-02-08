@@ -5,7 +5,7 @@
         <v-flex xs12 sm8 md4>
           <v-card elevation="12" color="light">
             <v-toolbar color="transparent" elevation="0">
-              <v-toolbar-title>LOGIN</v-toolbar-title>
+              <v-toolbar-title>LOGIN (อีเมลล์แอดมิน)</v-toolbar-title>
               <v-spacer></v-spacer>
               <v-btn plain fab small elevation="0" @click="goBack">
                 <v-icon color="black">mdi-close</v-icon>

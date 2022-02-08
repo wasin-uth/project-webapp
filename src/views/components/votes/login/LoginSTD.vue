@@ -105,26 +105,24 @@ export default {
       // successMessage: "",
     };
   },
-  // props: ["user"],
+  created() {
+  },
   methods: {
-    loginRequest() {
+    async loginRequest() {
       let v = this;
 
       v.xhrRequest = true;
       v.errorMessage = "";
       // v.successMessage = "";
 
-      auth
+      await auth
         .signInWithEmailAndPassword(v.email, v.password)
         .then(
-          // (user) => {
-          //   console.log(user);
-          // },
           () => {
-            if (v.password != "directors123") {
+            if (v.password != "d123456") {
               this.$router.replace("/vote/students-vote");
             } else {
-              v.errorMessage = "ตรวจสอบความถูกต้อง อีเมลล์ และ รหัสผ่าน";
+              v.errorMessage = "คุณไม่ใช่นักศึกษา";
               v.xhrRequest = false;
             }
           },
@@ -137,9 +135,6 @@ export default {
         .catch((err) => {
           console.log(err);
         });
-    },
-    loadOnce() {
-      location.reload();
     },
     // Show Password
     showPassword() {

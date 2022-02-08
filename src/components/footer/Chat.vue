@@ -32,11 +32,14 @@
         </v-fab-transition>
       </template>
 
-      <!-- Head -->
       <v-card class="chat_box" light>
-        <v-system-bar class="bar py-4" light>
+        <!-- Head -->
+        <v-system-bar class="bar py-4" light color="white">
+          <v-avatar class="ml-2 my-1" size="20" color="gold">
+            <v-icon>mdi-facebook-messenger</v-icon>
+          </v-avatar>
           <input
-            placeholder="Enter your name (ตั้งชื่อ..แล้วกดปุ่มล็อก)"
+            placeholder="your name (ตั้งชื่อ..แล้วกดปุ่มล็อก)"
             type="text"
             v-model="name"
             :disabled="check_name"
@@ -47,11 +50,12 @@
             light
             @click="check_name = name != '' ? true : false"
           >
-            <v-icon>mdi-lock</v-icon>
+            <v-icon size="20">mdi-lock</v-icon>
           </v-btn>
           <v-spacer></v-spacer>
           <v-btn icon light small class="mr-2">
             <v-icon
+              color="gold"
               @click="
                 fab = !fab;
                 menu = false;
@@ -69,12 +73,11 @@
           width="300"
           height="400"
           light
-          color="light"
+          color="white"
           rounded="0"
         >
           <v-card-text style="font-size: 18px; line-height: 1.6">
             <v-card
-              class="pa-2"
               light
               width="100%"
               height="400"
@@ -85,21 +88,35 @@
             >
               <ul>
                 <li v-for="(m, i) in msg" :key="i">
-                  <v-row>
-                    <v-col cols="2" class="py-0">
+                  <v-row class="mb-1">
+                    <v-col cols="2">
+                      <v-layout align-end justify-center style="height: 100%">
+                        <v-avatar class="pl-4" size="30" color="gold">
+                          <span style="font-size: 34px">
+                            {{ m.sender }}
+                          </span>
+                        </v-avatar>
+                      </v-layout>
+                    </v-col>
+                    <v-col cols="10">
                       <v-card
+                        class="pl-2"
                         width="100%"
                         height="30"
-                        style="overflow: hidden"
                         elevation="0"
                         color="transparent"
                       >
-                        <span>{{ m.sender }}</span>
+                        <span style="font-size: 14px">{{ m.sender }}</span>
                       </v-card>
-                    </v-col>
-                    <v-col cols="10" class="py-1">
-                      <v-card class="pa-1" elevation="0" rounded="lg tl-0" dark>
-                        <span class="ml-2">{{ m.text }}</span>
+                      <v-card
+                        class="pa-1 pl-2"
+                        elevation="0"
+                        rounded="lg"
+                        light
+                        color="light"
+                        width="80%"
+                      >
+                        <span>{{ m.text }}</span>
                       </v-card>
                     </v-col>
                   </v-row>
@@ -111,19 +128,30 @@
         </v-card>
 
         <!-- Send Message -->
-        <v-card color="#E0E0E0" elevation="0">
+        <v-card class="pa-1" color="white" elevation="0">
           <v-row>
             <v-col cols="10">
-              <input
-                type="text"
-                v-model="text"
-                placeholder="Enter your message"
-              />
+              <v-card color="light" rounded="lg" elevation="0">
+                <input
+                  type="text"
+                  v-model="text"
+                  placeholder="Enter your message"
+                />
+              </v-card>
             </v-col>
             <v-col cols="2">
-              <v-btn icon plain light :disabled="name == ''" @click="sendMsg()">
-                <v-icon color="gold">mdi-send</v-icon>
-              </v-btn>
+              <v-layout align-center justify-center>
+                <v-card height="100%" elevation="0">
+                  <v-icon
+                    size="30"
+                    color="gold"
+                    :disabled="name == ''"
+                    @click="sendMsg()"
+                  >
+                    mdi-send
+                  </v-icon>
+                </v-card>
+              </v-layout>
             </v-col>
           </v-row>
         </v-card>

@@ -10,6 +10,7 @@
       >
         <!-- Freshy Boy -->
         <v-row v-for="(item, i) in freshyBoy" :key="i.id">
+          <!-- Profile -->
           <v-col cols="8" lg="4" md="4" sm="5">
             <v-card
               class="profile"
@@ -28,6 +29,7 @@
               ></v-img>
             </v-card>
           </v-col>
+          <!-- Content -->
           <v-col cols="12" lg="8" md="8" sm="7">
             <v-card
               class="contents pa-2"
@@ -58,6 +60,8 @@
                   <li>คณะ : {{ item.faculty }}</li>
                   <li>ส่วนสูง : {{ item.height }}</li>
                   <li>น้ำหนัก : {{ item.weight }}</li>
+                  <li>ความสามารถ : ร้องเพลง</li>
+                  <li>สโลแกน : ชีวิตไม่มีอะไรมาก แค่อย่าทำให้มันยากก็พอ</li>
                 </ul>
                 <v-divider class="my-2"></v-divider>
                 <ul style="list-style-type: none">
@@ -70,6 +74,7 @@
 
         <!-- Freshy Girl -->
         <v-row v-for="(item, i) in freshyGirl" :key="i.id">
+          <!-- Profile -->
           <v-col cols="8" lg="4" md="4" sm="5">
             <v-card
               class="profile"
@@ -88,6 +93,7 @@
               ></v-img>
             </v-card>
           </v-col>
+          <!-- Content -->
           <v-col cols="12" lg="8" md="8" sm="7">
             <v-card
               class="contents pa-2"
@@ -118,6 +124,8 @@
                   <li>คณะ : {{ item.faculty }}</li>
                   <li>ส่วนสูง : {{ item.height }}</li>
                   <li>น้ำหนัก : {{ item.weight }}</li>
+                  <li>ความสามารถ : ร้องเพลง</li>
+                  <li>สโลแกน : ชีวิตไม่มีอะไรมาก แค่อย่าทำให้มันยากก็พอ</li>
                 </ul>
                 <v-divider class="my-2"></v-divider>
                 <ul style="list-style-type: none">
@@ -129,7 +137,6 @@
         </v-row>
       </v-sheet>
     </section>
-
     <Footer />
   </div>
 </template>

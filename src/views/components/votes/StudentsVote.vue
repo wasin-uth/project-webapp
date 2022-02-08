@@ -3,27 +3,39 @@
     <div>
       <Bar />
     </div>
-    <section class="pa-5 pb-15">
+    <section class="px-2 pt-10 pb-15" style="overflow: hidden">
       <v-row dense>
         <!-- Freshy Boy -->
-        <v-col cols="6">
-          <v-slide-group dark class="pa-0" center-active show-arrows>
+        <v-col cols="12" md="6">
+          <v-slide-group
+            dark
+            class="pa-0"
+            center-active
+            show-arrows
+            prev-icon="mdi-moon-waning-crescent"
+            next-icon="mdi-moon-waxing-crescent"
+          >
             <v-slide-item
               v-for="(item, i) in fb"
               :key="i"
               v-slot="{ active, toggle }"
             >
               <v-card
-                class="ma-2"
-                height="200"
-                width="100"
+                class="card ma-1"
+                height="340"
+                width="190"
                 @click="toggle"
-                :color="active ? 'success' : 'grey lighten-1'"
+                :color="active ? 'secondary' : 'grey lighten-1'"
               >
-                <v-img :src="item.profile" height="200">
-                  <v-card-actions>
+                <v-img :src="item.profile" height="100%">
+                  <v-card-actions class="shadow">
                     <v-card-text>
-                      <span>{{ item.cId }} {{ item.nickName }}</span>
+                      <p>
+                        <b>{{ item.cId }}</b>
+                        <span>น้อง{{ item.nickName }}</span>
+                        <br />
+                        {{ item.faculty }}
+                      </p>
                     </v-card-text>
                   </v-card-actions>
                 </v-img>
@@ -33,28 +45,68 @@
         </v-col>
 
         <!-- Freshy Girl -->
-        <v-col cols="6">
+        <v-col cols="12" md="6">
           <v-slide-group
             dark
-            v-model="model"
             class="pa-0"
             center-active
             show-arrows
+            prev-icon="mdi-moon-waning-crescent"
+            next-icon="mdi-moon-waxing-crescent"
           >
-            <v-slide-item v-for="(item, i) in fg" :key="i">
-              <v-card class="ma-2" height="200" width="100">
-                <v-img :src="item.profile" height="200"></v-img>
+            <v-slide-item
+              v-for="(item, i) in fg"
+              :key="i"
+              v-slot="{ active, toggle }"
+            >
+              <v-card
+                class="card ma-1"
+                height="340"
+                width="190"
+                @click="toggle"
+                :color="active ? 'secondary' : 'grey lighten-1'"
+              >
+                <v-img :src="item.profile" height="100%">
+                  <v-card-actions class="shadow">
+                    <v-card-text>
+                      <p>
+                        <b>{{ item.cId }}</b>
+                        <span>น้อง{{ item.nickName }}</span>
+                        <br />
+                        {{ item.faculty }}
+                      </p>
+                    </v-card-text>
+                  </v-card-actions>
+                </v-img>
               </v-card>
             </v-slide-item>
           </v-slide-group>
         </v-col>
 
+        <v-col cols="12">
+          <v-sheet class="my-5 mx-2 pa-5" rounded="lg" color="black" dark>
+            <p>
+              &nbsp;&nbsp;&nbsp; Lorem ipsum, dolor sit amet consectetur
+              adipisicing elit. Exercitationem excepturi voluptate esse
+              consectetur facilis, assumenda ex minima blanditiis nulla
+              laboriosam et eveniet atque quis iste, iusto molestias quos
+              repellendus adipisci.
+            </p>
+          </v-sheet>
+        </v-col>
+
         <!-- Vote -->
         <v-col cols="12">
-          <v-sheet dark width="100%" color="transparent">
+          <v-sheet
+            class="ma-2 mb-10"
+            dark
+            width="100%"
+            color="black"
+            rounded="lg"
+          >
             <form @submit.prevent="sendMessage">
               <v-row>
-                <v-col class="pa-2" cols="6">
+                <v-col class="pa-5" cols="6">
                   <v-select
                     :items="fb"
                     item-text="select"
@@ -63,9 +115,10 @@
                     outlined
                     dark
                     clearable
+                    color="gold"
                   ></v-select>
                 </v-col>
-                <v-col class="pa-2" cols="6">
+                <v-col class="pa-5" cols="6">
                   <v-select
                     :items="fg"
                     item-text="select"
@@ -74,33 +127,83 @@
                     outlined
                     dark
                     clearable
+                    color="gold"
                   ></v-select>
                 </v-col>
 
-                <!-- Vote -->
-                <v-col class="pa-2" cols="12">
-                  <v-btn
-                    :disabled="!freshyboy == null && !freshygirl == null"
-                    type="submit"
-                    block
-                  >
-                    Vote
-                  </v-btn>
-                </v-col>
+                <!-- Vote Content -->
+                <v-col class="pa-5" cols="12">
+                  <template>
+                    <div class="text-center">
+                      <v-dialog v-model="dialog" width="1000">
+                        <template v-slot:activator="{ on, attrs }">
+                          <v-btn
+                            @click="dialog = false"
+                            v-bind="attrs"
+                            v-on="on"
+                            block
+                            color="gold"
+                            dark
+                          >
+                            VOTE
+                          </v-btn>
+                        </template>
 
-                <!--  -->
-                <v-col cols="12">
-                  <v-expand-transition>
-                    <v-sheet v-if="freshyboy != null" height="200" tile>
-                      <v-row
-                        class="fill-height"
-                        align="center"
-                        justify="center"
-                      >
-                        <h3 class="text-h6">Selected {{ freshyboy }}</h3>
-                      </v-row>
-                    </v-sheet>
-                  </v-expand-transition>
+                        <v-card class="pa-3" color="light" light>
+                          <v-card-title class="pb-3 px-2">
+                            <v-row class="text-center">
+                              <v-col> ยืนยันการโหวต </v-col>
+                            </v-row>
+                          </v-card-title>
+                          <v-divider light class="mx-15"></v-divider>
+                          <v-card-text
+                            v-if="freshyboy != '' && freshygirl != ''"
+                          >
+                            <v-layout
+                              align-center
+                              justify-center
+                              style="
+                                height: 100px;
+                                font-size: 18px;
+                                color: black;
+                              "
+                            >
+                              <b>Freshy Boy : ( {{ freshyboy }} ) </b>
+                              &nbsp; กับ &nbsp;
+                              <b>Freshy Girl : ( {{ freshygirl }} ) </b>
+                            </v-layout>
+                          </v-card-text>
+
+                          <v-card-actions>
+                            <v-row>
+                              <v-col cols="6" class="pa-2">
+                                <v-btn
+                                  color="red"
+                                  block
+                                  @click="dialog = false"
+                                >
+                                  ยกเลิก
+                                </v-btn>
+                              </v-col>
+                              <v-col cols="6" class="pa-2">
+                                <v-btn
+                                  :disabled="
+                                    !freshyboy == null && !freshygirl == null
+                                  "
+                                  type="submit"
+                                  @click="sendMessage"
+                                  color="gold"
+                                  block
+                                >
+                                  ยืนยัน
+                                </v-btn>
+                              </v-col>
+                            </v-row>
+                          </v-card-actions>
+                        </v-card>
+                      </v-dialog>
+                    </div>
+                  </template>
                 </v-col>
               </v-row>
             </form>
@@ -124,8 +227,7 @@ export default {
   },
   data() {
     return {
-      model: null,
-      modelFB: null,
+      dialog: false,
       value: "",
 
       user: auth.currentUser,
@@ -152,10 +254,11 @@ export default {
                   profile: doc.data().profile,
                   select:
                     doc.data().cId +
-                    " N'" +
+                    " น้อง" +
                     doc.data().nickName +
                     " คณะ" +
                     doc.data().faculty,
+                  faculty: doc.data().faculty,
                 },
               ];
             }
@@ -183,15 +286,32 @@ export default {
                   profile: doc.data().profile,
                   select:
                     doc.data().cId +
-                    " N'" +
+                    " น้อง" +
                     doc.data().nickName +
                     " คณะ" +
                     doc.data().faculty,
+                  faculty: doc.data().faculty,
                 },
               ];
             }
           });
           this.fg = tempDataArray;
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+
+    db.collection("/stdVote")
+      .get()
+      .then(
+        (querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            if (this.user.email === doc.data().email) {
+              alert("คุณได้โหวตไปแล้ว");
+              this.$router.replace("/vote");
+            }
+          });
         },
         (err) => {
           console.log(err);
@@ -208,11 +328,12 @@ export default {
         createdAt: new Date().toLocaleString(),
       };
       await db
-        .collection("votes")
+        .collection("/stdVote")
         .add(voteInfo)
         .then(
           () => {
-            alert("Successful");
+            alert("โหวตสำเร็จ");
+            this.$router.replace("/vote");
           },
           (err) => {
             console.log(err);
@@ -220,9 +341,6 @@ export default {
         );
       this.freshyboy = "";
       this.freshygirl = "";
-    },
-    loadOnce() {
-      location.reload();
     },
   },
 };
@@ -232,5 +350,28 @@ export default {
 * {
   margin: 0 !important;
   padding: 0 !important;
+}
+
+.card {
+  position: relative;
+  .shadow {
+    background: transparent;
+    background: linear-gradient(0deg, #000000 0%, #000000ff 10%, #00000000 50%);
+    width: 100%;
+    height: 100%;
+    p {
+      padding: 10px !important;
+      position: absolute;
+      bottom: 0;
+      font-size: 14px;
+      span {
+        font-size: 18px;
+      }
+      b {
+        font-size: 24px;
+        text-transform: uppercase;
+      }
+    }
+  }
 }
 </style>
