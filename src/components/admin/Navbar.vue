@@ -39,31 +39,31 @@ export default {
       drawer: false,
       items: [
         {
-          name: "Admin",
+          name: "แอดมิน",
           route: "/admins",
         },
         {
-          name: "Score",
+          name: "คะแนน Popular Vote และ Top 5",
           route: "/admin/image-vote",
         },
         {
-          name: "ข้อมูล Freshy Boy",
+          name: "ข้อมูลเฟรชชี่บอย",
           route: "/admin/freshy-boy",
         },
         {
-          name: "ข้อมูล Freshy Girl",
+          name: "ข้อมูลเฟรชชี่เกิร์ล",
           route: "/admin/freshy-girl",
         },
         {
-          name: "Collections",
+          name: "คอลเลคชั่น",
           route: "/admin/upload-collection",
         },
         {
-          name: "Contributor",
+          name: "ผู้สนับสนุน",
           route: "/admin/contributor",
         },
         {
-          name: "Hall Of Fame",
+          name: "ประกาศรางวัล",
           route: "/admin/upload-hall-of-fame",
         },
       ],

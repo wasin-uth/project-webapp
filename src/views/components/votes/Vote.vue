@@ -42,8 +42,8 @@
                 </v-card-subtitle>
               </div>
               <v-card-actions>
-                <v-btn class="btn" :to="item.route" block dark color="#000000">
-                  <b>Let's go</b>
+                <v-btn class="btn py-0" :to="item.route" block dark color="#000000">
+                  <b>เปิดโหวต</b>
                 </v-btn>
               </v-card-actions>
             </v-card>

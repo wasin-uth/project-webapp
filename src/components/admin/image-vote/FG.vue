@@ -315,7 +315,7 @@ export default {
         { text: "รูปภาพ", value: "image", sortable: false },
         { text: "รหัสเฟรชชี่", value: "cId" },
         { text: "คณะ", value: "faculty", sortable: false },
-        { text: "คะแนนโหวต", value: "popularScore", sortable: false },
+        { text: "คะแนนโหวต", value: "popularScore" },
         { text: "แก้ไข / ลบ", value: "actions", sortable: false },
       ],
       // getData

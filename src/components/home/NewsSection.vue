@@ -12,111 +12,99 @@
           >
             <v-row>
               <v-col cols="12">
-                <v-card
-                  color="transparent"
-                  height="200"
-                  style="overflow: hidden"
-                  rounded="lg"
-                >
-                  <v-row class="fill-height" align="center" justify="center">
-                    <v-img
-                      src="https://i.pinimg.com/originals/40/eb/71/40eb71374bfd72140300dbd8c8e5ba4a.gif"
-                      width="100%"
-                    ></v-img>
-                  </v-row>
+                <v-card class="text-center ma-2"  rounded="lg" dark>
+                  <v-carousel
+                    cycle
+                    height="300"
+                    hide-delimiter-background
+                    show-arrows-on-hover
+                  >
+                    <v-carousel-item v-for="(slide, i) in slides" :key="i">
+                      <v-sheet height="100%">
+                        <v-img :src="slide.path"></v-img>
+                      </v-sheet>
+                    </v-carousel-item>
+                  </v-carousel>
+                </v-card>
+                <v-card class="text-center ma-2 py-4" rounded="lg" color="black" dark style="color: #c29d59;">
+                  <h1>
+                    คะแนนโหวต Freshy Boy and Girl ด้วยทรูมันนี่วอลเลต จากวันที่เปิดโหวตจนถึงวันนี้
+                  </h1>
                 </v-card>
               </v-col>
 
               <!-- Freshy Boy -->
-              <v-col cols="12" lg="6" md="6">
-                <v-card class="text-center ma-2" color="transparent" dark>
-                  <h1 style="color: #ffffff !important">Freshy Boy</h1>
-                </v-card>
-                <v-card rounded="lg">
-                  <v-simple-table>
-                    <template v-slot:default>
-                      <thead>
-                        <tr>
-                          <th class="text-center">รหัสเฟรชชี่</th>
-                          <th class="text-center">โปรไฟล์</th>
-                          <th class="text-left">คณะ</th>
-                          <th
-                            class="text-center"
-                            style="color: #c29e59 !important"
-                          >
-                            คะแนน <br />
-                            Popular Vote
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr v-for="(item, i) in freshyboy" :key="i.id">
-                          <td>{{ item.cId }}</td>
-                          <td>
-                            <v-avatar size="40" rounded="lg">
-                              <v-img :src="item.profile"></v-img>
-                            </v-avatar>
-                          </td>
-                          <td>{{ item.faculty }}</td>
-                          <td>
-                            <v-btn
-                              color="gold lighten-1"
-                              to="/vote/popular-vote"
+              <v-col cols="6">
+                <v-container rounded="lg">
+                  <v-row>
+                    <v-col
+                      v-for="(item, i) in freshyboy"
+                      :key="i"
+                      cols="12"
+                      lg="4"
+                      md="6"
+                    >
+                      <v-card>
+                        <v-img :src="item.profile" height="250">
+                          <div class="shadow"></div>
+                          <v-card-actions class="actions pa-0">
+                            <v-card
+                              class="cid ma-0"
+                              height="45"
+                              width="60"
+                              elevation="0"
+                              rounded="0 tr-pill"
                             >
-                              {{ item.popularScore }}
-                            </v-btn>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </template>
-                  </v-simple-table>
-                </v-card>
+                              <v-col>
+                                <h4>
+                                  {{ item.cId }}
+                                </h4>
+                              </v-col>
+                            </v-card>
+                            <h1 class="px-2">{{ item.popularScore }} แต้ม</h1>
+                          </v-card-actions>
+                        </v-img>
+                      </v-card>
+                    </v-col>
+                  </v-row>
+                </v-container>
               </v-col>
 
               <!-- Freshy Girl -->
-              <v-col cols="12" lg="6" md="6">
-                <v-card class="text-center ma-2" color="transparent" dark>
-                  <h1 style="color: #ffffff !important">Freshy Girl</h1>
-                </v-card>
-                <v-card rounded="lg">
-                  <v-simple-table>
-                    <template v-slot:default>
-                      <thead>
-                        <tr>
-                          <th class="text-center">รหัสเฟรชชี่</th>
-                          <th class="text-center">โปรไฟล์</th>
-                          <th class="text-left">คณะ</th>
-                          <th
-                            class="text-center"
-                            style="color: #c29e59 !important"
-                          >
-                            คะแนน <br />
-                            Popular Vote
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr v-for="(item, i) in freshygirl" :key="i.id">
-                          <td>{{ item.cId }}</td>
-                          <td>
-                            <v-avatar size="40" rounded="lg">
-                              <v-img :src="item.profile"></v-img>
-                            </v-avatar>
-                          </td>
-                          <td>{{ item.faculty }}</td>
-                          <td>
-                            <v-btn
-                              color="gold lighten-1"
-                              to="/vote/popular-vote"
+              <v-col cols="6">
+                <v-container rounded="lg">
+                  <v-row>
+                    <v-col
+                      v-for="(item, i) in freshygirl"
+                      :key="i"
+                      cols="12"
+                      lg="4"
+                      md="6"
+                    >
+                      <v-card>
+                        <v-img :src="item.profile" height="250">
+                          <div class="shadow"></div>
+                          <v-card-actions class="actions pa-0">
+                            <v-card
+                              class="cid ma-0"
+                              height="45"
+                              width="60"
+                              elevation="0"
+                              rounded="0 tr-pill"
                             >
-                              {{ item.popularScore }}
-                            </v-btn>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </template>
-                  </v-simple-table>
-                </v-card>
+                              <v-col>
+                                <h4>
+                                  {{ item.cId }}
+                                </h4>
+                              </v-col>
+                            </v-card>
+                            <h1 class="px-2">{{ item.popularScore }} แต้ม</h1>
+                          </v-card-actions>
+                        </v-img>
+                      </v-card>
+                    </v-col>
+                  </v-row>
+                </v-container>
               </v-col>
             </v-row>
           </v-sheet>
@@ -134,6 +122,18 @@ export default {
     return {
       freshyboy: [],
       freshygirl: [],
+
+      slides: [
+        {
+          path: "https://scontent.fbkk14-1.fna.fbcdn.net/v/t1.15752-9/s2048x2048/274078079_276662204600115_115538742855526597_n.png?_nc_cat=100&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeHLztpdmU8JeBnK0d6vfk-OR_wuO71KpLpH_C47vUqkuvoPA1whKhlJgYT1xCsUir4MfC12Yif4SupsXMDyvUHb&_nc_ohc=fNlZacbO0jEAX_4PkSH&_nc_ht=scontent.fbkk14-1.fna&oh=03_AVJHnugBrOI3xQK41v2J-tIz_HpnEQLEtvffnB-_frl3_Q&oe=6235F0DA",
+        },
+        {
+          path: "https://scontent.fbkk10-1.fna.fbcdn.net/v/t1.15752-9/s2048x2048/259304025_979149053009009_1133406628604099339_n.png?_nc_cat=102&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeEDU2BEHqlORzdHa5IcZUrslbDIeffDKP6VsMh598Mo_swN3rgqsqivmVToImVG1WNypyjcjEQG5oaTOAHYXP2m&_nc_ohc=lKbwYcmcTnAAX9KtWpT&_nc_ht=scontent.fbkk10-1.fna&oh=03_AVL9Y6P2tHZbBmFJS1rS9YtU5WmCPqLOlkdej9L_Yb9vlg&oe=6237C221",
+        },
+        {
+          path: "https://scontent.fbkk14-1.fna.fbcdn.net/v/t1.15752-9/s2048x2048/273740051_977068759860153_47833332886977688_n.png?_nc_cat=100&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeG_kEuPICLYsIIOxOFVkUcIDfIDVxv0Eg4N8gNXG_QSDuwDQY2JXmRqSJ_wvOQL-ami-Yy22vRispKImIqyLbFz&_nc_ohc=DyzxMPZTpc0AX-Sa6uG&_nc_ht=scontent.fbkk14-1.fna&oh=03_AVKfCmx7tFuBBoOKiohS7m18A_x6q0hZhe34-9vjqqRExA&oe=623711AB",
+        },
+      ],
     };
   },
   created() {
@@ -194,8 +194,31 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 * {
-  color: #000000 !important;
+}
+
+.actions {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-image: linear-gradient(0deg, #ffffffbe 10%, #ffffff00 100%);
+  .cid {
+    text-transform: uppercase;
+    background-image: linear-gradient(0deg, #c29d59 50%, #f5deb4 100%);
+  }
+  h1 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #c29d59 !important;
+    line-height: 1;
+    text-shadow: 1px 1px 0px #000000;
+  }
+}
+.shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(0deg, #c29d593a 40%, #ffffff00 100%);
 }
 </style>

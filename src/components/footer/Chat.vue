@@ -93,7 +93,7 @@
                       <v-layout align-end justify-center style="height: 100%">
                         <v-avatar class="pl-4" size="30" color="gold">
                           <span style="font-size: 34px">
-                            {{ m.sender }}
+                            {{ m.userName }}
                           </span>
                         </v-avatar>
                       </v-layout>
@@ -106,7 +106,7 @@
                         elevation="0"
                         color="transparent"
                       >
-                        <span style="font-size: 14px">{{ m.sender }}</span>
+                        <span style="font-size: 14px">{{ m.userName }}</span>
                       </v-card>
                       <v-card
                         class="pa-1 pl-2"
@@ -187,7 +187,7 @@ export default {
       realtime
         .ref("msg")
         .push({
-          sender: this.name,
+          userName: this.name,
           text: this.text,
         })
         .then(() => {

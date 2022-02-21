@@ -109,7 +109,7 @@
                 <v-col class="pa-5" cols="6">
                   <v-select
                     :items="fb"
-                    item-text="select"
+                    item-text="cId"
                     label="Vote Freshy Boy"
                     v-model="freshyboy"
                     outlined
@@ -121,7 +121,7 @@
                 <v-col class="pa-5" cols="6">
                   <v-select
                     :items="fg"
-                    item-text="select"
+                    item-text="cId"
                     label="Vote Freshy Girl"
                     v-model="freshygirl"
                     outlined
@@ -210,6 +210,55 @@
           </v-sheet>
         </v-col>
       </v-row>
+
+      <!-- Alert Dialog -->
+      <template>
+        <!-- Warning -->
+        <div class="text-center">
+          <v-dialog v-model="warning" width="500" persistent>
+            <v-card class="pa-5 pt-10" color="light" light>
+              <v-card-text class="text-center">
+                <h1>คุณได้โหวตไปแล้ว</h1>
+              </v-card-text>
+              <v-card-actions>
+                <v-btn
+                  @click="exit"
+                  block
+                  class="mt-10"
+                  color="red"
+                  dark
+                  style="font-size: 22px"
+                >
+                  ออก
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+        </div>
+
+        <!-- Success -->
+        <div class="text-center">
+          <v-dialog v-model="success" width="500" persistent>
+            <v-card class="pa-5 pt-10" color="light" light>
+              <v-card-text class="text-center">
+                <h1>โหวตสำเร็จ</h1>
+              </v-card-text>
+              <v-card-actions>
+                <v-btn
+                  @click="exit"
+                  block
+                  class="mt-10"
+                  color="red"
+                  dark
+                  style="font-size: 22px"
+                >
+                  ออก
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+        </div>
+      </template>
     </section>
   </Layouts>
 </template>
@@ -228,6 +277,8 @@ export default {
   data() {
     return {
       dialog: false,
+      warning: false,
+      success: false,
       value: "",
 
       user: auth.currentUser,
@@ -308,8 +359,8 @@ export default {
         (querySnapshot) => {
           querySnapshot.forEach((doc) => {
             if (this.user.email === doc.data().email) {
-              alert("คุณได้โหวตไปแล้ว");
-              this.$router.replace("/vote");
+              // alert("คุณได้โหวตไปแล้ว");
+              this.warning = true;
             }
           });
         },
@@ -332,8 +383,9 @@ export default {
         .add(voteInfo)
         .then(
           () => {
-            alert("โหวตสำเร็จ");
-            this.$router.replace("/vote");
+            this.message = "โหวตสำเร็จ";
+            this.dialog = false;
+            this.success = true;
           },
           (err) => {
             console.log(err);
@@ -341,6 +393,10 @@ export default {
         );
       this.freshyboy = "";
       this.freshygirl = "";
+    },
+
+    exit() {
+      this.$router.replace("/vote");
     },
   },
 };
