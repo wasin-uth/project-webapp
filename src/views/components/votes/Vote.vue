@@ -42,7 +42,13 @@
                 </v-card-subtitle>
               </div>
               <v-card-actions>
-                <v-btn class="btn py-0" :to="item.route" block dark color="#000000">
+                <v-btn
+                  class="btn py-0"
+                  :to="item.route"
+                  block
+                  dark
+                  color="#000000"
+                >
                   <b>เปิดโหวต</b>
                 </v-btn>
               </v-card-actions>
@@ -69,7 +75,7 @@ export default {
       items: [
         {
           id: 1,
-          title: "Popular Vote",
+          title: "Popular Vote & Top 5",
           subtitle: "โหวตผ่าน แอพ TrueMoney Wallet",
           route: "/vote/popular-vote",
           logo: "https://www.paysolutions.asia/assets/images/home/Image-true@2x.png",

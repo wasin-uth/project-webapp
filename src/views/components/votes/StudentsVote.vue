@@ -84,25 +84,25 @@
         </v-col>
 
         <v-col cols="12">
-          <v-sheet class="my-5 mx-2 pa-5" rounded="lg" color="black" dark>
-            <p>
-              &nbsp;&nbsp;&nbsp; Lorem ipsum, dolor sit amet consectetur
-              adipisicing elit. Exercitationem excepturi voluptate esse
-              consectetur facilis, assumenda ex minima blanditiis nulla
-              laboriosam et eveniet atque quis iste, iusto molestias quos
-              repellendus adipisci.
-            </p>
+          <v-sheet class="bar my-5 mx-2 pa-5" rounded="lg" light>
+            <div>
+              <h2>ขั้นตอนการโหวต</h2>
+              <h3>
+                &nbsp;&nbsp;&nbsp;
+                ให้ทำการเลือกผู้เข้าประกวดในช่องข้างล่าง เลือกคนที่คุณต้องการจะเลือก
+                ถ้าไม่ประสงค์ลงคะแนนก็ไม่ต้องทำการเลือกหรือปล่อยว่างก็จะถือว่าไม่ประสงค์ลงคะแนน
+                จากนั้นทำการกดที่ปุ่มโหวต แล้วกดยืนยันได้เลย
+              </h3>
+            </div>
           </v-sheet>
         </v-col>
 
         <!-- Vote -->
         <v-col cols="12">
           <v-sheet
-            class="ma-2 mb-10"
-            dark
-            width="100%"
-            color="black"
+            class="bar ma-2 mb-10"
             rounded="lg"
+            light
           >
             <form @submit.prevent="sendMessage">
               <v-row>
@@ -110,10 +110,9 @@
                   <v-select
                     :items="fb"
                     item-text="cId"
-                    label="Vote Freshy Boy"
+                    label="เลือกเฟรชชี่บอย"
                     v-model="freshyboy"
                     outlined
-                    dark
                     clearable
                     color="gold"
                   ></v-select>
@@ -122,10 +121,9 @@
                   <v-select
                     :items="fg"
                     item-text="cId"
-                    label="Vote Freshy Girl"
+                    label="เลือกเฟรชชี่เกิร์ล"
                     v-model="freshygirl"
                     outlined
-                    dark
                     clearable
                     color="gold"
                   ></v-select>
@@ -142,10 +140,11 @@
                             v-bind="attrs"
                             v-on="on"
                             block
-                            color="gold"
-                            dark
+                            color="black"
+                            height="50"
+                            style="font-size: 20px; color: #c29e59"
                           >
-                            VOTE
+                            โหวต
                           </v-btn>
                         </template>
 
@@ -408,23 +407,35 @@ export default {
   padding: 0 !important;
 }
 
+.bar {
+  background-image: linear-gradient(20deg, #ffffff 40%, #c29e59 100%);
+  h2 {
+    line-height: 2;
+    color: #c29e59;
+  }
+  h3 {
+    line-height: 2;
+    color: #272727;
+  }
+}
+
 .card {
   position: relative;
   .shadow {
     background: transparent;
-    background: linear-gradient(0deg, #000000 0%, #000000ff 10%, #00000000 50%);
+    background: linear-gradient(0deg, #c29e59 0%, #c29e59ff 10%, #00000000 50%);
     width: 100%;
     height: 100%;
     p {
       padding: 10px !important;
       position: absolute;
       bottom: 0;
-      font-size: 14px;
+      font-size: 16px;
       span {
         font-size: 18px;
       }
       b {
-        font-size: 24px;
+        font-size: 36px;
         text-transform: uppercase;
       }
     }

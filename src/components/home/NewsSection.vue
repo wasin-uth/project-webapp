@@ -12,7 +12,7 @@
           >
             <v-row>
               <v-col cols="12">
-                <v-card class="text-center ma-2"  rounded="lg" dark>
+                <v-card class="text-center ma-2" rounded="lg" dark>
                   <v-carousel
                     cycle
                     height="300"
@@ -26,9 +26,13 @@
                     </v-carousel-item>
                   </v-carousel>
                 </v-card>
-                <v-card class="text-center ma-2 py-4" rounded="lg" color="black" dark style="color: #c29d59;">
+                <v-card
+                  class="descBar text-center ma-2 py-4"
+                  rounded="lg"
+                >
                   <h1>
-                    คะแนนโหวต Freshy Boy and Girl ด้วยทรูมันนี่วอลเลต จากวันที่เปิดโหวตจนถึงวันนี้
+                    คะแนนโหวต Freshy Boy and Girl ด้วยทรูมันนี่วอลเลต
+                    จากวันที่เปิดโหวตจนถึงวันนี้
                   </h1>
                 </v-card>
               </v-col>
@@ -195,7 +199,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-* {
+
+.descBar {
+  background-image: linear-gradient(20deg, #ffffff 40%, #FFE95D 100%);
 }
 
 .actions {

@@ -120,7 +120,7 @@ const routes = [
     name: "Vote by Students",
     path: "/vote/students-vote",
     component: () => import("../views/components/votes/StudentsVote.vue"),
-    meta: { requiresAuth: true },
+    // meta: { requiresAuth: true },
   },
   {
     name: "Login std",
@@ -131,7 +131,7 @@ const routes = [
     name: "Vote by Directors",
     path: "/vote/directors-vote",
     component: () => import("../views/components/votes/DirectorsVote.vue"),
-    meta: { requiresAuth: true },
+    // meta: { requiresAuth: true },
   },
   {
     name: "Login drt",

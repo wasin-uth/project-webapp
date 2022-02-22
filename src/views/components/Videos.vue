@@ -16,22 +16,20 @@
                   class="frame"
                   width="100%"
                   height="800"
-                  src="https://www.youtube-nocookie.com/embed/VTXbK71OGIo"
+                  src="https://www.youtube.com/embed/xeRuNT0IiqU"
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
                 ></iframe>
                 <template>
-                  <div class="pa-2">
-                    <v-card-title>Title Name</v-card-title>
-                    <v-card-text>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lorem ipsum dolor sit
-                      amet consectetur adipisicing elit. Harum aspernatur quae
-                      eius atque officiis alias odio iure corrupti ducimus
-                      eveniet cupiditate recusandae, aperiam voluptatem quo
-                      ullam est? Autem, architecto quo?
-                    </v-card-text>
+                  <div class="px-2 py-5">
+                    <v-card-title>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      [Live-HD] ถ่ายทอดสด RMU
+                      Freshy Day&Night ประกวด ดาว-เดือน
+                      มหาวิทยาลัยราชภัฎมหาสารคาม 21/9/58
+                    </v-card-title>
                   </div>
                 </template>
               </v-card>
@@ -57,22 +55,24 @@
             lg="4"
             md="6"
             sm="6"
-            v-for="index in 9"
-            :key="index"
+            v-for="(item, i) in videos"
+            :key="i"
           >
             <v-card class="card" dark>
-              <v-img
-                src="https://i.pinimg.com/originals/b3/2e/cc/b32eccdb1bf10c6671c5b59161684cc3.gif"
-              ></v-img>
+              <iframe
+                class="frame"
+                width="100%"
+                height="100%"
+                :src="item.src"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
               <template>
-                <div class="pa-2">
-                  <v-card-title>Title Name</v-card-title>
+                <div class="px-2 py-4">
                   <v-card-text>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lorem ipsum dolor sit
-                    amet consectetur adipisicing elit. Harum aspernatur quae
-                    eius atque officiis alias odio iure corrupti ducimus eveniet
-                    cupiditate recusandae, aperiam voluptatem quo ullam est?
-                    Autem, architecto quo?
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ item.dasc }}
                   </v-card-text>
                 </div>
               </template>
@@ -97,6 +97,32 @@ export default {
   data() {
     return {
       id: 2021,
+      videos: [
+        {
+          src: "https://www.youtube.com/embed/I68cI_-b9bg",
+          dasc: "[VTR] แนะนำผู้เข้าประกวด Freshy Boy & Girl RMU 2018",
+        },
+        {
+          src: "https://www.youtube.com/embed/56JvQLapgNI",
+          dasc: "[Teaser] Freshy Boy & Girl RMU 2018",
+        },
+        {
+          src: "https://www.youtube.com/embed/PgoODy2nHLU",
+          dasc: "[VTR] กิจกรรมการเก็บตัว Freshy Boy & Girl RMU 2017 (ดาวเดือน มหาวิทยาลัยราชภัฏมหาสารคาม 2560)",
+        },
+        {
+          src: "https://www.youtube.com/embed/CS6bO-6v0mw",
+          dasc: "[Teaser] Freshy Boy & Girl RMU 2017",
+        },
+        {
+          src: "https://www.youtube.com/embed/RiXDGSJZ110",
+          dasc: "RMU Freshy 2555 สิ้นสุดขบวนขำๆHD",
+        },
+        {
+          src: "https://www.youtube.com/embed/Ccn0u6xtP1U",
+          dasc: "RMU Freshy Night 2013 - OT band รักต้องเปิด(แน่นอก)",
+        },
+      ],
     };
   },
 };
@@ -113,11 +139,11 @@ export default {
   background: #000000bb !important;
 }
 
-section:nth-child(1) {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
+// section:nth-child(1) {
+//   display: flex;
+//   justify-content: center;
+//   align-content: center;
+// }
 
 @media only screen and(max-width: 1902px) {
   .frame {

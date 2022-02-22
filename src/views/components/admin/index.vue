@@ -1,13 +1,39 @@
 <template>
   <AdminLayouts>
     <v-container>
-      <v-data-table
-        :headers="headers"
-        :items="votes"
-        
-        :items-per-page="5"
-        class="elevation-1"
-      ></v-data-table>
+      <v-row>
+        <v-col cols="12" lg="6">
+          <v-card>
+            <v-toolbar elevation="0" color="gold">
+              <v-toolbar-title style="color: black">
+                Students Vote
+              </v-toolbar-title>
+            </v-toolbar>
+            <v-data-table
+              :headers="headers"
+              :items="std"
+              :items-per-page="5"
+              class="elevation-1"
+            ></v-data-table>
+          </v-card>
+        </v-col>
+        <v-col cols="12" lg="6">
+          <v-card>
+            <v-toolbar elevation="0" color="gold">
+              <v-toolbar-title style="color: black">
+                Directors Vote
+              </v-toolbar-title>
+              
+            </v-toolbar>
+            <v-data-table
+              :headers="headers"
+              :items="drt"
+              :items-per-page="5"
+              class="elevation-1"
+            ></v-data-table>
+          </v-card>
+        </v-col>
+      </v-row>
     </v-container>
   </AdminLayouts>
 </template>
@@ -33,10 +59,12 @@ export default {
         { text: "เฟรชชี่เกิร์ลที่เลือก", value: "voteFG" },
       ],
 
-      votes: [],
+      std: [],
+      drt: [],
     };
   },
   created() {
+    // Students
     db.collection("/stdVote")
       .get()
       .then(
@@ -55,7 +83,33 @@ export default {
               ];
             }
           });
-          this.votes = tempDataArray;
+          this.std = tempDataArray;
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+
+    // Directors
+    db.collection("/drtVote")
+      .get()
+      .then(
+        (querySnapshot) => {
+          let tempDataArray = [];
+          querySnapshot.forEach((doc) => {
+            if (doc.exists) {
+              tempDataArray = [
+                ...tempDataArray,
+                {
+                  email: doc.data().email,
+                  userId: doc.data().userId,
+                  voteFB: doc.data().voteFB,
+                  voteFG: doc.data().voteFG,
+                },
+              ];
+            }
+          });
+          this.drt = tempDataArray;
         },
         (err) => {
           console.log(err);

@@ -84,26 +84,23 @@
         </v-col>
 
         <v-col cols="12">
-          <v-sheet class="my-5 mx-2 pa-5" rounded="lg" color="black" dark>
-            <p>
-              &nbsp;&nbsp;&nbsp; Lorem ipsum, dolor sit amet consectetur
-              adipisicing elit. Exercitationem excepturi voluptate esse
-              consectetur facilis, assumenda ex minima blanditiis nulla
-              laboriosam et eveniet atque quis iste, iusto molestias quos
-              repellendus adipisci.
-            </p>
+          <v-sheet class="bar my-5 mx-2 pa-5" rounded="lg" color="black" dark>
+            <div>
+              <h2>ขั้นตอนการโหวต</h2>
+              <h3>
+                &nbsp;&nbsp;&nbsp; ให้ทำการเลือกผู้เข้าประกวดในช่องข้างล่าง
+                เลือกคนที่คุณต้องการจะเลือก
+                ถ้าไม่ประสงค์ลงคะแนนก็ไม่ต้องทำการเลือกหรือปล่อยว่างก็จะถือว่าไม่ประสงค์ลงคะแนน
+                และให้ทำการกรอกชื่อคณะกรรมการถ้าไม่กรอกจะไม่สารมารถโหวตได้
+                จากนั้นทำการกดที่ปุ่มโหวต แล้วกดยืนยันได้เลย
+              </h3>
+            </div>
           </v-sheet>
         </v-col>
 
         <!-- Vote -->
         <v-col cols="12">
-          <v-sheet
-            class="ma-2 mb-10"
-            dark
-            width="100%"
-            color="black"
-            rounded="lg"
-          >
+          <v-sheet class="bar ma-2 mb-10" rounded="lg">
             <form @submit.prevent="sendMessage">
               <v-row>
                 <v-col class="pa-5" cols="6">
@@ -113,7 +110,6 @@
                     label="Vote Freshy Boy"
                     v-model="freshyboy"
                     outlined
-                    dark
                     clearable
                     color="gold"
                   ></v-select>
@@ -125,7 +121,6 @@
                     label="Vote Freshy Girl"
                     v-model="freshygirl"
                     outlined
-                    dark
                     clearable
                     color="gold"
                   ></v-select>
@@ -153,15 +148,16 @@
                             v-bind="attrs"
                             v-on="on"
                             block
-                            color="gold"
-                            dark
                             :disabled="name == ''"
+                            color="black"
+                            height="50"
+                            style="font-size: 20px; color: #c29e59"
                           >
-                            VOTE
+                            โหวต
                           </v-btn>
                         </template>
 
-                        <v-card class="pa-3" color="light" light>
+                        <v-card class="bar pa-3" color="light" light>
                           <v-card-title class="pb-3 px-2">
                             <v-row class="text-center">
                               <v-col> ยืนยันการโหวต </v-col>
@@ -222,6 +218,55 @@
           </v-sheet>
         </v-col>
       </v-row>
+
+      <!-- Alert Dialog -->
+      <template>
+        <!-- Warning -->
+        <div class="text-center">
+          <v-dialog v-model="warning" width="500" persistent>
+            <v-card class="bar pa-5 pt-10" color="light" light>
+              <v-card-text class="text-center">
+                <h1>คุณได้โหวตไปแล้ว</h1>
+              </v-card-text>
+              <v-card-actions>
+                <v-btn
+                  @click="exit"
+                  block
+                  class="mt-10"
+                  color="red"
+                  dark
+                  style="font-size: 22px"
+                >
+                  ออก
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+        </div>
+
+        <!-- Success -->
+        <div class="text-center">
+          <v-dialog v-model="success" width="500" persistent>
+            <v-card class="bar pa-5 pt-10" color="light" light>
+              <v-card-text class="text-center">
+                <h1>โหวตสำเร็จ</h1>
+              </v-card-text>
+              <v-card-actions>
+                <v-btn
+                  @click="exit"
+                  block
+                  class="mt-10"
+                  color="red"
+                  dark
+                  style="font-size: 22px"
+                >
+                  ออก
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+        </div>
+      </template>
     </section>
   </Layouts>
 </template>
@@ -240,6 +285,8 @@ export default {
   data() {
     return {
       dialog: false,
+      warning: false,
+      success: false,
       value: "",
 
       user: auth.currentUser,
@@ -321,8 +368,7 @@ export default {
         (querySnapshot) => {
           querySnapshot.forEach((doc) => {
             if (this.user.email === doc.data().email) {
-              alert("คุณได้โหวตไปแล้ว");
-              this.$router.replace("/vote");
+              this.warning = true;
             }
           });
         },
@@ -345,8 +391,8 @@ export default {
         .add(voteInfo)
         .then(
           () => {
-            alert("โหวตสำเร็จ");
-            this.$router.replace("/vote");
+            this.dialog = false;
+            this.success = true;
           },
           (err) => {
             console.log(err);
@@ -355,6 +401,10 @@ export default {
       this.freshyboy = "";
       this.freshygirl = "";
       this.name = "";
+    },
+
+    exit() {
+      this.$router.replace("/vote");
     },
   },
 };
@@ -366,23 +416,35 @@ export default {
   padding: 0 !important;
 }
 
+.bar {
+  background-image: linear-gradient(20deg, #ffffff 40%, #c29e59 100%);
+  h2 {
+    line-height: 2;
+    color: #c29e59;
+  }
+  h3 {
+    line-height: 2;
+    color: #272727;
+  }
+}
+
 .card {
   position: relative;
   .shadow {
     background: transparent;
-    background: linear-gradient(0deg, #000000 0%, #000000ff 10%, #00000000 50%);
+    background: linear-gradient(0deg, #c29e59 0%, #c29e59ff 10%, #00000000 50%);
     width: 100%;
     height: 100%;
     p {
       padding: 10px !important;
       position: absolute;
       bottom: 0;
-      font-size: 14px;
+      font-size: 16px;
       span {
         font-size: 18px;
       }
       b {
-        font-size: 24px;
+        font-size: 36px;
         text-transform: uppercase;
       }
     }
