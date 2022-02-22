@@ -253,12 +253,12 @@
           </v-row>
         </div>
 
-        <!-- SocialAward -->
+        <!-- Top 5 -->
         <div class="favorite">
           <v-app-bar class="bar" dark rounded="lg" height="80">
             <v-row>
               <v-col class="text-center">
-                <h1>Top 5 รางวัลขวัญใจมหาชน ที่ได้หัวใจมากที่สุด</h1>
+                <h1>ผู้เข้าประกวดที่เข้ารอบ 5 คนสุดท้าย</h1>
               </v-col>
             </v-row>
           </v-app-bar>
@@ -269,7 +269,7 @@
               cols="12"
               lg="6"
               md="6"
-              v-for="(item, i) in socialAward"
+              v-for="(item, i) in topFive"
               :key="i"
             >
               <v-sheet class="sheet" color="transparent" dark>
@@ -338,7 +338,7 @@ export default {
       st: [],
       nd: [],
       popularVote: [],
-      socialAward: [],
+      topFive: [],
     };
   },
   created() {
@@ -481,7 +481,7 @@ export default {
                     ),
 
                   // Social Award
-                  socialAward: db
+                  topFive: db
                     .collection(
                       "/rmufreshyboyandgirl/2017/hall-of-fame/OCaAPC3wMthWXP75nc1s/social-award"
                     )
@@ -505,7 +505,7 @@ export default {
                             ];
                           }
                         });
-                        this.socialAward = tempDataArray;
+                        this.topFive = tempDataArray;
                       },
                       (err) => {
                         console.log(err);
@@ -646,7 +646,7 @@ export default {
                     ),
 
                   // Social Award
-                  socialAward: db
+                  topFive: db
                     .collection(
                       "/rmufreshyboyandgirl/2018/hall-of-fame/OCaAPC3wMthWXP75nc1s/social-award"
                     )
@@ -670,7 +670,7 @@ export default {
                             ];
                           }
                         });
-                        this.socialAward = tempDataArray;
+                        this.topFive = tempDataArray;
                       },
                       (err) => {
                         console.log(err);
@@ -811,7 +811,7 @@ export default {
                     ),
 
                   // Social Award
-                  socialAward: db
+                  topFive: db
                     .collection(
                       "/rmufreshyboyandgirl/2019/hall-of-fame/OCaAPC3wMthWXP75nc1s/social-award"
                     )
@@ -835,7 +835,7 @@ export default {
                             ];
                           }
                         });
-                        this.socialAward = tempDataArray;
+                        this.topFive = tempDataArray;
                       },
                       (err) => {
                         console.log(err);
@@ -976,7 +976,7 @@ export default {
                     ),
 
                   // Social Award
-                  socialAward: db
+                  topFive: db
                     .collection(
                       "/rmufreshyboyandgirl/2020/hall-of-fame/OCaAPC3wMthWXP75nc1s/social-award"
                     )
@@ -1000,7 +1000,7 @@ export default {
                             ];
                           }
                         });
-                        this.socialAward = tempDataArray;
+                        this.topFive = tempDataArray;
                       },
                       (err) => {
                         console.log(err);
@@ -1141,7 +1141,7 @@ export default {
                     ),
 
                   // Social Award
-                  socialAward: db
+                  topFive: db
                     .collection(
                       "/rmufreshyboyandgirl/2021/hall-of-fame/OCaAPC3wMthWXP75nc1s/social-award"
                     )
@@ -1165,7 +1165,7 @@ export default {
                             ];
                           }
                         });
-                        this.socialAward = tempDataArray;
+                        this.topFive = tempDataArray;
                       },
                       (err) => {
                         console.log(err);
