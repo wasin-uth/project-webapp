@@ -26,10 +26,7 @@
                     </v-carousel-item>
                   </v-carousel>
                 </v-card>
-                <v-card
-                  class="descBar text-center ma-2 py-4"
-                  rounded="lg"
-                >
+                <v-card class="descBar text-center ma-2 py-4" rounded="lg">
                   <h1>
                     คะแนนโหวต Freshy Boy and Girl ด้วยทรูมันนี่วอลเลต
                     จากวันที่เปิดโหวตจนถึงวันนี้
@@ -120,6 +117,9 @@
 
 <script>
 import { db } from "@/database/firebase.js";
+import boardlogo from "./image/boardlogo.png";
+import truemoney from "./image/truemoney.png";
+import vote from "./image/vote.png";
 
 export default {
   data() {
@@ -129,13 +129,13 @@ export default {
 
       slides: [
         {
-          path: "https://scontent.fbkk14-1.fna.fbcdn.net/v/t1.15752-9/s2048x2048/274078079_276662204600115_115538742855526597_n.png?_nc_cat=100&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeHLztpdmU8JeBnK0d6vfk-OR_wuO71KpLpH_C47vUqkuvoPA1whKhlJgYT1xCsUir4MfC12Yif4SupsXMDyvUHb&_nc_ohc=fNlZacbO0jEAX_4PkSH&_nc_ht=scontent.fbkk14-1.fna&oh=03_AVJHnugBrOI3xQK41v2J-tIz_HpnEQLEtvffnB-_frl3_Q&oe=6235F0DA",
+          path: boardlogo,
         },
         {
-          path: "https://scontent.fbkk10-1.fna.fbcdn.net/v/t1.15752-9/s2048x2048/259304025_979149053009009_1133406628604099339_n.png?_nc_cat=102&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeEDU2BEHqlORzdHa5IcZUrslbDIeffDKP6VsMh598Mo_swN3rgqsqivmVToImVG1WNypyjcjEQG5oaTOAHYXP2m&_nc_ohc=lKbwYcmcTnAAX9KtWpT&_nc_ht=scontent.fbkk10-1.fna&oh=03_AVL9Y6P2tHZbBmFJS1rS9YtU5WmCPqLOlkdej9L_Yb9vlg&oe=6237C221",
+          path: truemoney,
         },
         {
-          path: "https://scontent.fbkk14-1.fna.fbcdn.net/v/t1.15752-9/s2048x2048/273740051_977068759860153_47833332886977688_n.png?_nc_cat=100&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeG_kEuPICLYsIIOxOFVkUcIDfIDVxv0Eg4N8gNXG_QSDuwDQY2JXmRqSJ_wvOQL-ami-Yy22vRispKImIqyLbFz&_nc_ohc=DyzxMPZTpc0AX-Sa6uG&_nc_ht=scontent.fbkk14-1.fna&oh=03_AVKfCmx7tFuBBoOKiohS7m18A_x6q0hZhe34-9vjqqRExA&oe=623711AB",
+          path: vote,
         },
       ],
     };
@@ -199,9 +199,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .descBar {
-  background-image: linear-gradient(20deg, #ffffff 40%, #FFE95D 100%);
+  background-image: linear-gradient(20deg, #ffffff 40%, #ffe95d 100%);
 }
 
 .actions {

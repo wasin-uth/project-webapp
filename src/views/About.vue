@@ -28,7 +28,7 @@
         <!-- Photo -->
         <v-card class="photo ma-2 mt-10" hover dark>
           <v-img
-            src="https://scontent.fnak1-1.fna.fbcdn.net/v/t1.15752-9/273894342_1435401340250314_1572440840576965037_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeFTLZUXmaioed7eB2G63McqONz0jRZULL843PSNFlQsv4HwEEQLj2ta2gessacVneNIeko6JzKqtDqJBPnAp33c&_nc_ohc=bizD4qVKhZsAX8l8c90&_nc_ht=scontent.fnak1-1.fna&oh=03_AVLReH41Mdb1A_nwlpWKCrKl3HjedZQg3Jo6FLkYiebzgA&oe=623C8E47"
+            src="@/assets/image/lazy_srcvideos.png"
           ></v-img>
         </v-card>
         <!-- Description under the picture -->

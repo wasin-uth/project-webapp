@@ -200,6 +200,7 @@
 import Layouts from "@/layouts/MainLayouts.vue";
 import Bar from "@/components/navigation/BarContents.vue";
 import { db } from "@/database/firebase.js";
+import QRCode from "@/assets/image/qrcode.jpg"
 
 export default {
   name: "Home",
@@ -238,7 +239,7 @@ export default {
                   name: doc.data().name,
                   lastName: doc.data().lastName,
                   nickName: doc.data().nickName,
-                  qrcode: doc.data().qrcode,
+                  qrcode: QRCode,
                   fb: db
                     .collection("/rmufreshyboyandgirl/2019/image-vote-fb")
                     .get()
@@ -292,7 +293,7 @@ export default {
                   name: doc.data().name,
                   lastName: doc.data().lastName,
                   nickName: doc.data().nickName,
-                  qrcode: doc.data().qrcode,
+                  qrcode: QRCode,
                   fb: db
                     .collection("/rmufreshyboyandgirl/2019/image-vote-fg")
                     .get()

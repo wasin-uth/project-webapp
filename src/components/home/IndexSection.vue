@@ -99,14 +99,14 @@ export default {
     if (this.auto_animate) {
       this.interval = setInterval(() => {
         this.active_slide =
-          this.active_slide == this.freshyBoy.length
+          this.active_slide === this.freshyBoy.length
             ? 1
             : (this.active_slide + 1) % (this.freshyBoy.length + 1);
       }, 4000);
     } else if (this.auto_animate) {
       this.interval = setInterval(() => {
         this.active_slide =
-          this.active_slide == this.freshyGirl.length
+          this.active_slide === this.freshyGirl.length
             ? 1
             : (this.active_slide + 1) % (this.freshyGirl.length + 1);
       }, 4000);
