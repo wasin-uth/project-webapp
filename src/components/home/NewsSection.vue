@@ -15,14 +15,12 @@
                 <v-card class="text-center ma-2" rounded="lg" dark>
                   <v-carousel
                     cycle
-                    height="300"
+                    height="100%"
                     hide-delimiter-background
                     show-arrows-on-hover
                   >
                     <v-carousel-item v-for="(slide, i) in slides" :key="i">
-                      <v-sheet height="100%">
-                        <v-img :src="slide.path"></v-img>
-                      </v-sheet>
+                      <v-img :src="slide.path"></v-img>
                     </v-carousel-item>
                   </v-carousel>
                 </v-card>
